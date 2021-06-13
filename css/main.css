@@ -228,7 +228,7 @@ footer img:hover {
     float: right;
 }
 
-@media (max-width: 720px) {
+/* @media (max-width: 720px) {
     .footer-list {
         float: right;
         text-align: right;
@@ -242,6 +242,27 @@ footer img:hover {
 }
 
 @media (max-width: 640px) {
+    .image-mobile {
+        display: inline;
+    }
+
+    .image-desktop {
+        display: none;
+    }
+} */
+
+@media (max-aspect-ratio: 9/16) {
+    .footer-list {
+        float: right;
+        text-align: right;
+        width: 100%;
+        margin-top: -54px;
+    }
+
+    .footer-links {
+        padding-top: 25px;
+    }
+
     .image-mobile {
         display: inline;
     }
