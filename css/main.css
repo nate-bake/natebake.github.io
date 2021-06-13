@@ -120,12 +120,13 @@ p {
     font-size: 1.2rem;
     line-height: 1.1em;
 }
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: 0.9rem;
 }
 
-.blurb img {
+img {
     max-width: 100%;
 }
 
@@ -136,7 +137,7 @@ footer {
     max-width: 100%;
 }
 
-.about-blurb p {
+p {
     text-align: justify;
 }
 
@@ -171,6 +172,7 @@ body {
     background-color: rgb(13, 17, 23); /* ayu dark */
     background-color: rgb(26, 26, 26); /* atom */
     background-color: white; /* github light */
+    /* margin-bottom: 120px; */
 }
 
 .mono {
@@ -183,8 +185,68 @@ body {
 
 .closing-brace {
     margin-top: 15px;
+    margin-bottom: 0px;
+    margin-right: -10px;
 }
 
 .footer-list {
-    margin-top: 29px;
+    margin-top: 35px;
+}
+
+footer {
+    margin-top: 50px;
+    /* position: fixed;
+    width: 80%;
+    height: 100px;
+    bottom: 0px;
+    margin-bottom: 0px;
+    background-color: white; */
+}
+
+.image-mobile {
+    display: none;
+}
+
+.image-desktop {
+    display: inline;
+}
+
+footer img {
+    height: 20px;
+    opacity: 0.5;
+}
+
+footer img:hover {
+    opacity: 1;
+}
+
+.footer-copyright {
+    float: left;
+}
+
+.footer-links {
+    float: right;
+}
+
+@media (max-width: 720px) {
+    .footer-list {
+        float: right;
+        text-align: right;
+        width: 100%;
+        margin-top: -54px;
+    }
+
+    .footer-links {
+        padding-top: 25px;
+    }
+}
+
+@media (max-width: 640px) {
+    .image-mobile {
+        display: inline;
+    }
+
+    .image-desktop {
+        display: none;
+    }
 }
