@@ -87,8 +87,14 @@
 }
 
 body {
-    margin: 30px auto;
+    margin: 35px auto;
     width: 80%;
+}
+
+nav {
+    padding-bottom: 15px;
+    margin-bottom: -20px;
+    /* border-bottom: 1px solid #d5d5d5; */
 }
 
 nav ul,
@@ -102,6 +108,11 @@ nav ul li,
 footer ul li {
     display: inline;
     margin-right: 20px;
+}
+
+nav ul li {
+    font-size: 3vw;
+    font-size: min(3.5vw, 1.5rem);
 }
 
 a {
@@ -163,6 +174,10 @@ p {
     color: rgb(106, 115, 125);
 }
 
+.bold {
+    font-weight: bold;
+}
+
 body {
     background-color: rgb(13, 17, 23); /* ayu dark */
     background-color: rgb(26, 26, 26); /* atom */
@@ -182,12 +197,11 @@ body {
     font-size: 40px;
     margin-top: 10px;
     margin-bottom: 0px;
-    margin-right: -5px;
+    margin-right: -4vw;
 }
 
 .footer-list {
     margin-top: 25px;
-    margin-right: -20px;
 }
 
 footer {
@@ -211,9 +225,31 @@ footer {
     display: inline;
 }
 
+.footer-links {
+    float: right;
+    text-align: right;
+    width: 90%;
+    max-width: min(35vw, 500px);
+    height: 50px;
+    margin-left: -2px;
+    margin-top: 10px;
+    padding-left: 0px;
+    display: table;
+}
+
+.link-item {
+    margin-right: 3vw;
+    display: table-cell;
+    vertical-align: middle;
+}
+
 footer img {
-    height: 20px;
+    height: 7vw;
+    min-height: 24px;
+    max-height: 40px;
     opacity: 0.5;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 footer img:hover {
@@ -222,38 +258,17 @@ footer img:hover {
 
 .footer-copyright {
     float: left;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 10px;
+    margin-left: max(40px, 3vw);
+    font-size: 1.25rem;
 }
-
-.footer-links {
-    float: right;
-}
-
-/* @media (max-width: 720px) {
-    .footer-list {
-        float: right;
-        text-align: right;
-        width: 100%;
-        margin-top: -54px;
-    }
-
-    .footer-links {
-        padding-top: 25px;
-    }
-}
-
-@media (max-width: 640px) {
-    .image-mobile {
-        display: inline;
-    }
-
-    .image-desktop {
-        display: none;
-    }
-} */
 
 @media (max-aspect-ratio: 5/7) {
     h1 {
         font-size: 1.9rem;
+        font-size: 8.1vw;
     }
 
     nav {
@@ -261,15 +276,24 @@ footer img:hover {
         margin-right: -20px;
     }
 
-    .footer-list {
-        float: right;
-        text-align: right;
-        width: 100%;
-        margin-top: -48px;
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
     }
 
     .footer-links {
-        padding-top: 25px;
+        max-width: 80vw;
+    }
+
+    .footer-copyright {
+        margin-top: 50px;
+        line-height: 25px;
+        width: 100%;
+        text-align: center;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .image-mobile {
