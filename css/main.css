@@ -229,7 +229,7 @@ footer {
     float: right;
     text-align: right;
     width: 90%;
-    max-width: min(35vw, 500px);
+    max-width: min(60vw, 600px);
     height: 50px;
     margin-left: -2px;
     margin-top: 10px;
