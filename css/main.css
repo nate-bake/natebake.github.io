@@ -87,7 +87,7 @@
 }
 
 body {
-    margin: 50px auto;
+    margin: 30px auto;
     width: 80%;
 }
 
@@ -179,19 +179,22 @@ body {
 }
 
 .closing-brace {
-    margin-top: 15px;
+    font-size: 40px;
+    margin-top: 10px;
     margin-bottom: 0px;
-    margin-right: -10px;
+    margin-right: -5px;
 }
 
 .footer-list {
-    margin-top: 35px;
+    margin-top: 25px;
+    margin-right: -20px;
 }
 
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: 0.9rem;
     margin-top: 30px;
+    padding-bottom: 50px;
     /* position: fixed;
     width: 80%;
     height: 100px;
@@ -249,11 +252,20 @@ footer img:hover {
 } */
 
 @media (max-aspect-ratio: 5/7) {
+    h1 {
+        font-size: 1.9rem;
+    }
+
+    nav {
+        font-size: 0.95rem;
+        margin-right: -20px;
+    }
+
     .footer-list {
         float: right;
         text-align: right;
         width: 100%;
-        margin-top: -54px;
+        margin-top: -48px;
     }
 
     .footer-links {
