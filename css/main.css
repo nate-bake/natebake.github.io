@@ -121,11 +121,6 @@ p {
     line-height: 1.1em;
 }
 
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: 0.9rem;
-}
-
 img {
     max-width: 100%;
 }
@@ -194,7 +189,9 @@ body {
 }
 
 footer {
-    margin-top: 50px;
+    border-top: 1px solid #d5d5d5;
+    font-size: 0.9rem;
+    margin-top: 30px;
     /* position: fixed;
     width: 80%;
     height: 100px;
@@ -251,7 +248,7 @@ footer img:hover {
     }
 } */
 
-@media (max-aspect-ratio: 9/16) {
+@media (max-aspect-ratio: 5/7) {
     .footer-list {
         float: right;
         text-align: right;
