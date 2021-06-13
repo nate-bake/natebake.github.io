@@ -88,47 +88,103 @@
 
 body {
     margin: 50px auto;
-    width: 75%;
+    width: 80%;
 }
+
 nav ul,
 footer ul {
-    font-family: "JetBrains Mono";
     padding: 0px;
     list-style: none;
     font-weight: bold;
 }
+
 nav ul li,
 footer ul li {
     display: inline;
     margin-right: 20px;
 }
+
 a {
     text-decoration: none;
-    color: #999;
 }
+
 a:hover {
     text-decoration: underline;
 }
+
 h1 {
     font-size: 3em;
-    font-family: "JetBrains Mono";
 }
+
 p {
-    font-family: "JetBrains Mono";
-    font-size: 1.3em;
+    font-size: 1.2em;
     line-height: 1.1em;
-    color: #333;
 }
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
-ul.posts {
-    margin: 20px auto 40px;
-    font-size: 1.5em;
+.blurb img {
+    max-width: 100%;
 }
 
-ul.posts li {
-    list-style: none;
+.about-blurb img {
+    /* float: left;
+    max-width: 33.5%;
+    margin-right: 25px; */
+    max-width: 100%;
+}
+
+.about-blurb p {
+    text-align: justify;
+}
+
+.red {
+    color: rgb(255, 107, 67); /* ayu dark */
+    color: rgb(234, 202, 139); /* atom */
+    color: rgb(215, 58, 73); /* github light */
+}
+
+.green {
+    color: rgb(126, 231, 120); /* ayu dark */
+    color: rgb(150, 150, 150); /* atom */
+    color: rgb(34, 134, 58); /* github light */
+}
+
+.blue {
+    color: rgb(121, 192, 255); /* ayu dark */
+    color: rgb(150, 150, 150); /* atom */
+    color: rgb(0, 92, 197); /* github light */
+}
+
+.white {
+    color: white; /* ayu dark, atom */
+    color: rgb(36, 41, 46); /* github light */
+}
+
+.gray {
+    color: rgb(106, 115, 125);
+}
+
+body {
+    background-color: rgb(13, 17, 23); /* ayu dark */
+    background-color: rgb(26, 26, 26); /* atom */
+    background-color: white; /* github light */
+}
+
+.mono {
+    font-family: "JetBrains Mono";
+}
+
+.cairo {
+    font-family: cairo;
+}
+
+.closing-brace {
+    margin-top: 15px;
+}
+
+.footer-list {
+    margin-top: 29px;
 }
