@@ -172,8 +172,20 @@ footer img:hover {
 }
 
 @media (max-width: 750px) {
+    .footer-copyright {
+        margin-top: 50px;
+        line-height: 25px;
+        width: 100%;
+        text-align: center;
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 700px) {
     h1 {
-        font-size: 8.2vw;
+        font-size: 7.9vw;
         margin-bottom: -15px;
     }
 
@@ -190,22 +202,12 @@ footer img:hover {
         margin-right: 0;
         padding: 0;
     }
-
-    .footer-copyright {
-        margin-top: 50px;
-        line-height: 25px;
-        width: 100%;
-        text-align: center;
-        margin-left: 0px;
-        margin-right: 0px;
-        font-size: 1.25rem;
-    }
 }
 
 @media (max-aspect-ratio: 5/7) {
     h1 {
-        font-size: 8.2vw;
-        margin-bottom: -5px;
+        font-size: 7.9vw;
+        margin-bottom: max(-1vw, -10px);
     }
 
     nav ul li,
