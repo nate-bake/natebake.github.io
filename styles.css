@@ -83,6 +83,10 @@
     color: rgb(36, 41, 46); /* github light */
 }
 
+.actual-white {
+    color: white;
+}
+
 .gray {
     color: rgb(106, 115, 125);
 }
@@ -222,6 +226,7 @@ footer img:hover {
     width: 100%;
     height: 45vw;
     display: table;
+    margin-bottom: 5vw;
 }
 
 .image-description {
@@ -231,18 +236,24 @@ footer img:hover {
     display: table-cell;
     vertical-align: middle;
     margin-top: 0px;
-    background: rgba(0, 0, 0, 0.67);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
+}
 
-    transition: opacity 0.2s, visibility 0.2s;
+.portfolio-card:hover .image-description {
+    color: rgb(215, 58, 73);
+    visibility: visible;
+    opacity: 1;
 }
 
 @media (hover: hover) and (pointer: fine) {
     .portfolio-card:hover .image-description {
         visibility: visible;
         opacity: 1;
+        color: white;
     }
     .image-description {
+        background: rgba(0, 0, 0, 0.67);
         visibility: hidden;
         opacity: 0;
     }
