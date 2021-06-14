@@ -152,7 +152,7 @@ a:hover {
 }
 
 p {
-    font-size: max(14pt, 2.6vw);
+    font-size: max(13pt, 2.4vw);
     line-height: 1.2;
     text-align: justify;
 }
@@ -297,6 +297,10 @@ iframe {
         margin-right: 0;
         padding: 0;
     }
+
+    .footer-copyright {
+        font-size: min(3vw, 1.1rem);
+    }
 }
 
 @media (max-aspect-ratio: 5/7) {
@@ -349,6 +353,8 @@ iframe {
         text-align: center;
         margin-left: 0px;
         margin-right: 0px;
+        font-size: min(3vw, 1.2rem);
+        line-height: 1.25;
     }
 
     .image-mobile {
