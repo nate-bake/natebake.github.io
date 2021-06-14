@@ -157,6 +157,16 @@ p {
     text-align: justify;
 }
 
+.center {
+    text-align: center;
+}
+
+.label {
+    font-size: max(12pt, 1.6vw);
+    text-align: center;
+    margin-top: 0.5vw;
+}
+
 img {
     max-width: 100%;
 }
