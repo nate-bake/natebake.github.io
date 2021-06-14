@@ -233,16 +233,19 @@ footer img:hover {
     margin-top: 0px;
     background: rgba(0, 0, 0, 0.67);
     color: white;
-    visibility: hidden;
-    opacity: 0;
 
-    /* transition effect. not necessary */
     transition: opacity 0.2s, visibility 0.2s;
 }
 
-.portfolio-card:hover .image-description {
-    visibility: visible;
-    opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+    .portfolio-card:hover .image-description {
+        visibility: visible;
+        opacity: 1;
+    }
+    .image-description {
+        visibility: hidden;
+        opacity: 0;
+    }
 }
 
 @media (max-width: 750px) {
