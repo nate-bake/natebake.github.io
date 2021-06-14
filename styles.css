@@ -151,6 +151,11 @@ a:hover {
     text-decoration: underline;
 }
 
+a:visited,
+a:active {
+    color: initial;
+}
+
 p {
     font-size: max(13.25pt, 2.4vw);
     line-height: 1.2;
