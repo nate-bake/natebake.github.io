@@ -86,15 +86,48 @@
     font-display: swap;
 }
 
+.red {
+    color: rgb(255, 107, 67); /* ayu dark */
+    color: rgb(234, 202, 139); /* atom */
+    color: rgb(215, 58, 73); /* github light */
+}
+
+.green {
+    color: rgb(126, 231, 120); /* ayu dark */
+    color: rgb(150, 150, 150); /* atom */
+    color: rgb(34, 134, 58); /* github light */
+}
+
+.blue {
+    color: rgb(121, 192, 255); /* ayu dark */
+    color: rgb(150, 150, 150); /* atom */
+    color: rgb(0, 92, 197); /* github light */
+}
+
+.white {
+    color: white; /* ayu dark, atom */
+    color: rgb(36, 41, 46); /* github light */
+}
+
+.gray {
+    color: rgb(106, 115, 125);
+}
+
+.bold {
+    font-weight: bold;
+}
+
 body {
     margin: 35px auto;
     width: 80%;
+    background-color: rgb(13, 17, 23); /* ayu dark */
+    background-color: rgb(26, 26, 26); /* atom */
+    background-color: white; /* github light */
 }
 
 nav {
-    padding-bottom: 15px;
-    margin-bottom: -20px;
-    /* border-bottom: 1px solid #d5d5d5; */
+    margin-top: -35px;
+    margin-bottom: 35px;
 }
 
 nav ul,
@@ -128,8 +161,9 @@ h1 {
 }
 
 p {
-    font-size: 1.2rem;
-    line-height: 1.1em;
+    font-size: max(14pt, 2.6vw);
+    line-height: 1.2;
+    text-align: justify;
 }
 
 img {
@@ -137,52 +171,7 @@ img {
 }
 
 .about-blurb img {
-    /* float: left;
-    max-width: 33.5%;
-    margin-right: 25px; */
     max-width: 100%;
-}
-
-p {
-    text-align: justify;
-}
-
-.red {
-    color: rgb(255, 107, 67); /* ayu dark */
-    color: rgb(234, 202, 139); /* atom */
-    color: rgb(215, 58, 73); /* github light */
-}
-
-.green {
-    color: rgb(126, 231, 120); /* ayu dark */
-    color: rgb(150, 150, 150); /* atom */
-    color: rgb(34, 134, 58); /* github light */
-}
-
-.blue {
-    color: rgb(121, 192, 255); /* ayu dark */
-    color: rgb(150, 150, 150); /* atom */
-    color: rgb(0, 92, 197); /* github light */
-}
-
-.white {
-    color: white; /* ayu dark, atom */
-    color: rgb(36, 41, 46); /* github light */
-}
-
-.gray {
-    color: rgb(106, 115, 125);
-}
-
-.bold {
-    font-weight: bold;
-}
-
-body {
-    background-color: rgb(13, 17, 23); /* ayu dark */
-    background-color: rgb(26, 26, 26); /* atom */
-    background-color: white; /* github light */
-    /* margin-bottom: 120px; */
 }
 
 .mono {
@@ -229,13 +218,13 @@ footer {
     float: right;
     text-align: right;
     width: 90%;
-    max-width: min(60vw, 600px);
+    max-width: min(40vw, 500px);
     height: 50px;
     margin-left: -2px;
     margin-top: 10px;
     padding-left: 0px;
     display: table;
-    margin-right: -3vw;
+    /* margin-right: -3vw; */
 }
 
 .link-item {
@@ -245,7 +234,7 @@ footer {
 }
 
 footer img {
-    height: 7vw;
+    height: 3vw;
     min-height: 24px;
     max-height: 40px;
     opacity: 0.5;
@@ -286,6 +275,10 @@ footer img:hover {
 
     .footer-links {
         max-width: 80vw;
+    }
+
+    footer img {
+        height: 6vw;
     }
 
     .footer-copyright {
