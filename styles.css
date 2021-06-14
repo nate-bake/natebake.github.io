@@ -78,12 +78,12 @@
     color: rgb(236, 108, 185);
 }
 
-.white {
+.black {
     color: white; /* ayu dark, atom */
     color: rgb(36, 41, 46); /* github light */
 }
 
-.actual-white {
+.white {
     color: white;
 }
 
@@ -224,9 +224,9 @@ footer img:hover {
 
 .portfolio-card {
     width: 100%;
-    height: 45vw;
+    height: 25vw;
     display: table;
-    margin-bottom: 5vw;
+    margin-bottom: 1vw;
 }
 
 .image-description {
@@ -238,24 +238,23 @@ footer img:hover {
     margin-top: 0px;
     background: rgba(0, 0, 0, 0.5);
     color: white;
+    font-size: 6vw;
 }
 
 .portfolio-card:hover .image-description {
-    color: rgb(215, 58, 73);
     visibility: visible;
     opacity: 1;
+    color: inherit;
+    background: rgba(0, 0, 0, 0.75);
 }
 
 @media (hover: hover) and (pointer: fine) {
     .portfolio-card:hover .image-description {
-        visibility: visible;
-        opacity: 1;
-        color: white;
+        background: rgba(0, 0, 0, 0.75);
     }
     .image-description {
-        background: rgba(0, 0, 0, 0.67);
-        visibility: hidden;
-        opacity: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0.5;
     }
 }
 
@@ -293,6 +292,15 @@ footer img:hover {
 }
 
 @media (max-aspect-ratio: 5/7) {
+    .image-description {
+        font-size: 7vw;
+    }
+
+    .portfolio-card {
+        height: 45vw;
+        margin-bottom: 1.5vw;
+    }
+
     h1 {
         font-size: 8.15vw;
         margin-bottom: max(-1vw, -10px);
