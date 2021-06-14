@@ -103,6 +103,14 @@
     font-family: cairo;
 }
 
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
 body {
     margin: 35px auto;
     width: 80%;
@@ -112,23 +120,22 @@ body {
 }
 
 h1 {
-    font-size: min(7vw, 3.5rem);
-    margin-bottom: max(-2vw, -20px);
-    text-align: center;
+    font-size: max(3.5rem, 3.5vw);
+    margin-bottom: max(-2.5vw, -25px);
 }
 
 nav {
     margin-top: -5px;
-    margin-bottom: min(5vw, 40px);
+    margin-bottom: min(3.5vw, 5rem);
 }
 
 nav ul {
-    margin-right: -20px;
+    margin-right: -1.5vw;
     text-align: center;
 }
 
 nav ul li {
-    font-size: 2rem;
+    font-size: max(2rem, 2vw);
 }
 
 nav ul,
@@ -140,7 +147,7 @@ footer ul {
 nav ul li,
 footer ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 1.5vw;
 }
 
 a {
@@ -151,18 +158,14 @@ a:hover {
     text-decoration: underline;
 }
 
+.no-underline:hover {
+    text-decoration: none;
+}
+
 p {
     font-size: max(13.25pt, 2.4vw);
     line-height: 1.2;
     text-align: justify;
-}
-
-.left {
-    text-align: left;
-}
-
-.center {
-    text-align: center;
 }
 
 .label {
@@ -176,16 +179,15 @@ img {
 }
 
 .closing-brace {
-    font-size: 40px;
-    margin-top: 10px;
+    font-size: max(40px, 2.5vw);
+    margin-top: 1rem;
     margin-bottom: 0px;
     margin-right: -4vw;
 }
 
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: 0.9rem;
-    margin-top: 30px;
+    margin-top: 3rem;
     padding-bottom: 100px;
 }
 
@@ -201,10 +203,10 @@ footer {
     float: right;
     text-align: right;
     width: 90%;
-    max-width: min(32vw, 500px);
+    max-width: 32vw;
     height: 50px;
     margin-left: -2px;
-    margin-top: 10px;
+    margin-top: 1rem;
     padding-left: 0px;
     display: table;
     border-collapse: collapse;
@@ -216,9 +218,9 @@ footer {
 }
 
 footer img {
-    height: 3vw;
+    height: min(3.5vw, 5vh);
     min-height: 24px;
-    max-height: 40px;
+    /* max-height: min(3.5vw, 5vh); */
     opacity: 0.5;
     vertical-align: middle;
 }
@@ -229,21 +231,24 @@ footer img:hover {
 
 .footer-copyright {
     float: left;
-    height: 50px;
-    line-height: 50px;
-    margin-top: 10px;
+    height: max(40px, 2.5vw);
+    line-height: max(3.5rem, 3vw);
+    margin-top: 1rem;
     margin-left: max(45px, 3vw);
-    font-size: min(2.1vw, 1.85rem);
+    font-size: min(2.1vw, 2.5rem);
 }
 
 .portfolio-card {
     width: 100%;
     height: 25vw;
+    max-height: 30vh;
     display: table;
+    background-size: cover;
+    background-position: center;
     margin-bottom: 1.5vw;
 }
 
-.image-description {
+.card-title {
     height: 100%;
     width: 100%;
     text-align: center;
@@ -252,10 +257,10 @@ footer img:hover {
     margin-top: 0px;
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    font-size: 6vw;
+    font-size: min(6vw, 7rem);
 }
 
-.portfolio-card:hover .image-description {
+.portfolio-card:hover .card-title {
     visibility: visible;
     opacity: 1;
     color: inherit;
@@ -268,18 +273,35 @@ iframe {
     color: white;
 }
 
-.no-underline:hover {
-    text-decoration: none;
-}
-
 @media (hover: hover) and (pointer: fine) {
-    .portfolio-card:hover .image-description {
+    .portfolio-card:hover .card-title {
         background: rgba(0, 0, 0, 0.75);
     }
-    .image-description {
+    .card-title {
         background: rgba(0, 0, 0, 0.5);
         opacity: 0.5;
         transition: opacity 0.3s, color 0.3s;
+    }
+}
+
+@media (min-aspect-ratio: 3/2) {
+    body {
+        width: 85%;
+    }
+
+    .portfolio-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .portfolio-card {
+        min-height: 75vh;
+        min-width: 27vw;
+        margin-bottom: 0vw;
+    }
+
+    .card-title {
+        font-size: min(4vw, 7rem);
     }
 }
 
@@ -292,6 +314,10 @@ iframe {
         margin-left: 0px;
         margin-right: 0px;
         font-size: 1.25rem;
+    }
+
+    .footer-links {
+        max-width: 50vw;
     }
 }
 
@@ -321,12 +347,12 @@ iframe {
 }
 
 @media (max-aspect-ratio: 5/7) {
-    .image-description {
+    .card-title {
         font-size: 7vw;
     }
 
     .portfolio-card {
-        height: 45vw;
+        height: 35vw;
         margin-bottom: 1.5vw;
     }
 
@@ -340,10 +366,6 @@ iframe {
         margin-right: 0px;
     }
 
-    nav {
-        font-size: 0.95rem;
-    }
-
     nav ul {
         display: flex;
         justify-content: space-between;
@@ -352,11 +374,11 @@ iframe {
     }
 
     nav ul li {
-        font-size: min(4.25vw, 2rem);
+        font-size: 4.25vw;
     }
 
     .footer-links {
-        max-width: min(80vw, 500px);
+        max-width: min(80vw, 40rem);
     }
 
     footer img {
@@ -370,7 +392,7 @@ iframe {
         text-align: center;
         margin-left: 0px;
         margin-right: 0px;
-        font-size: min(3vw, 1.2rem);
+        font-size: max(1rem, 2.25vw);
         line-height: 1.25;
     }
 
