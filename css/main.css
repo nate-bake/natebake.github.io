@@ -1,82 +1,5 @@
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold-Italic.woff")
-            format("woff");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold.woff")
-            format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-ExtraBold-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-ExtraBold-Italic.woff")
-            format("woff");
-    font-weight: 800;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-ExtraBold.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-ExtraBold.woff")
-            format("woff");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Italic.woff")
-            format("woff");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Medium-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Medium-Italic.woff")
-            format("woff");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Medium.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Medium.woff")
-            format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
     src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2")
             format("woff2"),
         url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff")
@@ -117,6 +40,14 @@
     font-weight: bold;
 }
 
+.mono {
+    font-family: "JetBrains Mono";
+}
+
+.cairo {
+    font-family: cairo;
+}
+
 body {
     margin: 35px auto;
     width: 80%;
@@ -125,16 +56,30 @@ body {
     background-color: white; /* github light */
 }
 
+h1 {
+    font-size: min(7vw, 3.5rem);
+    margin-bottom: max(-2vw, -20px);
+    text-align: center;
+}
+
 nav {
-    margin-top: 0px;
-    margin-bottom: min(5vw, 35px);
+    margin-top: -5px;
+    margin-bottom: min(5vw, 40px);
+}
+
+nav ul {
+    margin-right: -20px;
+    text-align: center;
+}
+
+nav ul li {
+    font-size: 2rem;
 }
 
 nav ul,
 footer ul {
     padding: 0px;
     list-style: none;
-    font-weight: bold;
 }
 
 nav ul li,
@@ -143,21 +88,12 @@ footer ul li {
     margin-right: 20px;
 }
 
-nav ul li {
-    font-size: min(3.5vw, 2rem);
-}
-
 a {
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-}
-
-h1 {
-    font-size: 3.5rem;
-    margin-bottom: max(-0.5vw, -5px);
 }
 
 p {
@@ -174,14 +110,6 @@ img {
     max-width: 100%;
 }
 
-.mono {
-    font-family: "JetBrains Mono";
-}
-
-.cairo {
-    font-family: cairo;
-}
-
 .closing-brace {
     font-size: 40px;
     margin-top: 10px;
@@ -189,21 +117,11 @@ img {
     margin-right: -4vw;
 }
 
-.footer-list {
-    margin-top: 25px;
-}
-
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: 0.9rem;
     margin-top: 30px;
     padding-bottom: 50px;
-    /* position: fixed;
-    width: 80%;
-    height: 100px;
-    bottom: 0px;
-    margin-bottom: 0px;
-    background-color: white; */
 }
 
 .image-mobile {
@@ -218,7 +136,7 @@ footer {
     float: right;
     text-align: right;
     width: 90%;
-    max-width: min(40vw, 500px);
+    max-width: min(32vw, 500px);
     height: 50px;
     margin-left: -2px;
     margin-top: 10px;
@@ -249,14 +167,45 @@ footer img:hover {
     height: 50px;
     line-height: 50px;
     margin-top: 10px;
-    margin-left: max(40px, 3vw);
-    font-size: 1.25rem;
+    margin-left: max(45px, 3vw);
+    font-size: min(2.1vw, 1.85rem);
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 8.2vw;
+        margin-bottom: -15px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    .footer-copyright {
+        margin-top: 50px;
+        line-height: 25px;
+        width: 100%;
+        text-align: center;
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 1.25rem;
+    }
 }
 
 @media (max-aspect-ratio: 5/7) {
     h1 {
-        font-size: 1.9rem;
-        font-size: 8.1vw;
+        font-size: 8.2vw;
+        margin-bottom: -5px;
     }
 
     nav ul li,
@@ -275,8 +224,12 @@ footer img:hover {
         padding: 0;
     }
 
+    nav ul li {
+        font-size: min(4.25vw, 2rem);
+    }
+
     .footer-links {
-        max-width: 80vw;
+        max-width: min(80vw, 500px);
     }
 
     footer img {
