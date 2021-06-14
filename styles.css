@@ -157,6 +157,10 @@ p {
     text-align: justify;
 }
 
+.left {
+    text-align: left;
+}
+
 .center {
     text-align: center;
 }
@@ -271,12 +275,11 @@ iframe {
 @media (hover: hover) and (pointer: fine) {
     .portfolio-card:hover .image-description {
         background: rgba(0, 0, 0, 0.75);
-        transition: opacity 0.3s, color 0.5s;
     }
     .image-description {
         background: rgba(0, 0, 0, 0.5);
         opacity: 0.5;
-        transition: opacity 0.3s, color 0.5s;
+        transition: opacity 0.3s, color 0.3s;
     }
 }
 
