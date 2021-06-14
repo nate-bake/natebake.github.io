@@ -264,6 +264,10 @@ iframe {
     color: white;
 }
 
+.no-underline:hover {
+    text-decoration: none;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .portfolio-card:hover .image-description {
         background: rgba(0, 0, 0, 0.75);
