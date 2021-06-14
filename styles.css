@@ -1,33 +1,11 @@
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold-Italic.woff")
-            format("woff");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
     src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2")
             format("woff2"),
         url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold.woff")
             format("woff");
     font-weight: 700;
     font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-ExtraBold-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-ExtraBold-Italic.woff")
-            format("woff");
-    font-weight: 800;
-    font-style: italic;
     font-display: swap;
 }
 
@@ -50,28 +28,6 @@
             format("woff");
     font-weight: 400;
     font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Medium-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Medium-Italic.woff")
-            format("woff");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Medium.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Medium.woff")
-            format("woff");
-    font-weight: 500;
-    font-style: normal;
     font-display: swap;
 }
 
@@ -102,6 +58,24 @@
     color: rgb(121, 192, 255); /* ayu dark */
     color: rgb(150, 150, 150); /* atom */
     color: rgb(0, 92, 197); /* github light */
+}
+
+.purple {
+    color: rgb(111, 66, 193); /* github light */
+}
+
+.orange {
+    color: rgb(247, 108, 46); /* ayu dark */
+    color: rgb(227, 98, 9); /* github light */
+}
+
+.yellow {
+    color: rgb(255, 238, 153); /* ayu dark */
+    color: rgb(255, 223, 93);
+}
+
+.pink {
+    color: rgb(236, 108, 185);
 }
 
 .white {
@@ -183,10 +157,6 @@ img {
     max-width: 100%;
 }
 
-.about-blurb img {
-    max-width: 100%;
-}
-
 .closing-brace {
     font-size: 40px;
     margin-top: 10px;
@@ -246,6 +216,33 @@ footer img:hover {
     margin-top: 10px;
     margin-left: max(45px, 3vw);
     font-size: min(2.1vw, 1.85rem);
+}
+
+.portfolio-card {
+    width: 100%;
+    height: 45vw;
+    display: table;
+}
+
+.image-description {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    margin-top: 0px;
+    background: rgba(0, 0, 0, 0.67);
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+
+    /* transition effect. not necessary */
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+.portfolio-card:hover .image-description {
+    visibility: visible;
+    opacity: 1;
 }
 
 @media (max-width: 750px) {
