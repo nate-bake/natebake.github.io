@@ -390,8 +390,9 @@ iframe {
     }
 
     .footer-copyright {
-        margin-top: 50px;
+        margin-top: 1rem;
         line-height: 25px;
+        padding-bottom: 1rem;
         width: 100%;
         text-align: center;
         margin-left: 0px;
