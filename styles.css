@@ -193,6 +193,13 @@ footer {
     padding-bottom: 100px;
 }
 
+.link-container {
+    border-top: 1px solid #d5d5d5;
+    margin-top: -0.175rem;
+    padding-top: 0.75rem;
+    margin-bottom: 2vw;
+}
+
 .image-mobile {
     display: none;
 }
@@ -258,9 +265,9 @@ footer img:hover {
 }
 
 .link-card {
-    width: 90%;
+    width: 100%;
     margin: auto;
-    height: 12vw;
+    height: 10vw;
     max-height: 18vh;
     display: table;
     background-size: cover;
