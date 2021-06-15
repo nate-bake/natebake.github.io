@@ -226,9 +226,9 @@ footer {
     vertical-align: middle;
 }
 
-footer img {
+.link-item img {
     max-width: 70%;
-    max-height: 60%;
+    max-height: min(60%, 40px);
     opacity: 0.5;
     vertical-align: middle;
 }
