@@ -407,7 +407,8 @@ iframe {
         margin-top: -1rem;
     }
 
-    .card-title {
+    .card-title,
+    .link-card .card-title {
         font-size: 7vw;
     }
 
