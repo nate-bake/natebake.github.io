@@ -279,12 +279,21 @@ footer img:hover {
     font-size: min(6vw, 7rem);
 }
 
+.link-card .card-title {
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0.85;
+}
+
 .portfolio-card:hover .card-title,
 .link-card:hover .card-title {
     visibility: visible;
     opacity: 1;
     color: inherit;
     background: rgba(0, 0, 0, 0.75);
+}
+
+.link-card:hover .card-title {
+    background: rgba(0, 0, 0, 0.55);
 }
 
 iframe {
