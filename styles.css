@@ -334,7 +334,7 @@ iframe {
     }
 }
 
-@media (min-aspect-ratio: 3/2) {
+@media (min-aspect-ratio: 3/2) and (min-width: 1000px) {
     body {
         width: 70%;
     }
@@ -367,7 +367,7 @@ iframe {
     }
 }
 
-@media (min-aspect-ratio: 2/1) {
+@media (min-aspect-ratio: 2/1) and (min-width: 1000px) {
     body {
         width: 50%;
     }
