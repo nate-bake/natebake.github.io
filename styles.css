@@ -326,7 +326,8 @@ iframe {
     .link-card .card-title {
         color: white;
     }
-    a:hover {
+    a:hover,
+    a:active {
         text-decoration: none;
     }
 }
