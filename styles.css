@@ -121,6 +121,18 @@ body {
     background-color: white; /* github light */
 }
 
+img {
+    max-width: 100%;
+}
+
+.image-mobile {
+    display: none;
+}
+
+.image-desktop {
+    display: inline;
+}
+
 h1 {
     font-size: max(3.5rem, 3.5vw);
     margin-bottom: -1.55rem;
@@ -165,13 +177,9 @@ p {
 }
 
 .label {
-    font-size: max(12pt, 1.6vw);
+    font-size: max(0.9rem, 1.4vw);
     text-align: center;
     margin-top: 0.5vw;
-}
-
-img {
-    max-width: 100%;
 }
 
 .closing-brace {
@@ -194,23 +202,15 @@ footer {
     margin-bottom: 2vw;
 }
 
-.image-mobile {
-    display: none;
-}
-
-.image-desktop {
-    display: inline;
-}
-
 .footer-links {
     float: right;
     text-align: right;
     width: 90%;
-    max-width: 32vw;
-    height: 50px;
-    margin-left: -2px;
-    margin-top: 1rem;
-    padding-left: 0px;
+    margin-left: -5%;
+    max-width: 34vw;
+    height: max(40px, 2.5vw);
+    margin-top: 1.1rem;
+    padding-left: 0;
     display: table;
     border-collapse: collapse;
 }
@@ -218,12 +218,17 @@ footer {
 .link-item {
     display: table-cell;
     vertical-align: middle;
+    width: 1%;
+}
+
+.link-item a {
+    height: 100%;
+    vertical-align: middle;
 }
 
 footer img {
-    height: min(3.5vw, 5vh);
-    min-height: 24px;
-    /* max-height: min(3.5vw, 5vh); */
+    max-width: 70%;
+    max-height: 60%;
     opacity: 0.5;
     vertical-align: middle;
 }
@@ -235,7 +240,7 @@ footer img:hover {
 .footer-copyright {
     float: left;
     height: max(40px, 2.5vw);
-    line-height: max(3.1rem, 3vw);
+    line-height: max(3.5rem, 3vw);
     margin-top: 1rem;
     margin-left: max(45px, 3vw);
     font-size: min(1.9vw, 1.5rem);
@@ -345,18 +350,38 @@ iframe {
         margin-bottom: 0vw;
     }
 
-    .card-title {
+    /* .card-title {
         font-size: min(4vw, 7rem);
     } */
 
     .home-image {
-        min-height: 36vw;
+        min-height: 35vw;
+    }
+
+    .footer-links {
+        max-width: 30vw;
+    }
+
+    .footer-copyright {
+        font-size: min(1.6vw, 1.5rem);
     }
 }
 
 @media (min-aspect-ratio: 2/1) {
     body {
         width: 50%;
+    }
+
+    .home-image {
+        min-height: 25vw;
+    }
+
+    .footer-links {
+        max-width: 20vw;
+    }
+
+    .footer-copyright {
+        font-size: min(1vw, 1.5rem);
     }
 }
 
@@ -372,7 +397,7 @@ iframe {
     }
 
     .footer-links {
-        max-width: 50vw;
+        max-width: 75vw;
     }
 }
 
@@ -445,11 +470,7 @@ iframe {
     }
 
     .footer-links {
-        max-width: min(80vw, 40rem);
-    }
-
-    footer img {
-        height: 6vw;
+        max-width: 75vw;
     }
 
     .footer-copyright {
