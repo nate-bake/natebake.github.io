@@ -101,6 +101,8 @@
 
 .cairo {
     font-family: cairo;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
 }
 
 .left {
@@ -125,7 +127,7 @@ h1 {
 }
 
 nav {
-    margin-top: -1rem;
+    margin-top: 0rem;
     margin-bottom: min(5vw, 4rem);
 }
 
@@ -163,8 +165,8 @@ a:hover {
 }
 
 p {
-    font-size: max(13.25pt, 2.4vw);
-    line-height: 1.2;
+    font-size: max(1rem, 2.1vw);
+    line-height: 1;
     text-align: justify;
 }
 
@@ -232,10 +234,17 @@ footer img:hover {
 .footer-copyright {
     float: left;
     height: max(40px, 2.5vw);
-    line-height: max(3.5rem, 3vw);
+    line-height: max(3.1rem, 3vw);
     margin-top: 1rem;
     margin-left: max(45px, 3vw);
-    font-size: min(2.1vw, 2.5rem);
+    font-size: min(1.9vw, 1.5rem);
+}
+
+.home-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 40vw;
 }
 
 .portfolio-card {
@@ -303,6 +312,10 @@ iframe {
     .card-title {
         font-size: min(4vw, 7rem);
     }
+
+    .home-image {
+        min-height: 36vw;
+    }
 }
 
 @media (max-width: 750px) {
@@ -351,6 +364,10 @@ iframe {
 }
 
 @media (max-aspect-ratio: 5/7) {
+    nav {
+        margin-top: -1rem;
+    }
+
     .card-title {
         font-size: 7vw;
     }
