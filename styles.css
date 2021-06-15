@@ -258,14 +258,15 @@ footer img:hover {
 }
 
 .link-card {
-    width: 100%;
+    width: 90%;
+    margin: auto;
     height: 12vw;
     max-height: 18vh;
     display: table;
     background-size: cover;
     background-position: center;
     margin-top: 1vw;
-    margin-top: 1vw;
+    margin-bottom: 1vw;
 }
 
 .card-title {
@@ -283,7 +284,7 @@ footer img:hover {
 .link-card .card-title {
     background: rgba(0, 0, 0, 0.35);
     opacity: 0.85;
-    font-size: min(4vw, 7rem);
+    font-size: min(4.5vw, 7rem);
 }
 
 .portfolio-card:hover .card-title,
