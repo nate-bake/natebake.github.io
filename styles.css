@@ -292,6 +292,7 @@ footer img:hover {
     background: rgba(0, 0, 0, 0.35);
     opacity: 0.85;
     font-size: min(4.5vw, 7rem);
+    color: inherit;
 }
 
 .portfolio-card:hover .card-title,
@@ -321,6 +322,9 @@ iframe {
         background: rgba(0, 0, 0, 0.5);
         opacity: 0.5;
         transition: opacity 0.3s, color 0.3s;
+    }
+    .link-card .card-title {
+        color: white;
     }
 }
 
