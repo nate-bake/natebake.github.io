@@ -152,15 +152,9 @@ footer ul li {
     margin-right: 1.5vw;
 }
 
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.no-underline:hover {
+a,
+a:hover,
+a:active {
     text-decoration: none;
 }
 
@@ -326,8 +320,11 @@ iframe {
     .link-card .card-title {
         color: white;
     }
-    a:hover,
-    a:active {
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .no-underline:hover {
         text-decoration: none;
     }
 }
@@ -407,9 +404,12 @@ iframe {
         margin-top: -1rem;
     }
 
-    .card-title,
-    .link-card .card-title {
+    .card-title {
         font-size: 7vw;
+    }
+
+    .link-card .card-title {
+        font-size: 5.5vw;
     }
 
     .portfolio-card {
