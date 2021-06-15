@@ -149,7 +149,7 @@ footer ul {
 nav ul li,
 footer ul li {
     display: inline;
-    margin-right: 1.5vw;
+    margin-right: max(1.7vw, 1.25rem);
 }
 
 a,
@@ -159,7 +159,7 @@ a:active {
 }
 
 p {
-    font-size: max(1rem, 2.1vw);
+    font-size: max(1.4rem, 2.1vw);
     line-height: 1;
     text-align: justify;
 }
@@ -331,10 +331,10 @@ iframe {
 
 @media (min-aspect-ratio: 3/2) {
     body {
-        width: 85%;
+        width: 70%;
     }
 
-    .portfolio-container {
+    /* .portfolio-container {
         display: flex;
         justify-content: space-between;
     }
@@ -347,10 +347,16 @@ iframe {
 
     .card-title {
         font-size: min(4vw, 7rem);
-    }
+    } */
 
     .home-image {
         min-height: 36vw;
+    }
+}
+
+@media (min-aspect-ratio: 2/1) {
+    body {
+        width: 50%;
     }
 }
 
