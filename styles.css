@@ -269,11 +269,15 @@ footer img:hover {
     margin-bottom: 1.5vw;
 }
 
-.card-bottom {
+.card-code {
+    background-position: 55% 50%;
+}
+
+.card-photo {
     background-position: 50% 95%;
 }
 
-.card-top {
+.card-video {
     background-position: 49% 19%;
 }
 
