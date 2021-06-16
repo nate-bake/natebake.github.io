@@ -342,6 +342,7 @@ footer img:hover {
 .slick-right {
     display: none !important;
     vertical-align: middle;
+    user-select: none;
 }
 
 .slick-left span:hover,
@@ -351,7 +352,7 @@ footer img:hover {
 }
 
 .photo {
-    max-height: 75vw;
+    max-height: 45vw;
     margin-left: auto;
     margin-right: auto;
 }
