@@ -532,4 +532,9 @@ iframe {
         max-width: min(55%, 40px);
         max-height: min(55%, 40px);
     }
+
+    .slick-left,
+    .slick-right {
+        display: none;
+    }
 }
