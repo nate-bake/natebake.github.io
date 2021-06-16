@@ -133,33 +133,19 @@
     <script type="text/javascript" src="../slick/slick.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            if (document.getElementsByClassName('slick-left')[0].display !== 'none') {
-                $('.photo-set-container').slick({
-                    infinite: true,
-                    speed: 300,
-                    slidesToShow: 1,
-                    adaptiveHeight: true,
-                    autoplay: true,
-                    autoplaySpeed: 5000,
-                    pauseOnFocus: false,
-                    pauseOnHover: false,
-                    arrows: true,
-                    prevArrow: $('.slick-left'),
-                    nextArrow: $('.slick-right'),
-                });
-            } else {
-                $('.photo-set-container').slick({
-                    infinite: true,
-                    speed: 300,
-                    slidesToShow: 1,
-                    adaptiveHeight: true,
-                    autoplay: true,
-                    autoplaySpeed: 5000,
-                    pauseOnFocus: false,
-                    pauseOnHover: false,
-                    arrows: false,
-                });
-            }
+            $('.photo-set-container').slick({
+                // dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                prevArrow: $('.slick-left'),
+                nextArrow: $('.slick-right'),
+            });
             const total = $('.photo-set-container img').length; // get the number of slides
             const rand = Math.floor(Math.random() * total); // random number
             // $('.photo-set-container').slick('slickGoTo', rand); //navigate to random slide

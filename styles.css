@@ -340,7 +340,7 @@ footer img:hover {
 
 .slick-left,
 .slick-right {
-    display: inline-block;
+    display: inline-block !important;
     vertical-align: middle;
 }
 
@@ -536,6 +536,10 @@ iframe {
 
     .slick-left,
     .slick-right {
-        display: none;
+        display: none !important;
+    }
+
+    .photo-set-container {
+        width: 100%;
     }
 }
