@@ -269,6 +269,14 @@ footer img:hover {
     margin-bottom: 1.5vw;
 }
 
+.card-bottom {
+    background-position: 50% 95%;
+}
+
+.card-top {
+    background-position: 49% 19%;
+}
+
 .link-card {
     width: 100%;
     margin: auto;
@@ -431,7 +439,7 @@ iframe {
     }
 
     .link-card .card-title {
-        font-size: 5.5vw;
+        font-size: 5vw;
     }
 
     .portfolio-card {
@@ -482,5 +490,10 @@ iframe {
 
     .image-desktop {
         display: none;
+    }
+
+    .link-item img {
+        max-width: min(70%, 40px);
+        max-height: min(60%, 40px);
     }
 }
