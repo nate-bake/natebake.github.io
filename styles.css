@@ -171,7 +171,7 @@ a:active {
 }
 
 p {
-    font-size: max(1.15rem, 2.1vw);
+    font-size: min(max(1.15rem, 2.1vw), 3rem);
     line-height: 1;
     text-align: justify;
 }
@@ -322,6 +322,37 @@ footer img:hover {
 
 .link-card:hover .card-title {
     background: rgba(0, 0, 0, 0.55);
+}
+
+.photo-set-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 88%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.carousel-container {
+    vertical-align: middle;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.slick-left,
+.slick-right {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.slick-left span:hover,
+.slick-right span:hover {
+    cursor: pointer;
+    color: rgb(36, 41, 46);
+}
+
+.photo {
+    max-height: 75vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 iframe {

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nathan Baker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <!-- <link rel="stylesheet" href="../portfolio-cards.css"> -->
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css" />
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="../.." class="no-underline">
+            <h1 class="center">
+                <text class="orange mono">nathan</text><text class="black mono">.</text><text
+                    class="purple mono">baker</text><text class="black mono">() {</text>
+            </h1>
+        </a>
+        <ul>
+            <li><a class="gray mono" href="../portfolio">portfolio:</a></li>
+            <li><a class="gray mono" href="../code">code</a></li>
+            <li><a class="black bold mono" href="../photo">photo</a></li>
+            <li><a class="gray mono" href="../video">video</a></li>
+        </ul>
+    </nav>
+    <h2 class="black cairo center bold">
+        Screens
+    </h2>
+    <div class="carousel-container">
+        <h2 class="slick-left gray mono left bold">
+            <span>&#60;</span>&nbsp;<br><br><br>
+        </h2>
+        <div class="photo-set-container">
+            <div>
+                <img class="photo" src="../assets//sugimoto/screenshare.jpg">
+                <p class="black cairo center">
+                    &#60; screen share &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/sleep_wake.jpg">
+                <p class="black cairo center">
+                    &#60; sleep/wake button &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/screenshare_2.jpg">
+                <p class="black cairo center">
+                    &#60; screen share 2 &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/push_to_start.jpg">
+                <p class="black cairo center">
+                    &#60; push to start &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/standby.jpg">
+                <p class="black cairo center">
+                    &#60; standby &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/screenshare_3.jpg">
+                <p class="black cairo center">
+                    &#60; screen share 3 &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/autolock.jpg">
+                <p class="black cairo center">
+                    &#60; low battery &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/input_1.jpg">
+                <p class="black cairo center">
+                    &#60; input 1 &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/screensaver.jpg">
+                <p class="black cairo center">
+                    &#60; screensaver &#62;
+                    <br>
+                </p>
+            </div>
+            <div>
+                <img class="photo" src="../assets//sugimoto/replay.jpg">
+                <p class="black cairo center">
+                    &#60; high score &#62;
+                    <br>
+                </p>
+            </div>
+        </div>
+        <h2 class="slick-right gray mono left bold">
+            &nbsp;<span>&#62;</span><br><br><br>
+        </h2>
+    </div>
+    <p class="black cairo">
+        A direct extension of
+        <a class="gray" target="_blank" href="https://www.sugimotohiroshi.com/new-page-7">Hiroshi Sugimoto's well
+            known
+            <em>Theatres</em></a>,
+        <em>Screens</em> employs prolonged exposures to obscure the contents of dynamic displays, and
+        explore the pervasive presence of technology in an indivdiual's personal habitat. By isolating various
+        "smart" devices as the sole source of light, these images emphasize the extent to which modern beings depend
+        on
+        these devices and the software inside them.
+        <br><br>
+        The original trajectory of this project was to closely mirror Sugimoto's approach by photographing large,
+        empty lecture halls on the Oklahoma State University campus. However, after capturing just two of these
+        spaces, the scope of this endeavor was greatly confined by an emerging global pandemic. The additional
+        constraints of quarantine forced me to consider the more intimate spaces in which screens lurk, not just
+        large
+        educational ones -- a shift which resulted in a blend of familiarity and eeriness that I did not forsee.
+        <br><br>
+    </p>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.photo-set-container').slick({
+                // dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                prevArrow: $('.slick-left'),
+                nextArrow: $('.slick-right'),
+            });
+            const total = $('.photo-set-container img').length; // get the number of slides
+            const rand = Math.floor(Math.random() * total); // random number
+            // $('.photo-set-container').slick('slickGoTo', rand); //navigate to random slide
+        });
+    </script>
+</body>
+
+<footer>
+    <h1 style="float:left;" class="black mono closing-brace">}</h1>
+    <ul class="footer-list footer-links">
+        <li class="link-item"><a href="mailto:nathan.t.baker@okstate.edu">
+                <img src="../assets/email.png"></a>
+        </li>
+        <li class="link-item"><a target="_blank" href="https://linkedin.com/in/nathan-baker-16173b1b8/">
+                <img src="../assets/linkedin.png"></a>
+        </li>
+        <li class="link-item"><a target="_blank" href="https://instagram.com/naynaybakebake/">
+                <img src="../assets/instagram.png"></a>
+        </li>
+        <li class="link-item"><a target="_blank" href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w">
+                <img src="../assets/youtube.png"></a>
+        </li>
+        <li class="link-item"><a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
+                <!-- href="https://open.spotify.com/playlist/4R078kIVCSGotunr22shUT?si=1fcad2dd6d1d49e3" -->
+                <img src="../assets/spotify.png">
+            </a>
+        </li>
+        <li class="link-item"><a target="_blank" href="https://github.com/naynaybakebake">
+                <img src="../assets/github.png"></a>
+        </li>
+    </ul>
+    <p class="footer-copyright gray mono">
+        <text class="gray">Copyright &copy;</text>
+        <text class="gray">2021</text>
+        <text class="gray image-desktop">//</text>
+        <br class="image-mobile">
+        <text class="purple">Nathan Baker</text>
+    </p>
+</footer>
+
+</html>
