@@ -448,6 +448,7 @@ iframe {
 
     .portfolio-card {
         height: 35vw;
+        margin-top: 3vw;
         margin-bottom: 1.5vw;
     }
 
@@ -497,7 +498,7 @@ iframe {
     }
 
     .link-item img {
-        max-width: min(70%, 40px);
-        max-height: min(60%, 40px);
+        max-width: min(55%, 40px);
+        max-height: min(55%, 40px);
     }
 }
