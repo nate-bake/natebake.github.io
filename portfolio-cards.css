@@ -1,4 +1,4 @@
-@media (min-aspect-ratio: 3/2) and (min-width: 100px) {
+@media (min-aspect-ratio: 3/2) and (min-width: 800px) {
     body {
         width: 85vw;
     }
@@ -19,8 +19,23 @@
     }
 }
 
-@media (min-aspect-ratio: 2/1) and (min-width: 100px) {
+@media (min-aspect-ratio: 3/2) and (max-width: 800px) {
     body {
-        width: 85vw;
+        width: 80vw;
+    }
+
+    .portfolio-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .portfolio-card {
+        min-height: 72vh;
+        min-width: 25vw;
+        margin-bottom: 0vw;
+    }
+
+    .card-title {
+        font-size: min(4vw, 6.5rem);
     }
 }
