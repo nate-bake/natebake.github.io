@@ -233,8 +233,8 @@ footer {
 }
 
 .link-item img {
-    max-width: 70%;
-    max-height: min(60%, 30px);
+    max-width: min(70%, 50px);
+    max-height: min(60%, 50px);
     opacity: 0.5;
     vertical-align: middle;
 }
@@ -344,21 +344,6 @@ iframe {
     body {
         width: 70%;
     }
-
-    /* .portfolio-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .portfolio-card {
-        min-height: 75vh;
-        min-width: 27vw;
-        margin-bottom: 0vw;
-    }
-
-    /* .card-title {
-        font-size: min(4vw, 7rem);
-    } */
 
     .home-image {
         min-height: 35vw;
