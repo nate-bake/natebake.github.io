@@ -1,4 +1,4 @@
-@media (min-aspect-ratio: 3/2) and (min-width: 1000px) {
+@media (min-aspect-ratio: 3/2) and (min-width: 100px) {
     body {
         width: 85%;
     }
@@ -19,7 +19,7 @@
     }
 }
 
-@media (min-aspect-ratio: 2/1) and (min-width: 1000px) {
+@media (min-aspect-ratio: 2/1) and (min-width: 100px) {
     body {
         width: 85%;
     }
