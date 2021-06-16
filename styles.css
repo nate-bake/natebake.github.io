@@ -542,4 +542,8 @@ iframe {
         max-width: min(55%, 40px);
         max-height: min(55%, 40px);
     }
+
+    .photo {
+        max-height: none;
+    }
 }
