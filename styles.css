@@ -335,6 +335,7 @@ footer img:hover {
 .carousel-container {
     vertical-align: middle;
     border-bottom: 1px solid #d5d5d5;
+    text-align: center;
 }
 
 .slick-left,
