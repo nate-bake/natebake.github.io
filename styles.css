@@ -171,7 +171,7 @@ a:active {
 }
 
 p {
-    font-size: min(max(1.15rem, 2.1vw), 3rem);
+    font-size: min(max(1.15rem, 2.1vw), 2.5rem);
     line-height: 1;
     text-align: justify;
 }
@@ -334,11 +334,8 @@ footer img:hover {
 }
 
 .carousel-container {
-    /* border-top: 1px solid #d5d5d5; */
-    /* margin-top: 3rem; */
-    /* padding-top: 3rem; */
     border-bottom: 1px solid #d5d5d5;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5vw;
     text-align: center;
     display: flex;
     align-items: center;
@@ -352,10 +349,11 @@ footer img:hover {
 .slick-right {
     display: none !important;
     user-select: none;
+    padding-bottom: 6rem;
 }
 
-.slick-left span:hover,
-.slick-right span:hover {
+.slick-left:hover,
+.slick-right:hover {
     cursor: pointer;
     color: rgb(36, 41, 46);
 }
