@@ -418,7 +418,7 @@ iframe {
 .settings-table p {
     font-family: "Source Sans Pro";
     text-align: center;
-    color: rgb(106, 115, 125);
+    color: rgb(106, 115, 125) !important;
 }
 
 .settings-table-titled {
