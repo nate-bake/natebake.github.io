@@ -410,7 +410,7 @@ iframe {
 
 .settings-table {
     display: flex;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
     margin: auto;
 }
@@ -464,6 +464,10 @@ iframe {
 
     .photo-set-container {
         width: 90%;
+    }
+
+    .settings-table {
+        width: 50%;
     }
 
     .photo {
