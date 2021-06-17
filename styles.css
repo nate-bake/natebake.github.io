@@ -360,7 +360,7 @@ footer img:hover {
 
 .photo {
     user-select: none;
-    max-height: 47vw;
+    max-height: min(90vh, 53vw);
     margin-left: auto;
     margin-right: auto;
 }
@@ -400,6 +400,10 @@ iframe {
     .photo-set-container {
         width: 90%;
     }
+
+    .photo {
+        max-height: min(90vh, 47vw);
+    }
 }
 
 @media (min-aspect-ratio: 3/2) and (min-width: 1000px) {
@@ -418,6 +422,16 @@ iframe {
     .footer-copyright {
         font-size: min(1.6vw, 1.5rem);
     }
+
+    .photo {
+        max-height: min(90vh, 46.67vw);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .photo {
+            max-height: min(90vh, 41vw);
+        }
+    }
 }
 
 @media (min-aspect-ratio: 2/1) and (min-width: 1000px) {
@@ -435,6 +449,16 @@ iframe {
 
     .footer-copyright {
         font-size: min(1vw, 1.5rem);
+    }
+
+    .photo {
+        max-height: min(90vh, 33vw);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .photo {
+            max-height: min(90vh, 29vw);
+        }
     }
 }
 
@@ -553,6 +577,6 @@ iframe {
     }
 
     .photo {
-        max-height: none;
+        max-height: 90vh;
     }
 }
