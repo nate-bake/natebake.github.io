@@ -330,7 +330,6 @@ footer img:hover {
     width: 100%;
     display: inline-block;
     vertical-align: middle;
-    user-select: none;
 }
 
 .carousel-container {
@@ -339,10 +338,6 @@ footer img:hover {
     text-align: center;
     display: flex;
     align-items: center;
-}
-
-.slick-slide {
-    user-select: none;
 }
 
 .slick-left,
@@ -359,8 +354,7 @@ footer img:hover {
 }
 
 .photo {
-    user-select: none;
-    max-height: min(90vh, 53vw);
+    max-height: min(85vh, 53vw);
     margin-left: auto;
     margin-right: auto;
 }
@@ -402,7 +396,7 @@ iframe {
     }
 
     .photo {
-        max-height: min(90vh, 47vw);
+        max-height: min(85vh, 47vw);
     }
 }
 
@@ -424,12 +418,12 @@ iframe {
     }
 
     .photo {
-        max-height: min(90vh, 46.67vw);
+        max-height: min(85vh, 46.67vw);
     }
 
     @media (hover: hover) and (pointer: fine) {
         .photo {
-            max-height: min(90vh, 41vw);
+            max-height: min(85vh, 41vw);
         }
     }
 }
@@ -452,12 +446,12 @@ iframe {
     }
 
     .photo {
-        max-height: min(90vh, 33vw);
+        max-height: min(85vh, 33vw);
     }
 
     @media (hover: hover) and (pointer: fine) {
         .photo {
-            max-height: min(90vh, 29vw);
+            max-height: min(85vh, 29vw);
         }
     }
 }
@@ -577,6 +571,6 @@ iframe {
     }
 
     .photo {
-        max-height: 90vh;
+        max-height: 85vh;
     }
 }
