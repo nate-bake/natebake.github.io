@@ -333,9 +333,9 @@ footer img:hover {
 }
 
 .carousel-container {
-    border-top: 1px solid #d5d5d5;
-    margin-top: 3rem;
-    padding-top: 3rem;
+    /* border-top: 1px solid #d5d5d5; */
+    /* margin-top: 3rem; */
+    /* padding-top: 3rem; */
     border-bottom: 1px solid #d5d5d5;
     padding-bottom: 1rem;
     text-align: center;
