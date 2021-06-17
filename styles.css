@@ -133,9 +133,18 @@ img {
     display: inline;
 }
 
+.no-underline {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: max-content;
+}
+
 h1 {
     font-size: max(3.5rem, 3.5vw);
     margin-bottom: -1.55rem;
+    width: max-content;
 }
 
 nav {
