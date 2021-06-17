@@ -310,7 +310,7 @@ footer img:hover {
 
 .card-photo {
     /* background-position: 50% 0%; */
-    background-position: 22% 100%;
+    background-position: 10% 100%;
 }
 
 .card-video {
@@ -336,16 +336,9 @@ footer img:hover {
     display: table-cell;
     vertical-align: middle;
     margin-top: 0px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.35);
     color: white;
     font-size: min(6vw, 7rem);
-}
-
-.link-card .card-title {
-    background: rgba(0, 0, 0, 0.35);
-    opacity: 0.85;
-    font-size: min(4.5vw, 7rem);
-    color: inherit;
 }
 
 .portfolio-card:hover .card-title,
@@ -354,6 +347,13 @@ footer img:hover {
     opacity: 1;
     color: inherit;
     background: rgba(0, 0, 0, 0.75);
+}
+
+.link-card .card-title {
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0.85;
+    font-size: min(4.5vw, 7rem);
+    color: inherit;
 }
 
 .link-card:hover .card-title {
