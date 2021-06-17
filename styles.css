@@ -408,6 +408,34 @@ iframe {
     color: white;
 }
 
+.settings-table {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.settings-table p {
+    font-family: "Source Sans Pro";
+    text-align: center;
+    color: rgb(106, 115, 125);
+}
+
+.settings-table-titled {
+    flex-wrap: wrap;
+}
+
+.settings-table-titled > p:first-child {
+    flex: 0 0 100%;
+    margin-bottom: 0;
+    font-style: italic;
+    color: rgb(36, 41, 46);
+}
+
+.settings-table-titled > p:not(:first-child) {
+    margin-top: 0;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .portfolio-card:hover .card-title,
     .link-card:hover .card-title {
