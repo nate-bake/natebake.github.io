@@ -309,7 +309,8 @@ footer img:hover {
 }
 
 .card-photo {
-    background-position: 50% 0%;
+    /* background-position: 50% 0%; */
+    background-position: 22% 100%;
 }
 
 .card-video {
