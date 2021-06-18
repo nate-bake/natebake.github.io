@@ -278,7 +278,8 @@ footer img:hover {
     margin-bottom: 1.5vw;
 }
 
-.photo-menu-container {
+.menu-container,
+.menu-container {
     max-width: 100%;
     display: flex;
     align-items: stretch;
@@ -286,7 +287,8 @@ footer img:hover {
     gap: min(3%, 2rem);
 }
 
-.photo-menu-container a {
+.menu-container a,
+.menu-container a {
     flex-basis: 40%;
     margin-bottom: min(3%, 2rem);
     flex-grow: 1;
@@ -651,5 +653,9 @@ iframe {
 
     .photo {
         max-height: 85vh;
+    }
+
+    .code-menu-container a {
+        flex-basis: 100%;
     }
 }
