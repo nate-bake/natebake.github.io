@@ -401,6 +401,10 @@ footer img:hover {
     margin-right: auto;
 }
 
+.gray-hover:hover {
+    color: rgb(106, 115, 125);
+}
+
 iframe {
     width: 100%;
     height: 40vw;
