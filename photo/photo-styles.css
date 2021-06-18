@@ -1,0 +1,19 @@
+@media (min-aspect-ratio: 3/2) and (min-width: 1000px) {
+    body {
+        width: 85vw;
+    }
+
+    .photo-menu-container a {
+        flex-basis: 22%;
+    }
+}
+
+@media (min-aspect-ratio: 3/2) and (max-width: 1000px) {
+    body {
+        width: 80vw;
+    }
+
+    .photo-menu-container a {
+        flex-basis: 22%;
+    }
+}

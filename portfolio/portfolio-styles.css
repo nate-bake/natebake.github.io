@@ -17,10 +17,6 @@
     .card-title {
         font-size: min(4vw, 6.5rem);
     }
-
-    .photo-menu-container a {
-        flex-basis: 22%;
-    }
 }
 
 @media (min-aspect-ratio: 3/2) and (max-width: 800px) {
@@ -41,9 +37,5 @@
 
     .card-title {
         font-size: min(4vw, 6.5rem);
-    }
-
-    .photo-menu-container a {
-        flex-basis: 22%;
     }
 }
