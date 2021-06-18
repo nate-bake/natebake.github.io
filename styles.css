@@ -300,7 +300,7 @@ footer img:hover {
 }
 
 .photo-card:hover {
-    filter: brightness(55%);
+    filter: brightness(50%);
 }
 
 .card-code {
