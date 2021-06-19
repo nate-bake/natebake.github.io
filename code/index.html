@@ -4,8 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Code</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
     <link rel="stylesheet" href="/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,8 +29,8 @@
     </nav>
     <!-- <div>
         <fieldset>
-            <h2 class="black cairo">This Website: [],</h2>
-            <h2 class="black cairo">Rocket League AI: [],</h2>
+            <h2 class="black source">This Website: [],</h2>
+            <h2 class="black source">Rocket League AI: [],</h2>
         </fieldset>
         <br>
     </div> -->
@@ -43,6 +42,25 @@
             <img class="photo-card" src="/assets/photo-tiles/n-key.jpg">
         </a>
     </div>
+
+    <script>
+        const images = document.getElementsByTagName("img");
+        for (let image of images) {
+            image.style.opacity = "0";
+            if (!image.complete) {
+                image.addEventListener("load", fadeImg);
+            } else {
+                f = fadeImg.bind(image);
+                f();
+            }
+        }
+
+        function fadeImg() {
+            this.style.transition = "opacity 1s";
+            this.style.opacity = "1";
+        }
+    </script>
+
 </body>
 
 <footer>

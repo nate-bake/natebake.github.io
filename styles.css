@@ -19,6 +19,16 @@
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Thin.woff2")
+            format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Thin.woff")
+            format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
 
 .red {
     color: rgb(255, 107, 67); /* ayu dark */
@@ -78,10 +88,10 @@
     font-family: "JetBrains Mono";
 }
 
-.cairo {
-    /* font-family: cairo; */
+.source {
+    /* font-family: source; */
     font-family: "Source Sans Pro";
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .left {
@@ -170,14 +180,23 @@ p {
     text-align: justify;
 }
 
+.hidden {
+    display: none;
+}
+
 h2 {
     font-size: max(1.25rem, 3vw);
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
 }
 
+.source-600 {
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+}
+
 .label {
-    font-size: max(0.9rem, 1.4vw);
+    font-size: max(0.9rem, 1.9vw);
     text-align: center;
     margin-top: 0.5vw;
 }
@@ -286,7 +305,7 @@ footer img:hover {
 }
 
 .photo-card:hover {
-    filter: brightness(50%);
+    filter: brightness(80%);
 }
 
 .card-code {

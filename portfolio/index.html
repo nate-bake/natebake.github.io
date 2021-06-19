@@ -4,7 +4,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Portfolio</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300">
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="portfolio-styles.css">
@@ -29,6 +28,9 @@
             <li><a class="black bold mono" href="">portfolio</a></li>
         </ul>
     </nav>
+    <img class="hidden" src="/assets/code.jpg">
+    <img class="hidden" src="/assets/chrain.jpg">
+    <img class="hidden" src="/assets/jungle2.jpg">
     <div class="portfolio-container">
         <a href="/code" class="red" style="text-decoration: none;">
             <div class="portfolio-card card-code" style="background-image: url('/assets/code.jpg'); ">
@@ -46,6 +48,34 @@
             </div> <br>
         </a>
     </div>
+
+    <script>
+        const cards = document.getElementsByClassName("portfolio-card");
+        for (let card of cards) {
+            card.style.opacity = "0";
+        }
+
+        const images = document.getElementsByTagName("img");
+        for (let image of images) {
+            image.style.opacity = "0";
+            if (!image.complete) {
+                image.addEventListener("load", fadeImg);
+            } else {
+                f = fadeImg.bind(image);
+                f();
+            }
+        }
+
+        function fadeImg() {
+            let card = null;
+            if (this.src.includes("code.jpg")) card = document.getElementsByClassName("card-code")[0];
+            else if (this.src.includes("chrain.jpg")) card = document.getElementsByClassName("card-photo")[0];
+            else if (this.src.includes("jungle2.jpg")) card = document.getElementsByClassName("card-video")[0];
+            card.style.transition = "opacity 1s";
+            card.style.opacity = "1";
+        }
+    </script>
+
 </body>
 
 <footer>

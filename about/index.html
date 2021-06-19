@@ -4,8 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nathan Baker</title>
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo"> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700">
     <link rel="stylesheet" href="/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -31,7 +30,7 @@
     <div>
         <img class="image-desktop" src="/assets/me.jpg">
         <img class="image-mobile" src="/assets/me_vertical.jpg">
-        <p class="black cairo">
+        <p class="black source">
             I am 21 years old, my favorite color is green, and I will be graduating with a bachelor's degree in
             computer science in December of 2021.
             <br><br>
@@ -44,6 +43,25 @@
             <br><br>
         </p>
     </div>
+
+    <script>
+        const images = document.getElementsByTagName("img");
+        for (let image of images) {
+            image.style.opacity = "0";
+            if (!image.complete) {
+                image.addEventListener("load", fadeImg);
+            } else {
+                f = fadeImg.bind(image);
+                f();
+            }
+        }
+
+        function fadeImg() {
+            this.style.transition = "opacity 1s";
+            this.style.opacity = "1";
+        }
+    </script>
+
 </body>
 
 <footer>
