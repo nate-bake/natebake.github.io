@@ -61,18 +61,19 @@
             if (!image.complete) {
                 image.addEventListener("load", fadeImg);
             } else {
-                f = fadeImg.bind(image);
-                f();
+                fadeImg.bind(image)();
             }
         }
 
-        function fadeImg() {
+        async function fadeImg() {
+            await new Promise(r => setTimeout(r, 1));
             let card = null;
             if (this.src.includes("code.jpg")) card = document.getElementsByClassName("card-code")[0];
             else if (this.src.includes("chrain.jpg")) card = document.getElementsByClassName("card-photo")[0];
             else if (this.src.includes("jungle2.jpg")) card = document.getElementsByClassName("card-video")[0];
             card.style.transition = "opacity 1s";
             card.style.opacity = "1";
+            this.removeEventListener("load", fadeImg);
         }
     </script>
 

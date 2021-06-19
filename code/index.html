@@ -50,14 +50,15 @@
             if (!image.complete) {
                 image.addEventListener("load", fadeImg);
             } else {
-                f = fadeImg.bind(image);
-                f();
+                fadeImg.bind(image)();
             }
         }
 
-        function fadeImg() {
-            this.style.transition = "opacity 1s";
+        async function fadeImg() {
+            await new Promise(r => setTimeout(r, 1));
+            this.style.transition = "filter 0.25s, opacity 1s";
             this.style.opacity = "1";
+            this.removeEventListener("load", fadeImg);
         }
     </script>
 
