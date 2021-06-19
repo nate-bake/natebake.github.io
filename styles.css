@@ -437,10 +437,12 @@ footer img:hover {
     flex: 0 0 100%;
     margin-bottom: 0.5rem;
     color: rgb(36, 41, 46);
+    font-weight: 400;
 }
 
 .settings-table-titled > p:not(:first-child) {
     margin-top: 0;
+    font-weight: 300;
 }
 
 @media (hover: hover) and (pointer: fine) {
