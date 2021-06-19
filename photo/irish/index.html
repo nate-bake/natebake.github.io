@@ -171,6 +171,24 @@
             });
         });
     </script>
+
+    <script>
+        const images = document.getElementsByTagName("img");
+        for (let image of images) {
+            image.style.opacity = "0";
+            if (!image.complete) {
+                image.addEventListener("load", fadeImg);
+            } else {
+                fadeImg.bind(image)();
+            }
+        }
+
+        async function fadeImg() {
+            await new Promise(r => setTimeout(r, 1));
+            this.style.transition = "opacity 1s";
+            this.style.opacity = "1";
+        }
+    </script>
 </body>
 
 <footer>
