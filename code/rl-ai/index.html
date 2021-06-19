@@ -61,6 +61,25 @@
         <p class="source center gray">18 June 2021</p>
         </p>
     </div>
+
+    <script>
+        const iframes = document.getElementsByTagName("iframe");
+        for (let iframe of iframes) {
+            iframe.style.opacity = "0";
+            if (!iframe.complete) {
+                iframe.addEventListener("load", fadeImg);
+            } else {
+                f = fadeImg.bind(iframe);
+                f();
+            }
+        }
+
+        function fadeImg() {
+            this.style.transition = "opacity 1s";
+            this.style.opacity = "1";
+        }
+    </script>
+
 </body>
 
 <footer>
