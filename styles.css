@@ -190,6 +190,11 @@ h2 {
     margin-bottom: -0.25rem;
 }
 
+h3 {
+    font-size: max(1.25rem, 2.75vw);
+    margin-bottom: -0.25rem;
+}
+
 .source-600 {
     font-family: "Source Sans Pro";
     font-weight: 600;

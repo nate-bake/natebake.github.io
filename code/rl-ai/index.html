@@ -34,14 +34,14 @@
             By far my biggest programming project that I have pursued outside of school has been to create a bot
             that can learn to play Rocket League by analyzing replays of human gameplay.
             <br>
-            </p>
-            <iframe src="https://www.youtube.com/embed/icoNUMLiuw8?rel=0&modestbranding=1" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <p class="label source center">
-                Video of 'naynaybotbot' versus 'Rookie' bot.
-            </p>
-            <p class="black source">
+        </p>
+        <iframe src="https://www.youtube.com/embed/icoNUMLiuw8?rel=0&modestbranding=1" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <p class="label source center">
+            Video of 'naynaybotbot' versus 'Rookie' bot.
+        </p>
+        <p class="black source">
             Rocket League is a competitive physics-based game of car soccer that has a very high skill ceiling.
             Even experienced players struggle to perform well consistently, which is one reason why the
             vast majority of bot creators opt for defined routines rather than machine learning. When I started I was
@@ -49,15 +49,42 @@
                 href="https://rlbot.org/"><u>RLBot</u></a> community
             had already attempted this and concluded that human replay data is not sufficient for model training.
             <br><br>
-            Thus, I began writing my own scripts to collect and process thousands of publicly available replay files, and after
+            Thus, I began writing my own scripts to collect and process thousands of publicly available replay files,
+            and after
             months of programming and tinkering with neural networks, I feel I have seen some encouraging results.
-            So this is where I will try to explain the approach I took, documenting my failures, successes, and work that
+            So this is where I will try to explain the approach I took, documenting my failures, successes, and work
+            that
             remains to be done.
+            <br><br>
+            <text class="source-400">Table of Contents:</text>&nbsp;&nbsp;
+            <a class="black gray-hover" href="javascript:scroll('collection');"><u>Data Collection</u></a>&nbsp;&nbsp;
+            <a class="black gray-hover" href="javascript:scroll('processing')"><u>Replay Processing</u></a>&nbsp;&nbsp;
+            <a class="black gray-hover" href="javascript:scroll('training')"><u>Model Training</u></a>&nbsp;&nbsp;
+            <a class="black gray-hover" href="javascript:scroll('integration')"><u>RL Integration</u></a>&nbsp;&nbsp;
             <br><br>
             <text class="source-400">If you can just want to see the code, you can find most of it in
                 <a class="black gray-hover" target="_blank" href="https://github.com/naynaybakebake/rocket_league_ai">
                     <u>this repository</u></a>.</text>
-            <br><br>
+        </p>
+        <div class="link-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
+        <h3 class="black center source-400">Data Collection</h3>
+        <p class="black source">
+            Here we talk about data collection.<br><br><br><br><br><br><br><br><br><br><br><br>
+        </p>
+        <div class="link-container" id="processing" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
+        <h3 class="black center source-400">Replay Processing</h3>
+        <p class="black source">
+            Here we talk about processing replays.<br><br><br><br><br><br><br><br><br><br><br><br>
+        </p>
+        <div class="link-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
+        <h3 class="black center source-400">Model Training</h3>
+        <p class="black source">
+            Here we talk about all of the tensorflow stuff.<br><br><br><br><br><br><br><br><br><br><br><br>
+        </p>
+        <div class="link-container" id="integration" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
+        <h3 class="black center source-400">RL Integration</h3>
+        <p class="black source">
+            Here we talk about the bot.py file in RLBot.<br><br><br><br><br><br><br><br><br><br><br><br>
         </p>
         <p class="source center gray">4 February 2021</p>
     </div>
@@ -78,6 +105,13 @@
             this.style.transition = "opacity 1s";
             this.style.opacity = "1";
         }
+
+        function scroll(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
     </script>
 
 </body>
