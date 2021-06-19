@@ -185,9 +185,9 @@ p {
 }
 
 h2 {
-    font-size: max(1.25rem, 3vw);
-    /* margin-top: 1.5rem; */
-    margin-bottom: 0.75rem;
+    font-size: max(1.75rem, 3.5vw);
+    margin-top: 1rem;
+    margin-bottom: -0.25rem;
 }
 
 .source-600 {
