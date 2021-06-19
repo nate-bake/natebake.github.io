@@ -211,6 +211,17 @@ h3 {
     margin-top: 0.5vw;
 }
 
+.table-of-contents {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.table-of-contents div {
+    font-size: min(max(1.15rem, 2.1vw), 2.5rem);
+    line-height: 1;
+}
+
 .closing-brace {
     font-size: max(40px, 2.5vw);
     margin-top: 1rem;
