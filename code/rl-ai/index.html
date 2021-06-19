@@ -28,21 +28,34 @@
         </ul>
     </nav>
     <div>
-        <!-- <img src="/assets/hacker.jpg"> -->
         <div class="link-container" style="margin: -0.5rem;"></div>
         <h2 class="black center source-600">Rocket League AI</h2>
         <p class="black source">
-            This website you're viewing right now is one of my first attempts at front-end development. I wanted
-            a more central online platform, and despite the numerous website templates available these days, I thought
-            it would be fun to try building something from scratch! This is what I came up with after about a week,
-            using almost exclusively HTML and CSS.
+            By far my biggest programming project that I have embarked on outside of school has been to create a bot
+            that can learn to play Rocket League by analyzing replays of human gameplay.
             <br><br>
-            Check out the code
-            <a class="black gray-hover" target="_blank"
-                href="https://github.com/naynaybakebake/naynaybakebake.github.io">
-                <u>here</u></a>
-            if you want to see how I did it or if you want to figure out how to hack me or something.
-            <br>
+            Rocket League is a competitive physics-based game of soccer with cars that has a very high skill ceiling.
+            Even experienced players struggle to perform well consistently. This is just one of many reasons why the
+            vast majority of bot creators opt for hardcoded routines rather than machine learning. When I started this
+            project I was not aware that many brilliant members of the RLBot community had already concluded that it is
+            not feasible to train a model well on human replay data.
+            <br><br>
+            Thus, I began writing scripts to collect and process thousands of publicly available replay files, and after
+            many months of programming and learning about neural networks, I feel I have seen some encouraging results.
+            So on this page I will try to explain the approach I took, documenting my failures, successes, and work that
+            remains to be done.
+            <br><br>
+            <text class="source-400">If you can just want to see the code, you can find most of it in
+                <a class="black gray-hover" target="_blank" href="https://github.com/naynaybakebake/rocket_league_ai">
+                    <u>this repository</u></a>.</text>
+            <br><br>
+        </p>
+        <iframe src="https://www.youtube.com/embed/icoNUMLiuw8?rel=0&modestbranding=1" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <p class="label source center">
+            Video of latest bot playing against another ML bot that was trained on another bot's behavior.
+        </p>
         <p class="source center gray">18 June 2021</p>
         </p>
     </div>
