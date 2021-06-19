@@ -609,7 +609,7 @@ footer img:hover {
     }
 }
 
-@media (max-aspect-ratio: 5/7) {
+@media (max-aspect-ratio: 2/3) {
     nav {
         margin-top: -1rem;
     }
