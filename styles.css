@@ -11,28 +11,6 @@
 
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-ExtraBold.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-ExtraBold.woff")
-            format("woff");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Italic.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Italic.woff")
-            format("woff");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
     src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2")
             format("woff2"),
         url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff")
@@ -75,7 +53,7 @@
 }
 
 .pink {
-    color: rgb(236, 108, 185);
+    color: rgb(236, 108, 185); /* github light */
 }
 
 .black {
@@ -89,6 +67,7 @@
 
 .gray {
     color: rgb(106, 115, 125);
+    color: rgb(149, 157, 165);
 }
 
 .bold {
@@ -100,7 +79,7 @@
 }
 
 .cairo {
-    font-family: cairo;
+    /* font-family: cairo; */
     font-family: "Source Sans Pro";
     font-weight: 400;
 }
@@ -123,6 +102,12 @@ body {
 
 img {
     max-width: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 40vw;
+    color: white;
 }
 
 .image-mobile {
@@ -244,7 +229,8 @@ footer {
 .link-item img {
     max-width: min(70%, 50px);
     max-height: min(60%, 50px);
-    opacity: 0.5;
+    opacity: 0.3;
+    transition: opacity 0.25s;
     vertical-align: middle;
 }
 
@@ -308,6 +294,7 @@ footer img:hover {
 }
 
 .card-photo {
+    /* orange i35 */
     /* background-position: 50% 0%; */
     background-position: 10% 100%;
 }
@@ -401,14 +388,13 @@ footer img:hover {
     margin-right: auto;
 }
 
-.gray-hover:hover {
-    color: rgb(106, 115, 125);
+.gray-hover {
+    transition: color 0.25s;
 }
 
-iframe {
-    width: 100%;
-    height: 40vw;
-    color: white;
+.gray-hover:hover {
+    color: rgb(149, 157, 165);
+    font-weight: normal;
 }
 
 .settings-table {
@@ -422,6 +408,7 @@ iframe {
     font-family: "Source Sans Pro";
     text-align: center;
     color: rgb(106, 115, 125);
+    color: rgb(149, 157, 165);
 }
 
 .settings-table-titled {
@@ -451,6 +438,7 @@ iframe {
     .link-card .card-title {
         color: white;
     }
+
     a:hover {
         text-decoration: underline;
     }

@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nathan Baker</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300">
     <link rel="stylesheet" href="/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -44,6 +44,20 @@
             <br><br>
         </p>
     </div>
+
+    <script>
+        const images = document.getElementsByTagName("img");
+        for (let image of images) {
+            image.addEventListener("load", fadeImg);
+            image.style.opacity = "0";
+        }
+
+        function fadeImg() {
+            this.style.transition = "opacity 1s";
+            this.style.opacity = "1";
+        }
+    </script>
+
 </body>
 
 <footer>
@@ -73,7 +87,7 @@
         <text class="gray">2021</text>
         <text class="gray image-desktop">//</text>
         <br class="image-mobile">
-        <text class="blue">Nathan Baker</text>
+        <a href="/" class="blue">Nathan Baker</a>
     </p>
 </footer>
 
