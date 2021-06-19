@@ -33,17 +33,17 @@
     <img class="hidden" src="/assets/jungle2.jpg">
     <div class="portfolio-container">
         <a href="/code" class="red" style="text-decoration: none;">
-            <div class="portfolio-card card-code" style="background-image: url('/assets/code.jpg'); ">
+            <div class="portfolio-card code-card" style="background-image: url('/assets/code.jpg'); ">
                 <h1 class="card-title center mono">&#60;<text class="white">code</text>&#62;</h1>
             </div>
         </a>
         <a href="/photo" class="orange" style="text-decoration: none;">
-            <div class="portfolio-card card-photo" style="background-image: url('/assets/chrain.jpg');">
+            <div class="portfolio-card photo-card" style="background-image: url('/assets/chrain.jpg');">
                 <h1 class="card-title center mono">&#60;<text class="white">photo</text>&#62;</h1>
             </div>
         </a>
         <a href="/video" class="green" style="text-decoration: none;">
-            <div class="portfolio-card card-video" style="background-image: url('/assets/jungle2.jpg');">
+            <div class="portfolio-card video-card" style="background-image: url('/assets/jungle2.jpg');">
                 <h1 class="card-title center mono">&#60;<text class="white">video</text>&#62;</h1>
             </div> <br>
         </a>
@@ -68,9 +68,9 @@
         async function fadeImg() {
             await new Promise(r => setTimeout(r, 1));
             let card = null;
-            if (this.src.includes("code.jpg")) card = document.getElementsByClassName("card-code")[0];
-            else if (this.src.includes("chrain.jpg")) card = document.getElementsByClassName("card-photo")[0];
-            else if (this.src.includes("jungle2.jpg")) card = document.getElementsByClassName("card-video")[0];
+            if (this.src.includes("code.jpg")) card = document.getElementsByClassName("code-card")[0];
+            else if (this.src.includes("chrain.jpg")) card = document.getElementsByClassName("photo-card")[0];
+            else if (this.src.includes("jungle2.jpg")) card = document.getElementsByClassName("video-card")[0];
             card.style.transition = "opacity 1s";
             card.style.opacity = "1";
             this.removeEventListener("load", fadeImg);

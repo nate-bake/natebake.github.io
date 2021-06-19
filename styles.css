@@ -308,17 +308,17 @@ footer img:hover {
     filter: brightness(80%);
 }
 
-.card-code {
+.code-card {
     background-position: 55% 50%;
 }
 
-.card-photo {
+.photo-card {
     /* orange i35 */
     /* background-position: 50% 0%; */
     background-position: 10% 100%;
 }
 
-.card-video {
+.video-card {
     background-position: 49% 19%;
 }
 
