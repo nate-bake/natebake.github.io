@@ -186,7 +186,7 @@ p {
 
 h2 {
     font-size: max(1.25rem, 3vw);
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
     margin-bottom: 0.75rem;
 }
 
@@ -413,7 +413,6 @@ footer img:hover {
 
 .gray-hover:hover {
     color: rgb(149, 157, 165);
-    font-weight: normal;
 }
 
 .settings-table {
@@ -427,7 +426,7 @@ footer img:hover {
     font-family: "Source Sans Pro";
     text-align: center;
     color: rgb(106, 115, 125);
-    color: rgb(149, 157, 165);
+    /* color: rgb(149, 157, 165); */
 }
 
 .settings-table-titled {
