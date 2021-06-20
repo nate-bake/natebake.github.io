@@ -100,7 +100,7 @@
                 silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
                 automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on
                 a dedicated microSD card.
-                <br><br>
+                <br>
             </p>
         </div>
         <div class="section-container" id="processing" style="margin-bottom: -1rem; margin-top: 2rem;">
@@ -134,13 +134,13 @@
                 implement his solution and test it in Rocket League by giving a bot a script of inputs to follow and
                 seeing if they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get
                 on with training.
-                <br><br>
+                <br>
             </p>
         </div>
         <div class="section-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;">
             <h3 class="black center source-400">Model Training</h3>
             <p class="black source">
-                I set up a way to run my replay processing script in parallel with 12 replays at a time in order to
+                I set up my replay processing script to run in parallel with 12 threads in order to
                 speed things up, and concatenated the rows into a series of numpy arrays with roughly 30 input
                 columns and 9 output columns. The input columns describe the state of the game for a particular frame
                 &mdash; ball position, player rotations, velocities, boost amounts, and the like. The output columns are
@@ -153,8 +153,8 @@
                 do donuts for minutes on end. I remember my roommates saying,
                 "<em>Yup, looks like a silver player to me!</em>"
                 But as entertaining as it was, it was nowhere near the desired outcome. The model did not appear to be
-                making any sense of the quaternions and coordinate system. I tried adding layers to the network, I tried
-                switching to Euler angles &mdash; all to no avail. It saw no correlation and had essentially converged
+                making any sense of the quaternions and coordinate system. I tried adding layers to the network. I tried
+                using Euler angles instead. But it still wasn't finding any correlations and had essentially converged
                 to the mean of all the rows. So, I tried to move more of the computation up front and provide a better
                 explanation of the state of the game.
                 <br class="image-mobile"><br class="image-mobile">
@@ -172,7 +172,7 @@
                 the challenge of loading the dataset in ram,
                 weighting different outputs and classes,
                 very different results from model to model, don't remember best hyperparameters, long training time.
-                <br><br>
+                <br>
             </p>
         </div>
         <div class="section-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;">
