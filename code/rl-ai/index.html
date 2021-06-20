@@ -31,7 +31,7 @@
         <div class="link-container" style="margin: -0.5rem;"></div>
         <h2 class="black center source-600">Rocket League AI</h2>
         <p class="black source">
-            By far my biggest programming project that I have pursued outside of school has been to create a bot
+            By far the biggest programming project that I've pursued outside of school has been to create a bot
             that can learn to play Rocket League by analyzing replays of human gameplay.
             <br>
         </p>
@@ -39,7 +39,7 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         <p class="label source center">
-            A close match between my bot and a Psyonix Rookie bot.
+            A <span class="image-desktop">close</span> match between my bot and a Psyonix Rookie bot.
         </p>
         <p class="black source">
             Rocket League is a competitive physics-based game of car soccer with a very high skill ceiling.
@@ -67,7 +67,7 @@
                     </u></a><br class="image-mobile">
             </div>
         </div> -->
-        <p class="source-400">If you want to skip straight to the code, you can find most of it in
+        <p class="source-400">If you want to skip straight to the code, you can find it in
             <a class="black gray-hover" target="_blank" href="https://github.com/naynaybakebake/rocket_league_ai">
                 <u>this repository</u></a>.
         </p>
@@ -129,12 +129,25 @@
         <div class="link-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Model Training</h3>
         <p class="black source">
-            Here we talk about all of the tensorflow stuff.<br><br><br><br><br><br><br><br><br><br><br><br>
+            explain why i am using 92 inputs and 7 outputs per frame,
+            combining boolean and analog losses and activations,
+            the challenge of loading the dataset in ram,
+            the issue of averaging out two very different decisions,
+            weighting different outputs and classes,
+            very different results from model to model, don't remember best hyperparameters, long training time.
+            <br><br>
         </p>
         <div class="link-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Thoughts</h3>
         <p class="black source">
-            Here we talk about the bot.py file in RLBot.<br><br><br><br><br><br><br><br><br><br><br><br>
+            Still lost to the easiest bot in Rocket League.
+            Not as effective as the ML bots that were trained on other bots.
+            Improvements?
+            Steering very important. Need to find better ways to fill in gaps.
+            Refine physics reconstruction altogether. Want to get bot_scripted to match replay very closely.
+            I think the model can get more out of current dataset.
+            Can play around more with network size, variable weights.
+            <br><br>
         </p>
         <p class="source center gray">4 February 2021</p>
     </div>
