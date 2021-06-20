@@ -529,6 +529,10 @@ footer img:hover {
         max-height: min(85vh, 46.67vw);
     }
 
+    iframe {
+        height: 35vw;
+    }
+
     @media (hover: hover) and (pointer: fine) {
         .photo {
             max-height: min(85vh, 41vw);
@@ -555,6 +559,10 @@ footer img:hover {
 
     .photo {
         max-height: min(85vh, 33vw);
+    }
+
+    iframe {
+        height: 25vw;
     }
 
     @media (hover: hover) and (pointer: fine) {

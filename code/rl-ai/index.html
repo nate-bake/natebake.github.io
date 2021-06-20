@@ -35,28 +35,26 @@
             that can learn to play Rocket League by analyzing replays of human gameplay.
             <br>
         </p>
-        <iframe src="https://www.youtube.com/embed/icoNUMLiuw8?rel=0&modestbranding=1" frameborder="0"
+        <iframe src="https://www.youtube.com/embed/-928X5gDjzc?rel=0&modestbranding=1" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         <p class="label source center">
-            Video of 'naynaybotbot' versus 'Rookie' bot.
+            A close match between my bot and a Psyonix Rookie bot.
         </p>
         <p class="black source">
-            Rocket League is a competitive physics-based game of car soccer that has a very high skill ceiling.
+            Rocket League is a competitive physics-based game of car soccer with a very high skill ceiling.
             Even experienced players struggle to perform well consistently, which is one reason why the
-            vast majority of bot creators opt for defined routines rather than machine learning. When I started I was
+            vast majority of bot creators opt for defined routines rather than machine learning. When I started, I was
             not aware that many brilliant members of the <a class="black gray-hover"
                 href="https://rlbot.org/"><u>RLBot</u></a> community
             had already attempted this and concluded that human replay data is not sufficient for model training.
             <br><br>
             Thus, I began writing my own scripts to collect and process thousands of publicly available replay files,
-            and after
-            months of programming and tinkering with neural networks, I feel I have seen some encouraging results.
-            So this is where I will try to explain the approach I took, documenting my failures, successes, and work
-            that
-            remains to be done.
+            and after months of programming and tinkering with neural networks, I feel I have seen some encouraging
+            results. So this is where I will try to explain the approach I took, documenting my failures, successes, and
+            work that remains to be done.
             <br>
-        <div class="table-of-contents">
+            <!-- <div class="table-of-contents">
             <div class="black source-400">Table of Contents:&nbsp;&nbsp;</div>
             <div>
                 &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('collection');"><u>Data
@@ -65,11 +63,11 @@
                         Processing</u></a><br class="image-mobile">
                 &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('training')"><u>Model
                         Training</u></a><br class="image-mobile">
-                &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('integration')"><u>RL
-                        Integration</u></a><br class="image-mobile">
+                &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('thoughts')"><u>Thoughts
+                    </u></a><br class="image-mobile">
             </div>
-        </div>
-        <p class="source-400">If you can just want to see the code, you can find most of it in
+        </div> -->
+        <p class="source-400">If you want to skip straight to the code, you can find most of it in
             <a class="black gray-hover" target="_blank" href="https://github.com/naynaybakebake/rocket_league_ai">
                 <u>this repository</u></a>.
         </p>
@@ -77,20 +75,62 @@
         <div class="link-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Data Collection</h3>
         <p class="black source">
-            Here we talk about data collection.<br><br><br><br><br><br><br><br><br><br><br><br>
+            Initially, my ambitous self wanted to gather as many of my own replays as I could. I wanted a bot that could
+            perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever the bot ends up
+            making a poor decision [<em>which is inevitable</em>], it will likely end up in a situation that a Grand
+            Champ player would never find himself in, and thus it would struggle to recover. This sort of scenario is
+            apparent in the video at TIMESTAMP HERE.
+            <br><br>
+            To address this, I saw two necessary changes. First, I needed as much data as possible. The more matches at
+            our disposal, the more situations we are able to recover from. Secondly, I decided to lower my standards and
+            gather replays from a much lower rank set like silver. I figured that the increase in diversity would be
+            worth the additional player mistakes.
+            <br><br>
+            The obvious source of this data would be
+            <a class="black gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
+            where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
+            silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
+            automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on a
+            dedicated microSD card.
+            <br><br>
         </p>
         <div class="link-container" id="processing" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Replay Processing</h3>
         <p class="black source">
-            Here we talk about processing replays.<br><br><br><br><br><br><br><br><br><br><br><br>
+            Next came the very important step of figuring out what data I needed and how to extract it. I could not make
+            any sense of the replay file format, but thankfully there are people who've made parsers like
+            <a class="black gray-hover" target="_blank" href="https://github.com/tfausak/rattletrap">
+                <u>Rattletrap</u>
+            </a>
+            that convert them to javascript object notation. Slowly but surely, I learned how things were represented
+            and developed additional Python scripts to organize the data with class structures and arrays.
+            <br><br>
+            It was at this point that I realized how limited the replays actually are. The data is saved at a
+            'resolution' of 30 frames per second, which might be acceptable if it weren't for the fact that many of
+            these frames do not actually contain updated physics data. One car may have a new rigid_body_state
+            defined at frame 189, while the other car does not. These gaps presented a <big></big> problem that I
+            tried to resolve with simple linear interpolation [<em>which became difficult to wrap my head
+                around when it came to quaternions and rotation matrices</em>].
+            <br><br>
+            The next great obstacle came when discovering that replays do not actually contain all the controller inputs
+            from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was going well.
+            I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist. But
+            <a href="https://samuelpmish.github.io/notes/RocketLeague/aerial_control_inverse/" target="_blank"
+                class="black gray-hover"><u>Sam Mish</u>
+            </a>
+            figured out a way to solve for those inputs based on the change in angular velocities. I was able to
+            implement his solution and test it in Rocket League by giving a bot a list of inputs to follow and seeing if
+            they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get on with
+            training.
+            <br><br>
         </p>
         <div class="link-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Model Training</h3>
         <p class="black source">
             Here we talk about all of the tensorflow stuff.<br><br><br><br><br><br><br><br><br><br><br><br>
         </p>
-        <div class="link-container" id="integration" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
-        <h3 class="black center source-400">RL Integration</h3>
+        <div class="link-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
+        <h3 class="black center source-400">Thoughts</h3>
         <p class="black source">
             Here we talk about the bot.py file in RLBot.<br><br><br><br><br><br><br><br><br><br><br><br>
         </p>
