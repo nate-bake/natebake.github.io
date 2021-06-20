@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,8 @@
             that can learn to play Rocket League by analyzing replays of human gameplay.
             <br>
         </p>
-        <iframe src="https://www.youtube.com/embed/-928X5gDjzc?rel=0&modestbranding=1" frameborder="0"
+        <iframe id="player" src="https://www.youtube.com/embed/-928X5gDjzc?rel=0&modestbranding=1&enablejsapi=1"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         <p class="label source center">
@@ -45,11 +47,11 @@
             Rocket League is a competitive physics-based game of car soccer with a very high skill ceiling.
             Even experienced players struggle to perform well consistently, which is one reason why the
             vast majority of bot creators opt for defined routines rather than machine learning. When I started, I was
-            not aware that many brilliant members of the <a class="black gray-hover"
+            not aware that many brilliant members of the <a class="black gray-hover" target="_blank"
                 href="https://rlbot.org/"><u>RLBot</u></a> community
-            had already attempted this and concluded that human replay data is not sufficient for model training.
+            had already attempted this and found human replay data to be insufficient for model training.
             <br><br>
-            Thus, I began writing my own scripts to collect and process thousands of publicly available replay files,
+            Thus, I began writing scripts to collect and process thousands of publicly available replay files,
             and after months of programming and tinkering with neural networks, I feel I have seen some encouraging
             results. So this is where I will try to explain the approach I took, documenting my failures, successes, and
             work that remains to be done.
@@ -75,24 +77,28 @@
         <div class="link-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Data Collection</h3>
         <p class="black source">
-            Initially, my ambitous self wanted to gather as many of my own replays as I could. I wanted a bot that could
-            perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever the bot ends up
-            making a poor decision [<em>which is inevitable</em>], it will likely end up in a situation that a Grand
-            Champ player would never find himself in, and thus it would struggle to recover. This sort of scenario
-            occurred in the above video, at around the 6:40 mark. It drives too far into the goal and lands
-            awkwardly. It happens. The problem is that it then spends a lot of time powersliding for no apparent reason,
-            rather than defending.
+            <img class="side-image image-desktop" src="/assets/rl-ai/fetch.PNG">
+            Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a bot
+            that could perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever the bot
+            ends up making a poor decision [<em>which is inevitable</em>], it will likely end up in a situation that a
+            Grand Champ player would never find himself in, and thus it would struggle to recover. This sort of scenario
+            occurred in the above video, at around the <a class="black gray-hover"
+                href="javascript:seek(400);"><u>6:40</u></a> mark. It drives
+            too far into the goal and lands awkwardly. It happens. The problem is that it then spends a lot of time
+            powersliding for no apparent reason, rather than defending.
             <br><br>
-            To limit this sort of thing, I saw two necessary changes. First, I needed as much data as possible. The more
-            matches at our disposal, the more situations we are able to recover from. Secondly, I decided to lower my
-            standards and gather replays from a much lower rank set like silver. I figured that the increase in
+            To limit this sort of thing, I saw two necessary changes. First, I needed as much data as possible. The
+            more matches at our disposal, the more situations we are able to recover from. Secondly, I decided to lower
+            my standards and gather replays from a much lower rank set like silver. I figured that the increase in
             diversity would be worth the additional player mistakes.
             <br><br>
+            <img class="image-mobile" src="/assets/rl-ai/fetch.PNG"><br class="image-mobile"><br class="image-mobile">
             The obvious source of this data would be
             <a class="black gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
             where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
             silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
-            automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on a
+            automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on
+            a
             dedicated microSD card.
             <br><br>
         </p>
@@ -107,12 +113,11 @@
             that convert them to javascript object notation. Slowly but surely, I learned how things were represented
             and developed additional Python scripts to organize the data with class structures and arrays.
             <br><br>
-            It was at this point that I realized how limited the replays actually are. The data is saved at a
+            At this point that I realized how limited the replays actually are. The data is saved at a
             resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
-            physics data. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while the other
-            car does not. These gaps presented a <big></big> problem that I tried to resolve with simple linear
-            interpolation [<em>which became difficult to wrap my head around when it came to quaternions and rotation
-                matrices</em>].
+            physics information. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while the
+            other car does not. These gaps present a big problem, and currently my only answer is simple linear
+            interpolation [<em>which is not really so simple with quaternions and rotation matrices</em>].
             <br><br>
             The next great obstacle came when discovering that replays do not actually contain all the controller inputs
             from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was going well.
@@ -121,7 +126,8 @@
                 class="black gray-hover"><u>Sam Mish</u>
             </a>
             figured out a way to solve for those inputs based on the change in angular velocities. I was able to
-            implement his solution and test it in Rocket League by giving a bot a list of inputs to follow and seeing if
+            implement his solution and test it in Rocket League by giving a bot a script of inputs to follow and seeing
+            if
             they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get on with
             training.
             <br><br>
@@ -132,7 +138,6 @@
             explain why i am using 92 inputs and 7 outputs per frame,
             combining boolean and analog losses and activations,
             the challenge of loading the dataset in ram,
-            the issue of averaging out two very different decisions,
             weighting different outputs and classes,
             very different results from model to model, don't remember best hyperparameters, long training time.
             <br><br>
@@ -140,6 +145,16 @@
         <div class="link-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Thoughts</h3>
         <p class="black source">
+            From what I have read about machine learning, there is this notion that more data will always improve
+            performance &mdash; that enough rows can help a model see through the noise and find overall trends. But I
+            have a hunch that such generalization may actually produce negative side effects for this project.
+            Consider the case where an attacking player loses possesion and has low boost.
+            <em>Do you try to stay on the ball, or get boost and shadow defend?</em>
+            The answer depends on the person's playstyle. Some go for
+            boost, some go for ball. And if your dataset is so large to where it is split close to 50/50, the bot will
+            converge at a decision that is neither push nor retreat. It might end up doing something in between, which
+            is undoubtedly the worst course of action.
+            <br><br>
             Still lost to the easiest bot in Rocket League.
             Not as effective as the ML bots that were trained on other bots.
             Improvements?
@@ -173,6 +188,24 @@
             document.getElementById(id).scrollIntoView({
                 behavior: "smooth"
             });
+        }
+
+        var player;
+
+        if (!window.YT) {
+            $.getScript("https://www.youtube.com/iframe_api");
+            window.onYouTubeIframeAPIReady = setup_player;
+        } else {
+            window.onYouTubeIframeAPIReady = () => { };
+            setup_player();
+        }
+
+        function setup_player() {
+            player = new YT.Player('player', {});
+        }
+
+        function seek(seconds) {
+            player.seekTo(seconds, true);
         }
 
     </script>
