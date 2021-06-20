@@ -121,7 +121,7 @@
                 the other car does not. These gaps present a big problem, and currently my only answer is simple linear
                 interpolation [which really wasn't so simple with quaternions and rotation matrices].
                 <br><br>
-                <img src="/assets/rl-ai/notes.jpg" loading="lazy">
+                <img src="/assets/rl-ai/notes.jpg" style="width: 100%;" loading="lazy">
                 <br><br>
                 The next great obstacle came when discovering that replays do not actually contain all the controller
                 inputs from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was
@@ -181,6 +181,8 @@
                 weighted binary cross entropy for the loss, while the rest use hyperbolic tangent activation and RMSE
                 for the loss. While initially confusing to set up, I think this is a much better configuration because
                 it allows all outputs to be computed at once, leading to just one associated loss.
+                <br><br>
+                <img src="/assets/rl-ai/notes3.jpg" style="width: 100%;" loading="lazy">
                 <br><br>
                 After tons of trial and error with network structures and training parameters, the best model I have
                 achieved so far is what starred in the video at the top of the page. But since then I have run many more
