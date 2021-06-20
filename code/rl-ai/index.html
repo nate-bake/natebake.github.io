@@ -93,7 +93,7 @@
             diversity would be worth the additional player mistakes.
             <br><br>
             <img class="image-mobile" src="/assets/rl-ai/fetch.PNG"><br class="image-mobile"><br class="image-mobile">
-            The obvious source of this data would be
+            The obvious source of this data was
             <a class="black gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
             where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
             silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
@@ -146,11 +146,12 @@
             After following some quick tutorials for multi-output regression models and hooking that up to RLBot, I was
             able to see an autonomous car out on the pitch. And it was hilarious. I watched it flail around and do
             donuts for minutes on end. I remember my roommates saying, "<em>Yup, looks like a silver player to me!</em>"
-            But as entertaining as it was, it was nowhere near the desired outcome. The model was not making any sense
-            of the quaternions and coordinate positions. I tried adding layers to the network, I tried switching to
-            Euler angles &mdash; all to no avail. It saw no correlations and had essentially converged to the mean of
-            all the rows. So what did I do? I gave it a headstart on its computation.
-            <br><br>
+            But as entertaining as it was, it was nowhere near the desired outcome. The model did not appear to be
+            making any sense of the quaternions and coordinate system. I tried adding layers to the network, I tried
+            switching to Euler angles &mdash; all to no avail. It saw no correlation and had essentially converged to
+            the mean of all the rows. So, I tried to move more of the computation up front and provide a better
+            explanation of the state of the game.
+            <br class="image-mobile"><br class="image-mobile">
             <img class="image-mobile" src="/assets/rl-ai/bot-gif.gif" style="width: 100%;">
             <br><br>
             I ended up stretching the 30 or so inputs out to 92 parameters per frame. I abandoned the quaternions, used
