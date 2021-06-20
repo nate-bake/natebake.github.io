@@ -162,11 +162,12 @@
                 <br><br>
                 I ended up stretching the 30 or so inputs out to 92 parameters per frame. I abandoned the quaternions,
                 used rotation matrices instead, and added new copies of every variable in the reference frame of the
-                car's orientation. So I was not only telling the bot that the ball was at the middle of the field, I
-                also told it that the ball was behind him, and that the opponent was moving toward him. I spent way too
-                long debugging the rotation matrices before finally discovering that the replays seem to switch back and
-                forth between right-hand and left-hand rule for the z-axis. Once I got that sorted out and normalized
-                all values to [-1,1], the new model was at least driving around, rather than flopping around.
+                car's orientation. No longer was I just telling the bot that the ball was at the middle of the field, I
+                was also telling it that the ball was behind him, and that the opponent was moving away from him. I
+                spent way too long debugging the rotation matrices before discovering that the replays seem to
+                switch back and forth between left-hand and right-hand rules for representing the z-axis. Once I got
+                that sorted out and normalized all values to [-1,1], the new model was at least driving around, rather
+                than flopping around.
                 <br><br>
                 explain combining boolean and analog losses and activations,
                 the challenge of loading the dataset in ram,
