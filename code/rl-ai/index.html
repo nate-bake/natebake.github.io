@@ -29,7 +29,7 @@
         </ul>
     </nav>
     <div>
-        <div class="link-container" style="margin: -0.5rem;"></div>
+        <div class="section-container" style="margin: -0.5rem;"></div>
         <h2 class="black center source-600">Rocket League AI</h2>
         <p class="black source">
             By far the biggest programming project that I've pursued outside of school has been creating a bot
@@ -47,9 +47,9 @@
             Rocket League is a competitive physics-based game of car soccer with a very high skill ceiling.
             Even experienced players struggle to perform well consistently, which is one reason why the
             vast majority of bot creators opt for defined routines rather than machine learning. When I started, I was
-            not aware that many brilliant members of the <a class="black gray-hover" target="_blank"
-                href="https://rlbot.org/"><u>RLBot</u></a> community
-            had already attempted this and found human replay data to be insufficient for model training.
+            not aware that many brilliant members of the
+            <a class="black gray-hover" target="_blank" href="https://rlbot.org/"><u>RLBot</u></a>
+            community had already attempted this and found human replay data to be insufficient for model training.
             <br><br>
             Thus, I began writing scripts to collect and process thousands of publicly available replay files,
             and after months of programming and tinkering with neural networks, I feel I have seen some encouraging
@@ -69,127 +69,135 @@
                     </u></a><br class="image-mobile">
             </div>
         </div> -->
+        </p>
         <p class="source-400">If you want to skip straight to the code, you can find it in
             <a class="black gray-hover" target="_blank" href="https://github.com/naynaybakebake/rocket_league_ai">
                 <u>this repository</u></a>.
         </p>
-        </p>
-        <div class="link-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
-        <h3 class="black center source-400">Data Collection</h3>
-        <p class="black source">
-            <img class="side-image-right image-desktop" src="/assets/rl-ai/fetch.PNG">
-            Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a bot
-            that could perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever the bot
-            ends up making a poor decision [<em>which is inevitable</em>], it will likely end up in a situation that a
-            Grand Champ player would never find himself in, and thus it would struggle to recover. This sort of scenario
-            occurred in the above video, at around the <a class="black gray-hover"
-                href="javascript:seek(400);"><u>6:40</u></a> mark. It drives
-            too far into the goal and lands awkwardly. It happens. The problem is that it then spends a lot of time
-            powersliding for no apparent reason, rather than defending.
-            <br><br>
-            To limit this sort of thing, I saw two necessary changes. First, I needed as much data as possible. The
-            more matches at our disposal, the more situations we are able to recover from. Secondly, I decided to lower
-            my standards and gather replays from a much lower rank set like silver. I figured that the increase in
-            diversity would be worth the additional player mistakes.
-            <br><br>
-            <img class="image-mobile" src="/assets/rl-ai/fetch.PNG"><br class="image-mobile"><br class="image-mobile">
-            The obvious source of this data was
-            <a class="black gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
-            where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
-            silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
-            automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on
-            a
-            dedicated microSD card.
-            <br><br>
-        </p>
-        <div class="link-container" id="processing" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
-        <h3 class="black center source-400">Replay Processing</h3>
-        <p class="black source">
-            Next came the very important step of figuring out what data I needed and how to extract it. I could not make
-            any sense of the replay file format, but thankfully there are people who've made parsers like
-            <a class="black gray-hover" target="_blank" href="https://github.com/tfausak/rattletrap">
-                <u>Rattletrap</u>
-            </a>
-            that convert them to javascript object notation. Slowly but surely, I learned how things were represented
-            and developed additional Python scripts to organize the data with class structures and arrays.
-            <br><br>
-            At this point that I realized how limited the replays actually are. The data is saved at a
-            resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
-            physics information. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while the
-            other car does not. These gaps present a big problem, and currently my only answer is simple linear
-            interpolation [<em>which really wasn't so simple with quaternions and rotation matrices</em>].
-            <br><br>
-            The next great obstacle came when discovering that replays do not actually contain all the controller inputs
-            from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was going well.
-            I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist. But
-            <a href="https://samuelpmish.github.io/notes/RocketLeague/aerial_control_inverse/" target="_blank"
-                class="black gray-hover"><u>Sam Mish</u>
-            </a>
-            figured out a way to solve for those inputs based on the change in angular velocities. I was able to
-            implement his solution and test it in Rocket League by giving a bot a script of inputs to follow and seeing
-            if they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get on with
-            training.
-            <br><br>
-            <img src="/assets/rl-ai/notes.jpg">
-        </p>
-        <div class="link-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
-        <h3 class="black center source-400">Model Training</h3>
-        <p class="black source">
-            I set up a way to run my replay processing script in parallel with 12 replays at a time in order to speed up
-            the process, and concatenated the rows into a series of numpy arrays with roughly 30 input columns and 9
-            output columns. The input columns describe the state of the game for a particular frame &mdash; ball
-            position, player rotations, velocities, boost amounts, and the like. The output columns are what the
-            player's inputs were for the next frame. That may sound contradictory, but controller inputs are the output
-            that we want.
-            <br><br>
-            <img class="side-image-left image-desktop" src="/assets/rl-ai/bot-gif.gif">
-            After following some quick tutorials for multi-output regression models and hooking that up to RLBot, I was
-            able to see an autonomous car out on the pitch. And it was hilarious. I watched it flail around and do
-            donuts for minutes on end. I remember my roommates saying, "<em>Yup, looks like a silver player to me!</em>"
-            But as entertaining as it was, it was nowhere near the desired outcome. The model did not appear to be
-            making any sense of the quaternions and coordinate system. I tried adding layers to the network, I tried
-            switching to Euler angles &mdash; all to no avail. It saw no correlation and had essentially converged to
-            the mean of all the rows. So, I tried to move more of the computation up front and provide a better
-            explanation of the state of the game.
-            <br class="image-mobile"><br class="image-mobile">
-            <img class="image-mobile" src="/assets/rl-ai/bot-gif.gif" style="width: 100%;">
-            <br><br>
-            I ended up stretching the 30 or so inputs out to 92 parameters per frame. I abandoned the quaternions, used
-            rotation matrices instead, and added new copies of every variable in the reference frame of the car's
-            orientation. So I was not only telling the bot that the ball was at the middle of the field, I also told it
-            that the ball was behind him, and that the opponent was moving toward him. I spent way too long debugging
-            the rotation matrices before finally discovering that the replays seem to switch back and forth between
-            right-hand and left-hand rule for the z-axis. Once I got that sorted out and normalized all values to
-            [-1,1], the new model was at least driving around, rather than flopping around.
-            <br><br>
-            explain combining boolean and analog losses and activations,
-            the challenge of loading the dataset in ram,
-            weighting different outputs and classes,
-            very different results from model to model, don't remember best hyperparameters, long training time.
-            <br><br>
-        </p>
-        <div class="link-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
-        <h3 class="black center source-400">Thoughts</h3>
-        <p class="black source">
-            From what I have read about machine learning, there is this notion that more data will always improve
-            performance &mdash; that enough rows can help a model see through the noise and find overall trends. But I
-            have a hunch that such generalization may actually produce negative side effects for this project.
-            Consider the case where an attacking player loses possession and has low boost.
-            <em>Do you try to stay on the ball, or get boost and shadow defend?</em>
-            The answer depends on the person's playstyle. Some go for
-            boost, some go for ball. And if your dataset is so large to where it is split close to 50/50, the bot will
-            converge at a decision that is neither push nor retreat. It might end up doing something in between, which
-            is undoubtedly the worst course of action.
-            <br><br>
-            Still lost to the easiest bot in Rocket League.
-            Not as effective as the ML bots that were trained on other bots.
-            Improvements?
-            Steering very important. Need to find better ways to fill in gaps.
-            Refine physics reconstruction altogether. Want to get bot_scripted to match replay very closely.
-            I think the model can get more out of current dataset.
-            Can play around more with network size, variable weights.
-            <br><br>
-        </p>
+        <div class="section-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;">
+            <h3 class="black center source-400">Data Collection</h3>
+            <p class="black source">
+                <img class="side-image-right image-desktop" src="/assets/rl-ai/fetch.PNG">
+                Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a
+                bot that could perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever
+                the bot ends up making a poor decision [<em>which is inevitable</em>], it will likely end up in a
+                situation that a Grand Champ player would never find himself in, and thus it would struggle to recover.
+                This sort of scenario occurred in the above video, at around the
+                <a class="black gray-hover" href="javascript:seek(400);"><u>6:40</u></a> mark.
+                It drives too far into the goal and lands awkwardly. It happens. The problem is that it then spends a
+                lot of time powersliding for no apparent reason, rather than defending.
+                <br><br>
+                To limit this sort of thing, I saw two necessary changes. First, I needed as much data as possible. The
+                more matches at our disposal, the more situations we are able to recover from. Secondly, I decided to
+                lower my standards and gather replays from a much lower rank set like silver. I figured that the
+                increase in diversity would be worth the additional player mistakes.
+                <br><br>
+                <img class="image-mobile" src="/assets/rl-ai/fetch.PNG"><br class="image-mobile"><br
+                    class="image-mobile">
+                The obvious source of this data was
+                <a class="black gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
+                where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
+                silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
+                automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on
+                a dedicated microSD card.
+                <br><br>
+            </p>
+        </div>
+        <div class="section-container" id="processing" style="margin-bottom: -1rem; margin-top: 2rem;">
+            <h3 class="black center source-400">Replay Processing</h3>
+            <p class="black source">
+                Next came the very important step of figuring out what data I needed and how to extract it. I could not
+                make any sense of the replay file format, but thankfully there are people who've made parsers like
+                <a class="black gray-hover" target="_blank" href="https://github.com/tfausak/rattletrap">
+                    <u>Rattletrap</u>
+                </a>
+                that convert them to javascript object notation. Slowly but surely, I learned how things were
+                represented and developed additional Python scripts to organize the data with class structures and
+                arrays.
+                <br><br>
+                At this point that I realized how limited the replays actually are. The data is saved at a
+                resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
+                physics information. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while
+                the other car does not. These gaps present a big problem, and currently my only answer is simple linear
+                interpolation [<em>which really wasn't so simple with quaternions and rotation matrices</em>].
+                <br><br>
+                <img src="/assets/rl-ai/notes.jpg">
+                <br><br>
+                The next great obstacle came when discovering that replays do not actually contain all the controller
+                inputs from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was
+                going well.
+                I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist. But
+                <a href="https://samuelpmish.github.io/notes/RocketLeague/aerial_control_inverse/" target="_blank"
+                    class="black gray-hover"><u>Sam Mish</u>
+                </a>
+                figured out a way to solve for those inputs based on the change in angular velocities. I was able to
+                implement his solution and test it in Rocket League by giving a bot a script of inputs to follow and
+                seeing if they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get
+                on with training.
+                <br><br>
+            </p>
+        </div>
+        <div class="section-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;">
+            <h3 class="black center source-400">Model Training</h3>
+            <p class="black source">
+                I set up a way to run my replay processing script in parallel with 12 replays at a time in order to
+                speed things up, and concatenated the rows into a series of numpy arrays with roughly 30 input
+                columns and 9 output columns. The input columns describe the state of the game for a particular frame
+                &mdash; ball position, player rotations, velocities, boost amounts, and the like. The output columns are
+                what the player's inputs were for the next frame. That may sound contradictory, but controller inputs
+                are the output that we want.
+                <br><br>
+                <img class="side-image-left image-desktop" src="/assets/rl-ai/bot-gif.gif">
+                After following some quick tutorials for multi-output regression models and hooking that up to RLBot, I
+                was able to see an autonomous car out on the pitch. And it was hilarious. I watched it flail around and
+                do donuts for minutes on end. I remember my roommates saying,
+                "<em>Yup, looks like a silver player to me!</em>"
+                But as entertaining as it was, it was nowhere near the desired outcome. The model did not appear to be
+                making any sense of the quaternions and coordinate system. I tried adding layers to the network, I tried
+                switching to Euler angles &mdash; all to no avail. It saw no correlation and had essentially converged
+                to the mean of all the rows. So, I tried to move more of the computation up front and provide a better
+                explanation of the state of the game.
+                <br class="image-mobile"><br class="image-mobile">
+                <img class="image-mobile" src="/assets/rl-ai/bot-gif.gif" style="width: 100%;">
+                <br><br>
+                I ended up stretching the 30 or so inputs out to 92 parameters per frame. I abandoned the quaternions,
+                used rotation matrices instead, and added new copies of every variable in the reference frame of the
+                car's orientation. So I was not only telling the bot that the ball was at the middle of the field, I
+                also told it that the ball was behind him, and that the opponent was moving toward him. I spent way too
+                long debugging the rotation matrices before finally discovering that the replays seem to switch back and
+                forth between right-hand and left-hand rule for the z-axis. Once I got that sorted out and normalized
+                all values to [-1,1], the new model was at least driving around, rather than flopping around.
+                <br><br>
+                explain combining boolean and analog losses and activations,
+                the challenge of loading the dataset in ram,
+                weighting different outputs and classes,
+                very different results from model to model, don't remember best hyperparameters, long training time.
+                <br><br>
+            </p>
+        </div>
+        <div class="section-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;">
+            <h3 class="black center source-400">Thoughts</h3>
+            <p class="black source">
+                From what I have read about machine learning, there is this notion that more data will always improve
+                performance &mdash; that enough rows can help a model see through the noise and find overall trends. But
+                I have a hunch that such generalization may actually produce negative side effects for this project.
+                Consider the case where an attacking player loses possession and has low boost.
+                <em>Do you try to stay on the ball, or get boost and shadow defend?</em>
+                The answer depends on the person's playstyle. Some go for
+                boost, some go for ball. And if your dataset is so large to where it is split close to 50/50, the bot
+                will converge at a decision that is neither push nor retreat. It might end up doing something in
+                between,which is undoubtedly the worst course of action.
+                <br><br>
+                Still lost to the easiest bot in Rocket League.
+                Not as effective as the ML bots that were trained on other bots.
+                Improvements?
+                Steering very important. Need to find better ways to fill in gaps.
+                Refine physics reconstruction altogether. Want to get bot_scripted to match replay very closely.
+                I think the model can get more out of current dataset.
+                Can play around more with network size, variable weights.
+                <br><br>
+            </p>
+        </div>
         <p class="source center gray">4 February 2021</p>
     </div>
 
