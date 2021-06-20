@@ -77,7 +77,7 @@
         <div class="section-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;">
             <h3 class="black center source-400">Data Collection</h3>
             <p class="black source">
-                <img class="side-image-right image-desktop" src="/assets/rl-ai/fetch.PNG">
+                <img class="side-image-right image-desktop" src="/assets/rl-ai/fetch.PNG" loading="lazy">
                 Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a
                 bot that could perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever
                 the bot ends up making a poor decision [<em>which is inevitable</em>], it will likely end up in a
@@ -92,8 +92,8 @@
                 lower my standards and gather replays from a much lower rank set like silver. I figured that the
                 increase in diversity would be worth the additional player mistakes.
                 <br><br>
-                <img class="image-mobile" src="/assets/rl-ai/fetch.PNG"><br class="image-mobile"><br
-                    class="image-mobile">
+                <img class="image-mobile" src="/assets/rl-ai/fetch.PNG" loading="lazy">
+                <br class="image-mobile"><br class="image-mobile">
                 The obvious source of this data was
                 <a class="black gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
                 where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
@@ -121,7 +121,7 @@
                 the other car does not. These gaps present a big problem, and currently my only answer is simple linear
                 interpolation [<em>which really wasn't so simple with quaternions and rotation matrices</em>].
                 <br><br>
-                <img src="/assets/rl-ai/notes.jpg">
+                <img src="/assets/rl-ai/notes.jpg" loading="lazy">
                 <br><br>
                 The next great obstacle came when discovering that replays do not actually contain all the controller
                 inputs from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was
@@ -147,7 +147,7 @@
                 what the player's inputs were for the next frame. That may sound contradictory, but controller inputs
                 are the output that we want.
                 <br><br>
-                <img class="side-image-left image-desktop" src="/assets/rl-ai/bot-gif.gif">
+                <img class="side-image-left image-desktop" src="/assets/rl-ai/bot-gif.gif" loading="lazy">
                 After following some quick tutorials for multi-output regression models and hooking that up to RLBot, I
                 was able to see an autonomous car out on the pitch. And it was hilarious. I watched it flail around and
                 do donuts for minutes on end. I remember my roommates saying,
@@ -158,7 +158,7 @@
                 to the mean of all the rows. So, I tried to move more of the computation up front and provide a better
                 explanation of the state of the game.
                 <br class="image-mobile"><br class="image-mobile">
-                <img class="image-mobile" src="/assets/rl-ai/bot-gif.gif" style="width: 100%;">
+                <img class="image-mobile" src="/assets/rl-ai/bot-gif.gif" style="width: 100%;" loading="lazy">
                 <br><br>
                 I ended up stretching the 30 or so inputs out to 92 parameters per frame. I abandoned the quaternions,
                 used rotation matrices instead, and added new copies of every variable in the reference frame of the
