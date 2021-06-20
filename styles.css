@@ -435,6 +435,7 @@ footer img:hover {
     display: none !important;
     user-select: none;
     padding-bottom: 6rem;
+    margin-top: 0;
 }
 
 .slick-left:hover,
