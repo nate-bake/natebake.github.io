@@ -158,17 +158,18 @@
                 to the mean of all the rows. So, I tried to move more of the computation up front and provide a better
                 explanation of the state of the game.
                 <br class="image-mobile"><br class="image-mobile">
-                <img class="image-mobile" src="/assets/rl-ai/bot-gif.gif" style="width: 100%;" loading="lazy">
+                <img class="image-mobile" src="/assets/rl-ai/bot.gif" style="width: 100%;" loading="lazy">
                 <br><br>
-                I ended up stretching the 30 or so inputs out to 92 parameters per frame. I abandoned the quaternions,
+                I ended up stretching the 30 or so inputs out to 92 parameters per frame. [I also condensed the output
+                vector down to 7 by merging dodge with jump and combining steer and yaw.] I abandoned the quaternions,
                 used rotation matrices instead, and added new copies of every variable in the reference frame of the
                 car's orientation. No longer was I just telling the bot that the ball was at the middle of the field, I
-                was also telling it that the ball was behind him, and that the opponent was moving away from him. I
-                spent way too long debugging the rotation matrices before discovering that the replays seem to
-                switch back and forth between left-hand and right-hand rules for representing the z-axis. I also
-                condensed the output vector down to 7 by merging dodge with jump and combining steer and yaw. Once I got
-                that sorted out and normalized all the values, the new model was at least driving around, rather
-                than flopping around.
+                was also telling it that the ball was behind him, and that the opponent was moving away from him. [If
+                you're curious, all 99 columns are listed in the write_frame() function of my json processor script.] I
+                spent a long time debugging the rotation matrices before discovering that the replays seem to switch
+                back and forth between left-hand and right-hand rules for representing the z-axis. Once I got that
+                sorted out and normalized all the values, the new model was at least driving around, rather than
+                flopping around.
                 <br><br>
                 One of the unique challenges of this machine learning problem is that there is a mix of output types.
                 Some are booleans [boost, jump, handbrake] which resolve to 0 or 1, while others are analog [steer,
@@ -187,8 +188,8 @@
                 optimizer with a learning rate of 0.01 and a momentum constant of 0.99, and I know the network size
                 wasn't too large &mdash; maybe a few hidden layers with size 800. As far as batch size and training
                 time, I'm not sure. But I haven't had the patience to train for lots of epochs because it takes a very
-                long time to go through 50GB of memory mapped data [since that doesn't fit in my RAM]. I hope to do a
-                better job of logging my experiments and maybe I can include some TensorBoard charts here in the future.
+                long time to go through 50GB of memory-mapped data. I hope to do a better job of logging my experiments
+                and maybe I can include some TensorBoard charts here in the future.
                 <br>
             </p>
         </div>
