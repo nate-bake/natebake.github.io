@@ -145,7 +145,7 @@
                 columns and 9 output columns. The input columns describe the state of the game for a particular frame
                 &mdash; ball position, player rotations, velocities, boost amounts, and the like. The output columns are
                 what the player's inputs were for the next frame. That may sound contradictory, but controller inputs
-                are the output that we want.
+                are the outputs that we want.
                 <br><br>
                 <img class="side-image-left image-desktop" src="/assets/rl-ai/bot-gif.gif" loading="lazy">
                 After following some quick multi-output regression tutorials and hooking my model up to RLBot, I
@@ -154,7 +154,7 @@
                 <em>"Yup, looks like a silver player to me!"</em>
                 But as entertaining as it was, this was nowhere near the desired outcome. The model did not appear to be
                 making any sense of the quaternions and coordinate system. I tried adding layers to the network. I tried
-                using Euler angles instead. Yet it still didn't find any correlations and had essentially converged
+                using Euler angles instead. Yet it still hadn't found any correlations and had essentially converged
                 to the mean of all the rows. So, I tried to move more of the computation up front and provide a better
                 explanation of the state of the game.
                 <br class="image-mobile"><br class="image-mobile">
@@ -212,13 +212,13 @@
                 validation losses show no signs of overfitting, so I see no reason to fill more storage space with data
                 that might not actually help.
                 <br><br>
-                Moving forward, I plan on conducting more structured experiments with respect to things like learning
-                rate, batch size, and the number of epochs. This would be expedited if I had a separate computer to
-                train on, since I can't be giving up all my RAM for days at a time. I may try to remove some
-                complexity by not penalizing the model for an incorrect output when that output had no real effect
-                [such as trying to use handbrake while mid-air]. There are also some factors that I should be weighting
-                more heavily. Steering is probably the most important, followed by throttle and boost [I know silver
-                players don't conserve their boost as much as this bot does, so something must be off there].
+                Moving forward, I plan on conducting more structured experiments with respect learning rate, batch size,
+                and number of epochs. This would be expedited if I had a separate computer to train on, since I can't be
+                giving up all my RAM for days at a time. I may try to remove some complexity by not penalizing the model
+                for an incorrect output when that output had no real effect [such as trying to use handbrake while
+                mid-air]. There are also some factors that I should be weighting more heavily. Steering is probably the
+                most important, followed by throttle and boost [I know silver players don't conserve their boost as much
+                as this bot does, so something must be off there].
                 <br><br>
                 Of course, if you have any questions or advice you'd like to offer, feel free to
                 <a class="black gray-hover" href="mailto:nathan.t.baker@okstate.edu">
