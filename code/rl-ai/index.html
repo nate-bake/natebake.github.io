@@ -31,7 +31,7 @@
         <div class="link-container" style="margin: -0.5rem;"></div>
         <h2 class="black center source-600">Rocket League AI</h2>
         <p class="black source">
-            By far the biggest programming project that I've pursued outside of school has been to create a bot
+            By far the biggest programming project that I've pursued outside of school has been creating a bot
             that can learn to play Rocket League by analyzing replays of human gameplay.
             <br>
         </p>
@@ -108,11 +108,11 @@
             and developed additional Python scripts to organize the data with class structures and arrays.
             <br><br>
             It was at this point that I realized how limited the replays actually are. The data is saved at a
-            'resolution' of 30 frames per second, which might be acceptable if it weren't for the fact that many of
-            these frames do not actually contain updated physics data. One car may have a new rigid_body_state
-            defined at frame 189, while the other car does not. These gaps presented a <big></big> problem that I
-            tried to resolve with simple linear interpolation [<em>which became difficult to wrap my head
-                around when it came to quaternions and rotation matrices</em>].
+            resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
+            physics data. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while the other
+            car does not. These gaps presented a <big></big> problem that I tried to resolve with simple linear
+            interpolation [<em>which became difficult to wrap my head around when it came to quaternions and rotation
+                matrices</em>].
             <br><br>
             The next great obstacle came when discovering that replays do not actually contain all the controller inputs
             from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was going well.
