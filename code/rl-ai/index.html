@@ -117,7 +117,7 @@
             resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
             physics information. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while the
             other car does not. These gaps present a big problem, and currently my only answer is simple linear
-            interpolation [<em>which is not really so simple with quaternions and rotation matrices</em>].
+            interpolation [<em>which really wasn't so simple with quaternions and rotation matrices</em>].
             <br><br>
             The next great obstacle came when discovering that replays do not actually contain all the controller inputs
             from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was going well.
@@ -127,16 +127,38 @@
             </a>
             figured out a way to solve for those inputs based on the change in angular velocities. I was able to
             implement his solution and test it in Rocket League by giving a bot a script of inputs to follow and seeing
-            if
-            they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get on with
+            if they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get on with
             training.
             <br><br>
+            <img src="/assets/rl-ai/notes.jpg">
         </p>
         <div class="link-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;"></div>
         <h3 class="black center source-400">Model Training</h3>
         <p class="black source">
-            explain why i am using 92 inputs and 7 outputs per frame,
-            combining boolean and analog losses and activations,
+            I set up a way to run my replay processing script in parallel with 12 replays at a time in order to speed up
+            the process, and concatenated the rows into a series of numpy arrays with roughly 30 input columns and 9
+            output columns. The input columns describe the state of the game for a particular frame &mdash; ball
+            position, player rotations, velocities, boost amounts, and the like. The output columns are what the
+            player's inputs were for the next frame. That may sound contradictory, but controller inputs are the output
+            that we want.
+            <br><br>
+            After following some quick tutorials for multi-output regression models and hooking that up to RLBot, I was
+            able to see an autonomous car out on the pitch. And it was hilarious. I watched it flail around and do
+            donuts for minutes on end. I remember my roomates saying, "<em>Yup, looks like a silver player to me!</em>"
+            But as entertaining as it was, it was nowhere near the desired outcome. The model was not making any sense
+            of the quaternions and coordinate positions. I tried adding layers to the network, I tried switching to
+            Euler angles &mdash; all to no avail. It saw no correlations and had essentially converged to the mean of
+            all the rows. So what did I do? I gave it a headstart on its computation.
+            <br><br>
+            I ended up stretching the 30 or so inputs out to 92 parameters per frame. I abandoned the quaternions, used
+            rotation matrices instead, and added new copies of every variable in the reference frame of the car's
+            orientation. So I was not only telling the bot that the ball was at the middle of the field, I also told it
+            that the ball was behind him, and that the opponent was moving toward him. I spent way too long debugging
+            the rotation matrices before finally discovering that the replays seem to switch back and forth between
+            right-hand and left-hand rule for the z-axis. Once I got that sorted out and normalized all values to
+            [-1,1], the new model was at least driving around, rather than flopping around.
+            <br><br>
+            explain combining boolean and analog losses and activations,
             the challenge of loading the dataset in ram,
             weighting different outputs and classes,
             very different results from model to model, don't remember best hyperparameters, long training time.
