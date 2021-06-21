@@ -108,7 +108,7 @@ h2 {
 }
 
 h3 {
-    font-size: max(1.25rem, 2.75vw);
+    font-size: max(1.5rem, 2.75vw);
     margin-top: 1.5rem;
     margin-bottom: -0.25rem;
     font-family: "Titillium Web", sans-serif;
