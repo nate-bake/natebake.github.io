@@ -96,7 +96,7 @@ a {
 }
 
 p {
-    font-size: min(max(1.15rem, 1.9vw), 2.2rem);
+    font-size: min(max(1.15rem, 1.9vw), 1.8rem);
     line-height: 1.15;
     text-align: justify;
     font-weight: 300;
@@ -236,7 +236,7 @@ footer img:hover {
 }
 
 .label {
-    font-size: min(max(0.9rem, 1.8vw), 2.2rem);
+    font-size: min(max(0.9rem, 1.8vw), 1.7rem);
     text-align: center;
     margin-top: 0.5vw;
     font-style: italic;
