@@ -82,7 +82,7 @@
                 Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a
                 bot that could perform at the rank of grand champion. However, I quickly realized a problem.
                 <br><br>
-                Whenever the bot ends up making a poor decision [which is inevitable], it will likely end up in a
+                Whenever the bot inevitably makes a poor decision, it will likely end up in a
                 situation that a GC player would never find himself in, and thus it would struggle to recover.
                 This sort of scenario occurred in the above video, at around the
                 <a class="gray-hover" href="javascript:seek(400);"><u>6:40</u></a> mark.
@@ -120,7 +120,7 @@
                 resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
                 physics information. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while
                 the other car does not. These gaps present a big problem, and right now my only solution is simple
-                linear interpolation [which really isn't so simple with quaternions and rotation matrices].
+                linear interpolation &mdash; which really isn't so simple with quaternions and rotation matrices.
                 <br><br>
                 <img src="/assets/rl-ai/notes.jpg" class="full-width" loading="lazy">
                 <br><br>
@@ -164,22 +164,19 @@
                 <br><br>
                 I ended up stretching the input layer out to 92 parameters per frame. I abandoned the quaternions
                 for rotation matrices, and added new copies of every variable in the reference frame of the
-                car's orientation. [If you're curious, all 99 columns are listed in the write_frame() function of my
-                json processor script.]
-                <br><br>
-                No longer was I just telling the bot that the ball was at the middle of the field, I
+                car's orientation. No longer was I just telling the bot that the ball was at the middle of the field, I
                 was also telling it that the ball was behind him, and that the opponent was moving away from him. I
                 spent a long time debugging the rotation matrices before discovering that the replays seem to switch
-                back and forth between left-hand and right-hand rules for representing the z-axis. Once I got that
+                back and forth between left-hand and right-hand representations of the z-axis. Once I got that
                 sorted out and normalized all the values, the new model was at least driving around, rather than
                 flopping around.
                 <br><br>
                 One of the unique challenges of this machine learning problem is that there is a mix of output types.
-                Some are booleans [like boost and jump] which resolve to 0 or 1, while others [such as steering and
-                throttle] are analog, falling anywhere on the range [-1,1]. I was completely new to machine learning
-                theory, but I came to understand that these call for two different methods of computing loss and
-                activation, so I originally had two different models. Recently I merged the two into one network where
-                the output layer has combination of activation and loss functions.
+                Some are booleans &mdash; like boost and jump &mdash; which resolve to 0 or 1, while others &mdash;
+                steering, throttle, etc. &mdash; are analog, falling anywhere on the range [-1,1]. I was completely new
+                to machine learning theory, but I came to understand that these call for two different methods of
+                computing loss and activation, so I originally had two different models. Recently I merged the two into
+                one network where the output layer has combination of activation and loss functions.
                 <br><br>
                 The first set of neurons have a sigmoid activation and use weighted binary cross entropy for the loss,
                 while the rest use hyperbolic tangent activation and RMSE for the loss. While initially confusing to
@@ -211,7 +208,7 @@
                 I have a hunch that such generalization may actually produce negative side effects for this project.
                 <br><br>
                 Consider the case where an attacking player loses possession and has low boost.
-                <em>Do you try to stay on the ball, or get boost and shadow defend?</em>
+                <em>Do you try to pressure the ball, or rotate back and shadow defend?</em>
                 The answer depends on the person's playstyle. Some go for boost, some go for ball. And if your dataset
                 is so large to where it is split close to 50/50, the bot will converge at a decision that is neither
                 push nor retreat. It might end up doing something in between, which is undoubtedly the worst course of
@@ -223,7 +220,7 @@
                 weights, network size, batch size, and training time. This would be expedited if I had a separate
                 computer to train on, since I can't be giving up all my RAM for days at a time.
                 I may try to remove some complexity by reducing the penalty for an incorrect output when that output
-                had no real effect [such as trying to use handbrake while mid-air].
+                had no real effect, such as trying to use handbrake while mid-air.
                 <br><br>
                 Of course if you have any questions or advice you'd like to offer, feel free to
                 <a class="gray-hover" href="mailto:nathan.t.baker@okstate.edu">
