@@ -171,12 +171,12 @@
                 sorted out and normalized all the values, the new model was at least driving around, rather than
                 flopping around.
                 <br><br>
-                One of the unique challenges of this machine learning problem is that there is a mix of output types.
-                Some are booleans &mdash; like boost and jump &mdash; which resolve to 0 or 1, while others &mdash;
-                steering, throttle, etc. &mdash; are analog, falling anywhere on the range [-1,1]. I was completely new
-                to machine learning theory, but I came to understand that these call for two different methods of
-                computing loss and activation, so I originally had two different models. Recently I merged the two into
-                one network where the output layer has combination of activation and loss functions.
+                One of the unique challenges of this machine learning problem is the mix of output types.
+                Some are booleans, like boost and jump. These resolve to either 0 or 1, while others like steering and
+                throttle are analog, falling anywhere on the range of [-1,1]. I was completely new to machine learning
+                theory, but I came to understand that these call for two different methods of computing loss and
+                activation, so I originally had two different models. Recently I merged the two into one network where
+                the output layer has combination of activation and loss functions.
                 <br><br>
                 The first set of neurons have a sigmoid activation and use weighted binary cross entropy for the loss,
                 while the rest use hyperbolic tangent activation and RMSE for the loss. While initially confusing to
