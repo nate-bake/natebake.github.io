@@ -118,7 +118,7 @@
                 <br><br>
                 At this point I realized how limited the replays actually are. The data is saved at a
                 resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
-                physics information. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while
+                physics information. Unfortunately, one car may have a new state defined at frame 189, while
                 the other car does not. These gaps present a big problem, and right now my only solution is simple
                 linear interpolation &mdash; which really isn't so simple with quaternions and rotation matrices.
                 <br><br>
