@@ -80,9 +80,10 @@
             <p>
                 <img class="side-image-right image-desktop" src="/assets/rl-ai/fetch.PNG" loading="lazy">
                 Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a
-                bot that could perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever
-                the bot ends up making a poor decision [which is inevitable], it will likely end up in a
-                situation that a Grand Champ player would never find himself in, and thus it would struggle to recover.
+                bot that could perform at the rank of grand champion. However, I quickly realized a problem.
+                <br><br>
+                Whenever the bot ends up making a poor decision [which is inevitable], it will likely end up in a
+                situation that a GC player would never find himself in, and thus it would struggle to recover.
                 This sort of scenario occurred in the above video, at around the
                 <a class="gray-hover" href="javascript:seek(400);"><u>6:40</u></a> mark.
                 It drives too far into the goal and lands awkwardly. It happens. The problem is that it then spends a
@@ -99,7 +100,7 @@
                 <a class="gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
                 where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
                 silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
-                automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on
+                automatically until reaching the hourly limit. I currently have just over 15,000 replay files stored on
                 a dedicated microSD card.
                 <br>
             </p>
@@ -118,15 +119,17 @@
                 At this point I realized how limited the replays actually are. The data is saved at a
                 resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
                 physics information. Unfortunately, one car may have a new rigid_body_state defined at frame 189, while
-                the other car does not. These gaps present a big problem, and currently my only answer is simple linear
-                interpolation [which really wasn't so simple with quaternions and rotation matrices].
+                the other car does not. These gaps present a big problem, and right now my only solution is simple
+                linear interpolation [which really isn't so simple with quaternions and rotation matrices].
                 <br><br>
                 <img src="/assets/rl-ai/notes.jpg" class="full-width" loading="lazy">
                 <br><br>
                 The next great obstacle came when discovering that replays do not actually contain all the controller
                 inputs from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was
                 going well.
-                I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist. But
+                I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist.
+                <br><br>
+                Thankfully
                 <a href="https://samuelpmish.github.io/notes/RocketLeague/aerial_control_inverse/" target="_blank"
                     class=" gray-hover"><u>Sam Mish</u></a>
                 figured out a way to solve for those inputs based on the change in angular velocities. I was able to
@@ -139,29 +142,28 @@
         <div class="section-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;">
             <h3 class="center">Model Training</h3>
             <p>
-                I set up my replay processing script to run in parallel with 12 threads in order to
-                speed things up, and concatenated the rows into a series of numpy arrays with roughly 30 input
-                columns and 9 output columns. The input columns describe the state of the game for a particular frame
-                &mdash; ball position, player rotations, velocities, boost amounts, and the like. The output columns are
-                what the player's inputs were for the next frame. That may sound contradictory, but controller inputs
-                are the outputs that we want.
+                I set up my replay processing script to run in parallel and concatenated the rows into a series of numpy
+                arrays with roughly 30 input columns and 7 output columns. The input columns describe the state of the
+                game for a particular frame &mdash; ball position, player rotations, velocities, boost amounts, and the
+                like. The output columns are what the player's inputs were for the next frame. That may sound
+                contradictory, but controller inputs are the outputs that we want.
                 <br><br>
                 <img class="side-image-left image-desktop" src="/assets/rl-ai/bot.gif" loading="lazy">
                 After following some quick multi-output regression tutorials and hooking my model up to RLBot, I
                 was able to see an autonomous car out on the pitch. And it was hilarious. I watched it flail around and
                 do donuts for minutes on end. I remember my roommates saying,
                 <em>"Yup, looks like a silver player to me!"</em>
+                <br><br>
                 But as entertaining as it was, this was nowhere near the desired outcome. The model did not appear to be
                 making any sense of the quaternions and coordinate system. I tried adding layers to the network. I tried
-                using Euler angles instead. Yet it still hadn't found any correlations and had essentially converged
-                to the mean of all the rows. So, I tried to move more of the computation up front and provide a better
-                explanation of the state of the game.
+                using Euler angles instead. Yet it still couldn't find any correlations and basically converged to the
+                mean of all the rows. So, I tried to move more of the computation up front to provide a more informative
+                input.
                 <br class="image-mobile"><br class="image-mobile">
                 <img class="image-mobile full-width" src="/assets/rl-ai/bot.gif" loading="lazy">
                 <br><br>
-                I ended up stretching the 30 or so inputs out to 92 parameters per frame. [I also condensed the output
-                vector down to 7 by merging dodge with jump and combining steer and yaw.] I abandoned the quaternions,
-                used rotation matrices instead, and added new copies of every variable in the reference frame of the
+                I ended up stretching the input layer out to 92 parameters per frame. I abandoned the quaternions
+                for rotation matrices, and added new copies of every variable in the reference frame of the
                 car's orientation. No longer was I just telling the bot that the ball was at the middle of the field, I
                 was also telling it that the ball was behind him, and that the opponent was moving away from him. [If
                 you're curious, all 99 columns are listed in the write_frame() function of my json processor script.] I
@@ -171,40 +173,41 @@
                 flopping around.
                 <br><br>
                 One of the unique challenges of this machine learning problem is that there is a mix of output types.
-                Some are booleans [boost, jump, handbrake] which resolve to 0 or 1, while others are analog [steer,
-                throttle, roll, pitch] and fall anywhere on [-1,1]. I was completely new to machine learning theory, but
-                I came to understand that these call for two different methods of computing loss and activations, so I
-                originally had two different models. The boolean values were predicted first, and passed as parameters
-                to an analog model. But I have recently merged the two into one network where the output layer has
-                combination of activation and loss functions. The first set of neurons have a sigmoid activation and use
-                weighted binary cross entropy for the loss, while the rest use hyperbolic tangent activation and RMSE
-                for the loss. While initially confusing to set up, I think this is a much better configuration because
-                it allows all outputs to be computed at once, leading to just one associated loss.
+                Some are booleans [like boost and jump] which resolve to 0 or 1, while others [such as steering and
+                throttle] are analog, falling anywhere on the range [-1,1]. I was completely new to machine learning
+                theory, but I came to understand that these call for two different methods of computing loss and
+                activation, so I originally had two different models. Recently I merged the two into one network where
+                the output layer has combination of activation and loss functions.
+                <br><br>
+                The first set of neurons have a sigmoid activation and use weighted binary cross entropy for the loss,
+                while the rest use hyperbolic tangent activation and RMSE for the loss. While initially confusing to
+                set up, I think this is a much better configuration because it allows all outputs to be computed at
+                once, leading to just one associated loss.
                 <br><br>
                 <img src="/assets/rl-ai/notes3.jpg" class="full-width" loading="lazy">
                 <br><br>
-                After tons of trial and error with network structures and training parameters, the best model I have
-                achieved so far is what starred in the video at the top of the page. But since then I have run many more
-                tests and have tragically forgotten what settings led to that model. I think I was using an SGD
-                optimizer with learning_rate=0.01 and momentum=0.99, and I know the network size wasn't too large
-                &mdash; maybe a few hidden layers with size 800. As far as batch size and training time, I'm not sure.
-                But I haven't had the patience to train for lots of epochs because it takes a very long time to go
-                through 50 gigabytes of memory-mapped data. I hope to do a better job of logging my experiments and
-                maybe I can include some TensorBoard charts here in the future.
+                After tons of trial and error with training parameters, my best model so far is what starred in the
+                video at the top of the page. But after many more tests I have tragically forgotten what settings led to
+                that model. I think I was using an SGD optimizer with learning_rate=0.01 and momentum=0.99, and I know
+                the network size wasn't too large &mdash; maybe a few hidden layers with size 800. As far as batch size
+                and training time, I'm not sure. But I haven't had the patience to train for lots of epochs because it
+                takes a very long time to go through 50 gigabytes of memory-mapped data. I hope to do a better job of
+                logging my experiments and maybe I can include some TensorBoard charts here in the future.
                 <br>
             </p>
         </div>
         <div class="section-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;">
             <h3 class="center">Thoughts</h3>
             <p>
-                This project has reached a state far beyond my initial expectations. Although my current creation lost
-                to a Psyonix Rookie bot, and is still inferior to other machine learning models that were trained on
-                consistent data from other bots, it has been exciting to see some correct behaviors emerge! There is
-                still certainly room for refinement in both network parameters and replay processing.
+                This project has reached a state far beyond my initial expectations. Although my creation lost
+                to a Psyonix Rookie bot, and is still inferior to other models that were trained on
+                more consistent data sources, it has been exciting to see some correct behaviors emerge! However, there
+                is still certainly room for refinement in both network parameters and replay processing.
                 <br><br>
                 From what I have read about machine learning, there is this notion that more data will always improve
-                performance &mdash; that enough rows can help a model see through the noise and find overall trends. But
+                performance &mdash; that enough rows can help a model cut through the noise and find overall trends. But
                 I have a hunch that such generalization may actually produce negative side effects for this project.
+                <br><br>
                 Consider the case where an attacking player loses possession and has low boost.
                 <em>Do you try to stay on the ball, or get boost and shadow defend?</em>
                 The answer depends on the person's playstyle. Some go for boost, some go for ball. And if your dataset
@@ -214,13 +217,11 @@
                 validation losses show no signs of overfitting, so I see no reason to fill more storage space with data
                 that might not actually help.
                 <br><br>
-                Moving forward, I plan on conducting more structured experiments with respect learning rate, batch size,
-                and number of epochs. This would be expedited if I had a separate computer to train on, since I can't be
-                giving up all my RAM for days at a time. I may try to remove some complexity by not penalizing the model
-                for an incorrect output when that output had no real effect [such as trying to use handbrake while
-                mid-air]. There are also some factors that I should be weighting more heavily. Steering is probably the
-                most important, followed by throttle and boost [I know silver players don't conserve their boost as much
-                as this bot does, so something must be off there].
+                Moving forward, I plan on conducting more structured experiments with respect learning rate to output
+                weights, network size, batch size, and training time. This would be expedited if I had a separate
+                computer to train on, since I can't be giving up all my RAM for days at a time.
+                I may try to remove some complexity by reducing the penalty for an incorrect output when that output
+                had no real effect [such as trying to use handbrake while mid-air].
                 <br><br>
                 Of course if you have any questions or advice you'd like to offer, feel free to
                 <a class="gray-hover" href="mailto:nathan.t.baker@okstate.edu">
