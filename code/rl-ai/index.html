@@ -120,12 +120,12 @@
                 resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
                 physics information. Unfortunately, one car may have a new state defined at frame 189, while
                 the other car does not. These gaps present a big problem, and right now my only solution is simple
-                linear interpolation &mdash; which really isn't so simple with quaternions and rotation matrices.
+                linear interpolation&mdash;which really isn't so simple with quaternions and rotation matrices.
                 <br><br>
                 <img src="/assets/rl-ai/notes.jpg" class="full-width" loading="lazy">
                 <br><br>
                 The next great obstacle came when discovering that replays do not actually contain all the controller
-                inputs from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was
+                inputs from the player. I found the data for boost, jump, steering, and throttle&mdash;everything was
                 going well.
                 I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist.
                 <br><br>
@@ -144,7 +144,7 @@
             <p>
                 I set up my replay processing script to run in parallel and concatenated the rows into a series of numpy
                 arrays with roughly 30 input columns and 7 output columns. The input columns describe the state of the
-                game for a particular frame &mdash; ball position, player rotations, velocities, boost amounts, and the
+                game for a particular frame&mdash;ball position, player rotations, velocities, boost amounts, and the
                 like. The output columns are what the player's inputs were for the next frame. That may sound
                 contradictory, but controller inputs are the outputs that we want.
                 <br><br>
@@ -180,7 +180,7 @@
                 <br><br>
                 The first set of neurons have a sigmoid activation and use weighted binary cross entropy for the loss,
                 while the rest use hyperbolic tangent activation and RMSE for the loss. While initially confusing to
-                set up, I think this is a much better configuration because it allows all outputs to be computed at
+                set up, I think this is a much better configuration because it allows the outputs to be computed all at
                 once, leading to just one associated loss.
                 <br><br>
                 <img src="/assets/rl-ai/notes3.jpg" class="full-width" loading="lazy">
@@ -188,7 +188,7 @@
                 After tons of trial and error with training parameters, my best model so far is what starred in the
                 video at the top of the page. But after many more tests I have tragically forgotten what settings led to
                 that model. I think I was using an SGD optimizer with learning_rate=0.01 and momentum=0.99, and I know
-                the network size wasn't too large &mdash; maybe a few hidden layers with size 800. As far as batch size
+                the network size wasn't too large&mdash;maybe a few hidden layers with size 800. As far as batch size
                 and training time, I'm not sure. But I haven't had the patience to train for lots of epochs because it
                 takes a very long time to go through 50 gigabytes of memory-mapped data. I hope to do a better job of
                 logging my experiments and maybe I can include some TensorBoard charts here in the future.
@@ -204,7 +204,7 @@
                 is still certainly room for refinement in both network parameters and replay processing.
                 <br><br>
                 From what I have read about machine learning, there is this notion that more data will always improve
-                performance &mdash; that enough rows can help a model cut through the noise and find overall trends. But
+                performance&mdash;that enough rows can help a model cut through the noise and find overall trends. But
                 I have a hunch that such generalization may actually produce negative side effects for this project.
                 <br><br>
                 Consider the case where an attacking player loses possession and has low boost.
