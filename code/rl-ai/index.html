@@ -4,7 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Rocket League AI</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:300,400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:600">
     <link rel="stylesheet" href="/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -15,23 +16,23 @@
 
 <body>
     <nav>
-        <a href="/" class="black no-underline">
+        <a href="/" class="no-underline">
             <h1 class="center">
-                <text class="blue mono">nathan</text><text class="black mono">.</text><text
-                    class="orange mono">baker</text><text class="black mono">() {</text>
+                <text class="blue mono">nathan</text><text class=" mono">.</text><text
+                    class="orange mono">baker</text><text class=" mono">() {</text>
             </h1>
         </a>
         <ul>
             <li><a class="gray mono" href="/portfolio">portfolio:</a></li>
-            <li><a class="black bold mono" href="/code">code</a></li>
+            <li><a class=" bold mono" href="/code">code</a></li>
             <li><a class="gray mono" href="/photo">photo</a></li>
             <li><a class="gray mono" href="/video">video</a></li>
         </ul>
     </nav>
     <div>
         <div class="link-container" style="margin: -0.5rem;"></div>
-        <h2 class="black center source-600">Rocket League AI</h2>
-        <p class="black source">
+        <h2 class="center">Rocket League AI</h2>
+        <p>
             By far the biggest programming project that I've pursued outside of school has been creating a bot
             that can learn to play Rocket League by analyzing replays of human gameplay.
             <br>
@@ -40,15 +41,15 @@
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-        <p class="label source center">
+        <p class="label">
             A <span class="image-desktop">close</span> match between my bot and a Psyonix Rookie bot.
         </p>
-        <p class="black source">
+        <p>
             Rocket League is a competitive physics-based game of car soccer with a very high skill ceiling.
             Even experienced players struggle to perform well consistently, which is one reason why the
             vast majority of bot creators opt for defined routines rather than machine learning. When I started, I was
             not aware that many brilliant members of the
-            <a class="black gray-hover" target="_blank" href="https://rlbot.org/"><u>RLBot</u></a>
+            <a class="gray-hover" target="_blank" href="https://rlbot.org/"><u>RLBot</u></a>
             community had already attempted this and found human replay data to be insufficient for model training.
             <br><br>
             Thus, I began writing scripts to collect and process thousands of publicly available replay files,
@@ -57,33 +58,33 @@
             work that remains to be done.
             <br>
             <!-- <div class="table-of-contents">
-            <div class="black source-400">Table of Contents:&nbsp;&nbsp;</div>
+            <div class=" source weight-400">Table of Contents:&nbsp;&nbsp;</div>
             <div>
-                &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('collection');"><u>Data
+                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('collection');"><u>Data
                         Collection</u></a><br class="image-mobile">
-                &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('processing')"><u>Replay
+                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('processing')"><u>Replay
                         Processing</u></a><br class="image-mobile">
-                &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('training')"><u>Model
+                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('training')"><u>Model
                         Training</u></a><br class="image-mobile">
-                &nbsp;&nbsp;<a class="black source gray-hover" href="javascript:scroll('thoughts')"><u>Thoughts
+                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('thoughts')"><u>Thoughts
                     </u></a><br class="image-mobile">
             </div>
         </div> -->
         </p>
-        <p class="source-400">If you want to skip straight to the code, you can find it in
-            <a class="black gray-hover" target="_blank" href="https://github.com/naynaybakebake/rocket_league_ai">
+        <p class="weight-400">If you want to skip straight to the code, you can find it in
+            <a class="gray-hover" target="_blank" href="https://github.com/naynaybakebake/rocket_league_ai">
                 <u>this repository</u></a>.
         </p>
         <div class="section-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="black center source-400">Data Collection</h3>
-            <p class="black source">
+            <h3 class="center">Data Collection</h3>
+            <p>
                 <img class="side-image-right image-desktop" src="/assets/rl-ai/fetch.PNG" loading="lazy">
                 Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a
                 bot that could perform at the rank of Grand Champion. However, I quickly realized a problem. Whenever
                 the bot ends up making a poor decision [which is inevitable], it will likely end up in a
                 situation that a Grand Champ player would never find himself in, and thus it would struggle to recover.
                 This sort of scenario occurred in the above video, at around the
-                <a class="black gray-hover" href="javascript:seek(400);"><u>6:40</u></a> mark.
+                <a class="gray-hover" href="javascript:seek(400);"><u>6:40</u></a> mark.
                 It drives too far into the goal and lands awkwardly. It happens. The problem is that it then spends a
                 lot of time powersliding for no apparent reason, rather than defending.
                 <br><br>
@@ -92,10 +93,10 @@
                 lower my standards and gather replays from a much lower rank set like silver. I figured that the
                 increase in diversity would be worth the additional player mistakes.
                 <br><br>
-                <img class="image-mobile" src="/assets/rl-ai/fetch.PNG" loading="lazy">
+                <img class="image-mobile full-width" src="/assets/rl-ai/fetch.PNG" loading="lazy">
                 <br class="image-mobile"><br class="image-mobile">
                 The obvious source of this data was
-                <a class="black gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
+                <a class="gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
                 where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
                 silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
                 automatically until reaching the hourly limit. Currently I have just over 15,000 replay files stored on
@@ -104,11 +105,11 @@
             </p>
         </div>
         <div class="section-container" id="processing" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="black center source-400">Replay Processing</h3>
-            <p class="black source">
+            <h3 class="center">Replay Processing</h3>
+            <p>
                 Next came the very important step of figuring out what data I needed and how to extract it. I could not
                 make any sense of the replay file format, but thankfully there are people who've made parsers like
-                <a class="black gray-hover" target="_blank" href="https://github.com/tfausak/rattletrap">
+                <a class="gray-hover" target="_blank" href="https://github.com/tfausak/rattletrap">
                     <u>Rattletrap</u>
                 </a>
                 that convert them to javascript object notation. Slowly but surely, I learned how things were
@@ -121,14 +122,14 @@
                 the other car does not. These gaps present a big problem, and currently my only answer is simple linear
                 interpolation [which really wasn't so simple with quaternions and rotation matrices].
                 <br><br>
-                <img src="/assets/rl-ai/notes.jpg" style="width: 100%;" loading="lazy">
+                <img src="/assets/rl-ai/notes.jpg" class="full-width" loading="lazy">
                 <br><br>
                 The next great obstacle came when discovering that replays do not actually contain all the controller
                 inputs from the player. I found the data for boost, jump, steering, and throttle &mdash; everything was
                 going well.
                 I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist. But
                 <a href="https://samuelpmish.github.io/notes/RocketLeague/aerial_control_inverse/" target="_blank"
-                    class="black gray-hover"><u>Sam Mish</u>
+                    class=" gray-hover"><u>Sam Mish</u>
                 </a>
                 figured out a way to solve for those inputs based on the change in angular velocities. I was able to
                 implement his solution and test it in Rocket League by giving a bot a script of inputs to follow and
@@ -138,8 +139,8 @@
             </p>
         </div>
         <div class="section-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="black center source-400">Model Training</h3>
-            <p class="black source">
+            <h3 class="center">Model Training</h3>
+            <p>
                 I set up my replay processing script to run in parallel with 12 threads in order to
                 speed things up, and concatenated the rows into a series of numpy arrays with roughly 30 input
                 columns and 9 output columns. The input columns describe the state of the game for a particular frame
@@ -158,7 +159,7 @@
                 to the mean of all the rows. So, I tried to move more of the computation up front and provide a better
                 explanation of the state of the game.
                 <br class="image-mobile"><br class="image-mobile">
-                <img class="image-mobile" src="/assets/rl-ai/bot.gif" style="width: 100%;" loading="lazy">
+                <img class="image-mobile full-width" src="/assets/rl-ai/bot.gif" loading="lazy">
                 <br><br>
                 I ended up stretching the 30 or so inputs out to 92 parameters per frame. [I also condensed the output
                 vector down to 7 by merging dodge with jump and combining steer and yaw.] I abandoned the quaternions,
@@ -182,7 +183,7 @@
                 for the loss. While initially confusing to set up, I think this is a much better configuration because
                 it allows all outputs to be computed at once, leading to just one associated loss.
                 <br><br>
-                <img src="/assets/rl-ai/notes3.jpg" style="width: 100%;" loading="lazy">
+                <img src="/assets/rl-ai/notes3.jpg" class="full-width" loading="lazy">
                 <br><br>
                 After tons of trial and error with network structures and training parameters, the best model I have
                 achieved so far is what starred in the video at the top of the page. But since then I have run many more
@@ -196,8 +197,8 @@
             </p>
         </div>
         <div class="section-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="black center source-400">Thoughts</h3>
-            <p class="black source">
+            <h3 class="center">Thoughts</h3>
+            <p>
                 This project has reached a state far beyond my initial expectations. Although my current creation lost
                 to a Psyonix Rookie bot, and is still inferior to other machine learning models that were trained on
                 consistent data from other bots, it has been exciting to see some correct behaviors emerge! There is
@@ -224,13 +225,13 @@
                 as this bot does, so something must be off there].
                 <br><br>
                 Of course if you have any questions or advice you'd like to offer, feel free to
-                <a class="black gray-hover" href="mailto:nathan.t.baker@okstate.edu">
+                <a class="gray-hover" href="mailto:nathan.t.baker@okstate.edu">
                     <u>email me</u>!</a>
                 I will try to update this page as things develop.
                 <br><br>
             </p>
         </div>
-        <p class="source center gray">4 February 2021</p>
+        <p class="center gray">4 February 2021</p>
     </div>
 
     <script>
@@ -279,7 +280,7 @@
 </body>
 
 <footer>
-    <h1 style="float:left;" class="black mono left closing-brace">}</h1>
+    <h1 style="float:left;" class=" mono left closing-brace">}</h1>
     <ul class="footer-list footer-links">
         <li class="link-item"><a href="mailto:nathan.t.baker@okstate.edu">
                 <img src="/assets/links/email.png"></a>
@@ -302,7 +303,7 @@
                 <img src="/assets/links/github.png"></a>
         </li>
     </ul>
-    <p class="footer-copyright gray mono">
+    <p class="footer-copyright gray mono weight-400">
         <text class="gray">Copyright &copy;</text>
         <text class="gray">2021</text>
         <text class="gray image-desktop">//</text>

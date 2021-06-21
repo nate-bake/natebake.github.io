@@ -30,129 +30,23 @@
     font-display: swap;
 }
 
-.red {
-    color: rgb(255, 107, 67); /* ayu dark */
-    color: rgb(234, 202, 139); /* atom */
-    color: rgb(215, 58, 73); /* github light */
-}
-
-.green {
-    color: rgb(126, 231, 120); /* ayu dark */
-    color: rgb(150, 150, 150); /* atom */
-    color: rgb(34, 134, 58); /* github light */
-}
-
-.blue {
-    color: rgb(121, 192, 255); /* ayu dark */
-    color: rgb(150, 150, 150); /* atom */
-    color: rgb(0, 92, 197); /* github light */
-}
-
-.purple {
-    color: rgb(111, 66, 193); /* github light */
-}
-
-.orange {
-    color: rgb(247, 108, 46); /* ayu dark */
-    color: rgb(227, 98, 9); /* github light */
-}
-
-.yellow {
-    color: rgb(255, 238, 153); /* ayu dark */
-    color: rgb(255, 223, 93);
-    color: rgb(219, 171, 9);
-    /* color: rgb(176, 136, 0); */
-    /* color: rgb(198, 154, 5); */
-}
-
-.pink {
-    color: rgb(236, 108, 185); /* github light */
-}
-
-.black {
-    color: white; /* ayu dark, atom */
-    color: rgb(36, 41, 46); /* github light */
-}
-
-.white {
-    color: white;
-}
-
-.gray {
-    color: rgb(106, 115, 125);
-    color: rgb(149, 157, 165);
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.mono {
-    font-family: "JetBrains Mono";
-}
-
-.source {
-    /* font-family: source; */
-    font-family: "Source Sans Pro";
-    font-weight: 300;
-}
-
-.left {
-    text-align: left;
-}
-
-.center {
-    text-align: center;
-}
-
 body {
     margin: 35px auto;
     width: 80%;
     background-color: rgb(13, 17, 23); /* ayu dark */
     background-color: rgb(26, 26, 26); /* atom */
     background-color: white; /* github light */
+    color: rgb(36, 41, 46); /* github light */
 }
 
 img {
     max-width: 100%;
 }
 
-.side-image-left {
-    width: 48%;
-    margin-right: 4%;
-    margin-bottom: 1rem;
-    padding-top: 0.5rem;
-    float: left;
-}
-
-.side-image-right {
-    width: 48%;
-    margin-left: 4%;
-    margin-bottom: 1rem;
-    padding-top: 0.5rem;
-    float: right;
-}
-
 iframe {
     width: 100%;
     height: 40vw;
     color: white;
-}
-
-.image-mobile {
-    display: none;
-}
-
-.image-desktop {
-    display: inline;
-}
-
-.no-underline {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: max-content;
 }
 
 h1 {
@@ -193,45 +87,158 @@ a:active {
     text-decoration: none;
 }
 
-p {
-    font-size: min(max(1.15rem, 2.1vw), 2.5rem);
-    line-height: 1;
-    text-align: justify;
+a {
+    color: rgb(36, 41, 46); /* github light */
 }
 
-.hidden {
-    display: none;
+p {
+    font-size: min(max(1.15rem, 2vw), 2.5rem);
+    line-height: 1.15;
+    text-align: justify;
+    font-weight: 300;
+    font-family: "Cairo", sans-serif;
 }
 
 h2 {
     font-size: max(1.75rem, 3.5vw);
     margin-top: 1rem;
     margin-bottom: -0.25rem;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
 }
 
 h3 {
     font-size: max(1.25rem, 2.75vw);
     margin-top: 1.5rem;
     margin-bottom: -0.25rem;
-}
-
-.source-600 {
-    font-family: "Source Sans Pro";
+    font-family: "Titillium Web", sans-serif;
     font-weight: 600;
 }
 
-.source-400 {
-    font-family: "Source Sans Pro";
+footer {
+    border-top: 1px solid #d5d5d5;
+    margin-top: 1rem;
+    padding-bottom: 100px;
+}
+
+footer img:hover {
+    opacity: 1;
+}
+
+.red {
+    color: rgb(255, 107, 67); /* ayu dark */
+    color: rgb(234, 202, 139); /* atom */
+    color: rgb(215, 58, 73); /* github light */
+}
+
+.green {
+    color: rgb(126, 231, 120); /* ayu dark */
+    color: rgb(150, 150, 150); /* atom */
+    color: rgb(34, 134, 58); /* github light */
+}
+
+.blue {
+    color: rgb(121, 192, 255); /* ayu dark */
+    color: rgb(150, 150, 150); /* atom */
+    color: rgb(0, 92, 197); /* github light */
+}
+
+.purple {
+    color: rgb(111, 66, 193); /* github light */
+}
+
+.orange {
+    color: rgb(247, 108, 46); /* ayu dark */
+    color: rgb(227, 98, 9); /* github light */
+}
+
+.yellow {
+    color: rgb(255, 238, 153); /* ayu dark */
+    color: rgb(219, 171, 9);
+}
+
+.pink {
+    color: rgb(236, 108, 185); /* github light */
+}
+
+.black {
+    color: white; /* ayu dark, atom */
+    color: rgb(36, 41, 46); /* github light */
+}
+
+.white {
+    color: white;
+}
+
+.gray {
+    color: rgb(106, 115, 125);
+    color: rgb(149, 157, 165);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.mono {
+    font-family: "JetBrains Mono", monospace;
+}
+
+.weight-400 {
     font-weight: 400;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.side-image-left {
+    width: 48%;
+    margin-right: 4%;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    float: left;
+}
+
+.side-image-right {
+    width: 48%;
+    margin-left: 4%;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    float: right;
+}
+
+.image-mobile {
+    display: none;
+}
+
+.image-desktop {
+    display: inline;
+}
+
+.no-underline {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: max-content;
+}
+
+.hidden {
+    display: none;
 }
 
 .label {
     font-size: max(0.9rem, 1.9vw);
     text-align: center;
     margin-top: 0.5vw;
+    font-style: italic;
 }
 
-.table-of-contents {
+/* .table-of-contents {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -240,19 +247,13 @@ h3 {
 .table-of-contents div {
     font-size: min(max(1.15rem, 2.1vw), 2.5rem);
     line-height: 1;
-}
+} */
 
 .closing-brace {
     font-size: max(40px, 2.5vw);
     margin-top: 1rem;
     margin-bottom: 0px;
     margin-right: -4vw;
-}
-
-footer {
-    border-top: 1px solid #d5d5d5;
-    margin-top: 1rem;
-    padding-bottom: 100px;
 }
 
 .link-container {
@@ -298,10 +299,6 @@ footer {
     opacity: 0.3;
     transition: opacity 0.25s;
     vertical-align: middle;
-}
-
-footer img:hover {
-    opacity: 1;
 }
 
 .footer-copyright {
@@ -471,7 +468,6 @@ footer img:hover {
 }
 
 .settings-table p {
-    font-family: "Source Sans Pro";
     text-align: center;
     color: rgb(106, 115, 125);
     /* color: rgb(149, 157, 165); */
