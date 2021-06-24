@@ -156,10 +156,9 @@
                 <br class="image-mobile"><br class="image-mobile">
                 <img class="image-mobile full-width" src="/assets/rl-ai/bot.gif" loading="lazy">
                 <br><br>
-                But as entertaining as it was, this was nowhere near the desired outcome. The model did not appear to be
-                making any sense of the quaternions and coordinate system. I tried adding layers to the network. I tried
-                using Euler angles instead. Yet it still couldn't find any correlations and basically converged to the
-                mean of all the rows. So, I tried to move more of the computation up front to provide a more informative
+                But as entertaining as it was, this was nowhere near the desired outcome. None of my models could make
+                any sense of the quaternions and coordinate system, and they essentially converged to the mean of
+                all the rows. Thus, I tried to move more of the computation up front to provide a more informative
                 input.
                 <br><br>
                 I ended up stretching the input layer out to 92 parameters per frame. I abandoned the quaternions
