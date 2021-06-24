@@ -149,16 +149,16 @@
                 contradictory, but controller inputs are the outputs that we want.
                 <br><br>
                 <img class="side-image-left image-desktop" src="/assets/rl-ai/bot.gif" loading="lazy">
-                After following some quick multi-output regression tutorials and hooking my model up to RLBot, I
-                was able to see an autonomous car out on the pitch. And it was hilarious. I watched it flail around and
-                do donuts for minutes on end. I remember my roommates saying,
+                After following some quick multi-output regression tutorials and setting up RLBot, I was able to see an
+                autonomous car out on the pitch. And it was hilarious. I watched it flail around for minutes on end. I
+                remember my roommate saying,
                 <em>"Yup, looks like a silver player to me!"</em>
                 <br class="image-mobile"><br class="image-mobile">
                 <img class="image-mobile full-width" src="/assets/rl-ai/bot.gif" loading="lazy">
                 <br><br>
                 But as entertaining as it was, this was nowhere near the desired outcome. None of my models could make
                 any sense of the quaternions and coordinate system, and they essentially converged to the mean of
-                all the rows. Thus, I tried to move more of the computation up front to provide a more informative
+                all the rows. Thus, I tried to handle more of the computation up front and provide a more informative
                 input.
                 <br><br>
                 I ended up stretching the input layer out to 92 parameters per frame. I abandoned the quaternions
