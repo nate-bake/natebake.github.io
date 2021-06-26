@@ -437,12 +437,16 @@ footer img:hover {
     user-select: none;
     padding-bottom: 6rem;
     margin-top: 0;
+    color: rgb(36, 41, 46);
+    transition: color 0.25s;
+    font-size: min(max(1.75rem, 3.5vw), 3rem);
 }
 
 .slick-left:hover,
 .slick-right:hover {
     cursor: pointer;
-    color: rgb(36, 41, 46);
+    /* color: rgb(36, 41, 46); */
+    color: rgb(149, 157, 165);
 }
 
 .slick-slide {
