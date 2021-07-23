@@ -1,3 +1,7 @@
+body {
+    width: 80vw;
+}
+
 @media (min-aspect-ratio: 3/2) and (min-width: 800px) {
     body {
         width: 85vw;
