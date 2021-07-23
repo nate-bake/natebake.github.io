@@ -587,20 +587,6 @@ footer img:hover {
     width: 80%;
   }
 
-  nav ul {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
-  }
-
-  nav ul li {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
-  }
-
   .footer-copyright {
     margin-top: 1rem;
     line-height: 25px;
@@ -614,7 +600,7 @@ footer img:hover {
   }
 }
 
-@media (max-aspect-ratio: 2/3) {
+@media (max-aspect-ratio: 3/4) {
   body {
     width: 80%;
   }
@@ -688,8 +674,8 @@ footer img:hover {
   }
 
   .link-item img {
-    max-width: min(55%, 40px);
-    max-height: min(55%, 40px);
+    max-width: min(55%, 80px);
+    max-height: min(55%, 80px);
   }
 
   .photo {
