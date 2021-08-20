@@ -32,7 +32,7 @@
 
 body {
   margin: 35px auto;
-  width: 75%;
+  width: 75vw;
   background-color: rgb(13, 17, 23); /* ayu dark */
   background-color: rgb(26, 26, 26); /* atom */
   background-color: white; /* github light */
@@ -536,7 +536,7 @@ footer img:hover {
 
 @media (min-aspect-ratio: 3/2) and (min-width: 1440px) {
   body {
-    width: 60%;
+    width: 60vw;
   }
 
   .home-image {
@@ -560,7 +560,7 @@ footer img:hover {
 
 @media (min-aspect-ratio: 2/1) and (min-width: 1440px) {
   body {
-    width: 45%;
+    width: 45vw;
   }
 
   .home-image {
@@ -601,7 +601,7 @@ footer img:hover {
     padding: 0;
   }
   body {
-    width: 80%;
+    width: 80vw;
   }
 
   .footer-copyright {
@@ -647,7 +647,7 @@ footer img:hover {
 
 @media (max-aspect-ratio: 3/4) {
   body {
-    width: 80%;
+    width: 80vw;
   }
 
   nav {
