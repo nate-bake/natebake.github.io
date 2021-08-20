@@ -617,7 +617,7 @@ footer img:hover {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   h1 {
     font-size: 8.15vw;
     margin-bottom: max(-1vw, -10px);
@@ -637,6 +637,11 @@ footer img:hover {
 
   nav ul li {
     font-size: 4.25vw;
+  }
+
+  .footer-links {
+    max-width: 75vw;
+    width: 75vw;
   }
 }
 
