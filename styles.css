@@ -369,7 +369,7 @@ footer img:hover {
   width: 100%;
   margin: auto;
   height: 10vw;
-  max-height: 150px;
+  max-height: 120px;
   display: table;
   background-size: cover;
   background-position: center;
@@ -400,7 +400,7 @@ footer img:hover {
 .link-card .card-title {
   background: rgba(0, 0, 0, 0.35);
   opacity: 0.85;
-  font-size: min(4vw, 4rem);
+  font-size: min(4vw, 3rem);
   color: inherit;
 }
 
