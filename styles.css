@@ -464,6 +464,7 @@ footer img:hover {
 .photo {
   user-select: none;
   max-height: min(85vh, 53vw);
+  max-width: 80vw;
   margin-left: 1rem;
   margin-right: 1rem;
   opacity: 0;
@@ -513,6 +514,10 @@ footer img:hover {
   display: none;
 }
 
+.slick-dots {
+  display: none;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .portfolio-card:hover .card-title,
   .link-card:hover .card-title {
@@ -552,6 +557,10 @@ footer img:hover {
 
   .photo {
     max-height: min(85vh, 47vw);
+  }
+
+  .slick-dots {
+    display: block;
   }
 }
 
