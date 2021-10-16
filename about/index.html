@@ -1,99 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Nathan Baker // About</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:300,400">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:600">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <meta name="theme-color" content="#ffffff">
-</head>
+    <!-- <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cairo:300,400"
+    /> -->
+    <link rel="stylesheet" href="https://use.typekit.net/jrc3tpq.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:600"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-<body>
+  <body>
     <nav>
-        <a href="/" class="no-underline">
-            <h1 class="center">
-                <text class="blue mono">nathan</text><text class="mono">.</text><text
-                    class="green mono">baker</text><text class="mono">() {</text>
-            </h1>
-        </a>
-        <ul>
-            <li><a class="gray mono" href="/">home</a></li>
-            <li><a class="bold mono" href="/about">about</a></li>
-            <li><a class="gray mono" target="_blank" href="/files/resume.pdf">resume</a></li>
-            <li><a class="gray mono" href="/portfolio">portfolio</a></li>
-        </ul>
+      <a href="/" class="no-underline">
+        <h1 class="center">
+          <text class="primary mono">nathan</text><text class="mono">.</text
+          ><text class="secondary mono">baker</text
+          ><text class="mono">() {</text>
+        </h1>
+      </a>
+      <ul>
+        <li><a class="gray mono" href="/">home</a></li>
+        <li><a class="bold mono" href="/about">about</a></li>
+        <li>
+          <a class="gray mono" target="_blank" href="/files/resume.pdf"
+            >resume</a
+          >
+        </li>
+        <li><a class="gray mono" href="/portfolio">portfolio</a></li>
+      </ul>
     </nav>
     <div>
-        <img class="image-desktop full-width" src="/assets/me.jpg">
-        <img class="image-mobile full-width" src="/assets/me_vertical.jpg">
-        <p>
-            I am 21 years old, my favorite color is green, and I will be graduating with a bachelor's degree in
-            computer science in December of 2021.
-            <br><br>
-            As an aspiring software developer, I am quite interested in
-            web-development and machine learning. One of my recent projects involves making an AI Rocket
-            League bot, which you can check out <a href="/code/rl-ai" class="gray-hover"><u>here</u></a>.
-            <br><br>
-            I love to create. Whether it's through programming, writing, taking photos, or making videos, I am
-            happiest whenever I am making something new.
-            <br><br>
-        </p>
+      <img class="image-desktop full-width" src="/assets/me.jpg" />
+      <img class="image-mobile full-width" src="/assets/me_vertical.jpg" />
+      <p>
+        I am 21 years old, my favorite color is green, and I will be graduating
+        with a bachelor's degree in computer science in December of 2021.
+        <br /><br />
+        As an aspiring software developer, I am quite interested in
+        web-development and machine learning. One of my recent projects involves
+        making an AI Rocket League bot, which you can check out
+        <a href="/code/rl-ai" class="gray-hover"><u>here</u></a
+        >. <br /><br />
+        I love to create. Whether it's through programming, writing, taking
+        photos, or making videos, I am happiest whenever I am making something
+        new.
+        <br /><br />
+      </p>
     </div>
 
     <script>
-        const images = document.getElementsByTagName("img");
-        for (let image of images) {
-            image.style.opacity = "0";
-            if (!image.complete) {
-                image.addEventListener("load", fadeImg);
-            } else {
-                fadeImg.bind(image)();
-            }
+      const images = document.getElementsByTagName("img");
+      for (let image of images) {
+        image.style.opacity = "0";
+        if (!image.complete) {
+          image.addEventListener("load", fadeImg);
+        } else {
+          fadeImg.bind(image)();
         }
+      }
 
-        async function fadeImg() {
-            await new Promise(r => setTimeout(r, 1));
-            this.style.transition = "opacity 1s";
-            this.style.opacity = "1";
-        }
+      async function fadeImg() {
+        await new Promise((r) => setTimeout(r, 1));
+        this.style.transition = "opacity 1s";
+        this.style.opacity = "1";
+      }
     </script>
+  </body>
 
-</body>
-
-<footer>
-    <h1 style="float:left;" class="mono left closing-brace">}</h1>
+  <footer>
+    <h1 style="float: left" class="mono left closing-brace">}</h1>
     <ul class="footer-list footer-links">
-        <li class="link-item"><a href="mailto:nathan.t.baker@okstate.edu">
-                <img src="/assets/links/email.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://linkedin.com/in/nathan-baker-16173b1b8/">
-                <img src="/assets/links/linkedin.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://instagram.com/nate_bake_/">
-                <img src="/assets/links/instagram.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w">
-                <img src="/assets/links/youtube.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
-                <img src="/assets/links/spotify.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://github.com/nate-bake">
-                <img src="/assets/links/github.png"></a>
-        </li>
+      <li class="link-item">
+        <a href="mailto:nathan.t.baker@okstate.edu">
+          <img src="/assets/links/email.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a
+          target="_blank"
+          href="https://linkedin.com/in/nathan-baker-16173b1b8/"
+        >
+          <img src="/assets/links/linkedin.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://instagram.com/nate_bake_/">
+          <img src="/assets/links/instagram.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a
+          target="_blank"
+          href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w"
+        >
+          <img src="/assets/links/youtube.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
+          <img src="/assets/links/spotify.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://github.com/nate-bake">
+          <img src="/assets/links/github.png"
+        /></a>
+      </li>
     </ul>
     <p class="footer-copyright gray mono weight-400">
-        <text class="gray">Copyright &copy;</text>
-        <text class="gray">2021</text>
-        <text class="gray image-desktop">//</text>
-        <br class="image-mobile">
-        <a href="/" class="green">Nathan Baker</a>
+      <text class="gray">Copyright &copy;</text>
+      <text class="gray">2021</text>
+      <text class="gray image-desktop">//</text>
+      <br class="image-mobile" />
+      <a href="/" class="secondary">Nathan Baker</a>
     </p>
-</footer>
+  </footer>
 
+  <script>
+    let colors = [
+      " orange",
+      " blue",
+      " red",
+      " green",
+      " yellow",
+      " purple",
+      " pink",
+    ];
+    let color = colors[Math.floor(Math.random() * colors.length)];
+    let elements = document.getElementsByClassName("primary");
+    for (const element of elements) element.className += color;
+    var index = colors.indexOf(color);
+    if (index !== -1) colors.splice(index, 1);
+    color = colors[Math.floor(Math.random() * colors.length)];
+    elements = document.getElementsByClassName("secondary");
+    for (const element of elements) element.className += color;
+  </script>
 </html>

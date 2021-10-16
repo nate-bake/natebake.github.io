@@ -1,116 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Portfolio</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:300,400">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:600">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="portfolio-styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <meta name="theme-color" content="#ffffff">
-</head>
+    <!-- <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cairo:300,400"
+    /> -->
+    <link rel="stylesheet" href="https://use.typekit.net/jrc3tpq.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:600"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="portfolio-styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-<body>
+  <body>
     <nav>
-        <a href="/" class="no-underline">
-            <h1 class="center">
-                <text class="orange mono">nathan</text><text class="mono">.</text><text
-                    class="yellow mono">baker</text><text class="mono">() {</text>
-            </h1>
-        </a>
-        <ul>
-            <li><a class="gray mono" href="/">home</a></li>
-            <li><a class="gray mono" href="/about">about</a></li>
-            <li><a class="gray mono" target="_blank" href="/files/resume.pdf">resume</a></li>
-            <li><a class="bold mono" href="">portfolio</a></li>
-        </ul>
+      <a href="/" class="no-underline">
+        <h1 class="center">
+          <text class="primary mono">nathan</text><text class="mono">.</text
+          ><text class="secondary mono">baker</text
+          ><text class="mono">() {</text>
+        </h1>
+      </a>
+      <ul>
+        <li><a class="gray mono" href="/">home</a></li>
+        <li><a class="gray mono" href="/about">about</a></li>
+        <li>
+          <a class="gray mono" target="_blank" href="/files/resume.pdf"
+            >resume</a
+          >
+        </li>
+        <li><a class="bold mono" href="">portfolio</a></li>
+      </ul>
     </nav>
-    <img class="hidden" src="/assets/code.jpg">
-    <img class="hidden" src="/assets/chrain.jpg">
-    <img class="hidden" src="/assets/jungle2.jpg">
+    <img class="hidden" src="/assets/code.jpg" />
+    <img class="hidden" src="/assets/chrain.jpg" />
+    <img class="hidden" src="/assets/jungle2.jpg" />
     <div class="portfolio-container">
-        <a href="/code" class="red" style="text-decoration: none;">
-            <div class="portfolio-card code-card" style="background-image: url('/assets/code.jpg'); ">
-                <h1 class="card-title center mono">&#60;<text class="white">code</text>&#62;</h1>
-            </div>
-        </a>
-        <a href="/photo" class="orange" style="text-decoration: none;">
-            <div class="portfolio-card photo-card" style="background-image: url('/assets/chrain.jpg');">
-                <h1 class="card-title center mono">&#60;<text class="white">photo</text>&#62;</h1>
-            </div>
-        </a>
-        <a href="/video" class="green" style="text-decoration: none;">
-            <div class="portfolio-card video-card" style="background-image: url('/assets/jungle2.jpg');">
-                <h1 class="card-title center mono">&#60;<text class="white">video</text>&#62;</h1>
-            </div> <br>
-        </a>
+      <a href="/code" class="red" style="text-decoration: none">
+        <div
+          class="portfolio-card code-card"
+          style="background-image: url('/assets/code.jpg')"
+        >
+          <h1 class="card-title center mono">
+            &#60;<text class="white">code</text>&#62;
+          </h1>
+        </div>
+      </a>
+      <a href="/photo" class="orange" style="text-decoration: none">
+        <div
+          class="portfolio-card photo-card"
+          style="background-image: url('/assets/chrain.jpg')"
+        >
+          <h1 class="card-title center mono">
+            &#60;<text class="white">photo</text>&#62;
+          </h1>
+        </div>
+      </a>
+      <a href="/video" class="green" style="text-decoration: none">
+        <div
+          class="portfolio-card video-card"
+          style="background-image: url('/assets/jungle2.jpg')"
+        >
+          <h1 class="card-title center mono">
+            &#60;<text class="white">video</text>&#62;
+          </h1>
+        </div>
+        <br />
+      </a>
     </div>
 
     <script>
-        const cards = document.getElementsByClassName("portfolio-card");
-        for (let card of cards) {
-            card.style.opacity = "0";
-        }
+      const cards = document.getElementsByClassName("portfolio-card");
+      for (let card of cards) {
+        card.style.opacity = "0";
+      }
 
-        const images = document.getElementsByTagName("img");
-        for (let image of images) {
-            image.style.opacity = "0";
-            if (!image.complete) {
-                image.addEventListener("load", fadeImg);
-            } else {
-                fadeImg.bind(image)();
-            }
+      const images = document.getElementsByTagName("img");
+      for (let image of images) {
+        image.style.opacity = "0";
+        if (!image.complete) {
+          image.addEventListener("load", fadeImg);
+        } else {
+          fadeImg.bind(image)();
         }
+      }
 
-        async function fadeImg() {
-            await new Promise(r => setTimeout(r, 1));
-            let card = null;
-            if (this.src.includes("code.jpg")) card = document.getElementsByClassName("code-card")[0];
-            else if (this.src.includes("chrain.jpg")) card = document.getElementsByClassName("photo-card")[0];
-            else if (this.src.includes("jungle2.jpg")) card = document.getElementsByClassName("video-card")[0];
-            card.style.transition = "opacity 1s";
-            card.style.opacity = "1";
-            this.removeEventListener("load", fadeImg);
-        }
+      async function fadeImg() {
+        await new Promise((r) => setTimeout(r, 1));
+        let card = null;
+        if (this.src.includes("code.jpg"))
+          card = document.getElementsByClassName("code-card")[0];
+        else if (this.src.includes("chrain.jpg"))
+          card = document.getElementsByClassName("photo-card")[0];
+        else if (this.src.includes("jungle2.jpg"))
+          card = document.getElementsByClassName("video-card")[0];
+        card.style.transition = "opacity 1s";
+        card.style.opacity = "1";
+        this.removeEventListener("load", fadeImg);
+      }
     </script>
+  </body>
 
-</body>
-
-<footer>
-    <h1 style="float:left;" class="mono left closing-brace">}</h1>
+  <footer>
+    <h1 style="float: left" class="mono left closing-brace">}</h1>
     <ul class="footer-list footer-links">
-        <li class="link-item"><a href="mailto:nathan.t.baker@okstate.edu">
-                <img src="/assets/links/email.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://linkedin.com/in/nathan-baker-16173b1b8/">
-                <img src="/assets/links/linkedin.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://instagram.com/nate_bake_/">
-                <img src="/assets/links/instagram.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w">
-                <img src="/assets/links/youtube.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
-                <!-- href="https://open.spotify.com/playlist/4R078kIVCSGotunr22shUT?si=1fcad2dd6d1d49e3" -->
-                <img src="/assets/links/spotify.png">
-            </a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://github.com/nate-bake">
-                <img src="/assets/links/github.png"></a>
-        </li>
+      <li class="link-item">
+        <a href="mailto:nathan.t.baker@okstate.edu">
+          <img src="/assets/links/email.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a
+          target="_blank"
+          href="https://linkedin.com/in/nathan-baker-16173b1b8/"
+        >
+          <img src="/assets/links/linkedin.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://instagram.com/nate_bake_/">
+          <img src="/assets/links/instagram.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a
+          target="_blank"
+          href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w"
+        >
+          <img src="/assets/links/youtube.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
+          <!-- href="https://open.spotify.com/playlist/4R078kIVCSGotunr22shUT?si=1fcad2dd6d1d49e3" -->
+          <img src="/assets/links/spotify.png" />
+        </a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://github.com/nate-bake">
+          <img src="/assets/links/github.png"
+        /></a>
+      </li>
     </ul>
     <p class="footer-copyright gray mono weight-400">
-        <text class="gray">Copyright &copy;</text>
-        <text class="gray">2021</text>
-        <text class="gray image-desktop">//</text>
-        <br class="image-mobile">
-        <a href="/" class="yellow">Nathan Baker</a>
+      <text class="gray">Copyright &copy;</text>
+      <text class="gray">2021</text>
+      <text class="gray image-desktop">//</text>
+      <br class="image-mobile" />
+      <a href="/" class="secondary">Nathan Baker</a>
     </p>
-</footer>
+  </footer>
 
+  <script>
+    let colors = [
+      " orange",
+      " blue",
+      " red",
+      " green",
+      " yellow",
+      " purple",
+      " pink",
+    ];
+    let color = colors[Math.floor(Math.random() * colors.length)];
+    let elements = document.getElementsByClassName("primary");
+    for (const element of elements) element.className += color;
+    var index = colors.indexOf(color);
+    if (index !== -1) colors.splice(index, 1);
+    color = colors[Math.floor(Math.random() * colors.length)];
+    elements = document.getElementsByClassName("secondary");
+    for (const element of elements) element.className += color;
+  </script>
 </html>

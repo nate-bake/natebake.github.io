@@ -2,9 +2,17 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Video</title>
+    <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Vlog</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cairo:300,400"
+    /> -->
+    <link rel="stylesheet" href="https://use.typekit.net/jrc3tpq.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:600"
+    />
     <link rel="stylesheet" href="/styles.css" />
-    <!-- <link rel="stylesheet" href="/photo/photo-styles.css"> -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -20,51 +28,76 @@
           ><text class="mono">() {</text>
         </h1>
       </a>
-      <ul>
-        <li><a class="gray mono" href="/portfolio">portfolio:</a></li>
-        <li><a class="gray mono" href="/code">code</a></li>
-        <li><a class="gray mono" href="/photo">photo</a></li>
-        <li><a class="bold mono" href="/video">video</a></li>
+      <ul class="video-nav">
+        <li>
+          <a class="gray mono" href="/video">video:</a>
+        </li>
+        <li>
+          <a class="gray mono" href="/video/irish">irish_basketball</a>
+        </li>
+        <li>
+          <a class="bold mono" href="">vlog</a>
+        </li>
       </ul>
     </nav>
-    <!-- <div>
-        <fieldset>
-            <h2 class="source">This Website: [],</h2>
-            <h2 class="source">Rocket League AI: [],</h2>
-        </fieldset>
-        <br>
-    </div> -->
-    <div class="menu-container code-menu-container">
-      <a href="irish" class="orange" style="text-decoration: none">
-        <img class="photo-tile" src="/assets/tiles/jungle.jpg" />
-      </a>
-      <a href="vlog" class="green" style="text-decoration: none">
-        <img class="photo-tile" src="/assets/tiles/vlog2.jpg" />
-      </a>
+    <div>
+      <p>
+        Here is the vlog. Description coming soon.
+        <br /><br />
+      </p>
+      <iframe
+        src="https://www.youtube.com/embed/p25hwWhtoXw?rel=0&modestbranding=1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <p class="label">
+        30 September 2021
+        <br /><br />
+      </p>
+      <iframe
+        src="https://www.youtube.com/embed/jcru0YvqapM?rel=0&modestbranding=1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <p class="label">
+        12 September 2021
+        <br /><br />
+      </p>
+      <iframe
+        src="https://www.youtube.com/embed/cS-ZnP_Ir7A?rel=0&modestbranding=1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <p class="label">
+        16 August 2021
+        <br /><br />
+      </p>
     </div>
 
     <script>
-      const images = document.getElementsByTagName("img");
-      for (let image of images) {
-        image.style.opacity = "0";
-        if (!image.complete) {
-          image.addEventListener("load", fadeImg);
+      const iframes = document.getElementsByTagName("iframe");
+      for (let iframe of iframes) {
+        iframe.style.opacity = "0";
+        if (!iframe.complete) {
+          iframe.addEventListener("load", fadeImg);
         } else {
-          fadeImg.bind(image)();
+          f = fadeImg.bind(iframe);
+          f();
         }
       }
 
-      async function fadeImg() {
-        await new Promise((r) => setTimeout(r, 1));
-        this.style.transition = "filter 0.25s, opacity 1s";
+      function fadeImg() {
+        this.style.transition = "opacity 1s";
         this.style.opacity = "1";
-        this.removeEventListener("load", fadeImg);
       }
     </script>
   </body>
 
   <footer>
-    <h1 style="float: left" class="mono closing-brace">}</h1>
+    <h1 style="float: left" class="mono left closing-brace">}</h1>
     <ul class="footer-list footer-links">
       <li class="link-item">
         <a href="mailto:nathan.t.baker@okstate.edu">
@@ -94,7 +127,6 @@
       </li>
       <li class="link-item">
         <a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
-          <!-- href="https://open.spotify.com/playlist/4R078kIVCSGotunr22shUT?si=1fcad2dd6d1d49e3" -->
           <img src="/assets/links/spotify.png" />
         </a>
       </li>

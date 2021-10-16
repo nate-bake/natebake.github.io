@@ -1,312 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Rocket League AI</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:300,400">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:600">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <meta name="theme-color" content="#ffffff">
+    <!-- <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cairo:300,400"
+    /> -->
+    <link rel="stylesheet" href="https://use.typekit.net/jrc3tpq.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:600"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="theme-color" content="#ffffff" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <a href="/" class="no-underline">
-            <h1 class="center">
-                <text class="blue mono">nathan</text><text class=" mono">.</text><text
-                    class="orange mono">baker</text><text class=" mono">() {</text>
-            </h1>
-        </a>
-        <ul>
-            <li><a class="gray mono" href="/portfolio">portfolio:</a></li>
-            <li><a class=" bold mono" href="/code">code</a></li>
+      <a href="/" class="no-underline">
+        <h1 class="center">
+          <text class="primary mono">nathan</text><text class="mono">.</text
+          ><text class="secondary mono">baker</text
+          ><text class="mono">() {</text>
+        </h1>
+      </a>
+      <ul class="code-nav">
+        <li>
+          <a class="gray mono" href="/code">code:</a>
+        </li>
+        &nbsp;
+        <!-- <li><a class=" bold mono" href="/code">code</a></li>
             <li><a class="gray mono" href="/photo">photo</a></li>
-            <li><a class="gray mono" href="/video">video</a></li>
-        </ul>
+            <li><a class="gray mono" href="/video">video</a></li> -->
+        <li>
+          <a class="bold mono" href="">rocket_league</a>
+        </li>
+        &nbsp;
+        <li>
+          <a class="gray mono" href="/code/website">website</a>
+        </li>
+      </ul>
     </nav>
     <div>
-        <div class="link-container" style="margin: -0.5rem;"></div>
-        <h2 class="center">Rocket League AI</h2>
+      <!-- <div class="link-container" style="margin: -0.5rem;"></div> -->
+      <!-- <h2 class="center">Rocket League AI</h2> -->
+      <p>
+        By far the biggest programming project that I've pursued outside of
+        school has been creating a bot that can learn to play Rocket League by
+        analyzing replays of human gameplay.
+        <br />
+      </p>
+      <iframe
+        id="player"
+        src="https://www.youtube.com/embed/-928X5gDjzc?rel=0&modestbranding=1&enablejsapi=1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <p class="label">
+        A <span class="image-desktop">close</span> match between my bot and a
+        Psyonix Rookie bot.
+      </p>
+      <p>
+        Rocket League is a competitive physics-based game of car soccer with a
+        very high skill ceiling. Even experienced players struggle to perform
+        well consistently, which is one reason why the vast majority of bot
+        creators opt for defined routines rather than machine learning. When I
+        started, I was not aware that many brilliant members of the
+        <a class="gray-hover" target="_blank" href="https://rlbot.org/"
+          ><u>RLBot</u></a
+        >
+        community had already attempted this and found human replay data to be
+        insufficient for model training.
+        <br /><br />
+        Thus, I began writing scripts to collect and process thousands of
+        publicly available replay files, and after months of programming and
+        tinkering with neural networks, I feel I have seen some encouraging
+        results. So this is where I will try to explain the approach I took,
+        documenting my failures, successes, and work that remains to be done.
+        <br />
+      </p>
+      <p class="weight-400">
+        If you want to skip straight to the code, you can find it in
+        <a
+          class="gray-hover"
+          target="_blank"
+          href="https://github.com/nate-bake/rocket_league_ai"
+        >
+          <u>this repository</u></a
+        >.
+      </p>
+      <div
+        class="section-container"
+        id="collection"
+        style="margin-bottom: -1rem; margin-top: 2rem"
+      >
+        <h3 class="center">Data Collection</h3>
         <p>
-            By far the biggest programming project that I've pursued outside of school has been creating a bot
-            that can learn to play Rocket League by analyzing replays of human gameplay.
-            <br>
+          <img
+            class="side-image-right image-desktop"
+            src="/assets/rl-ai/fetch-cropped.PNG"
+            loading="lazy"
+          />
+          Initially, my ambitous self wanted to gather as many of my own replays
+          as I could. I hoped to create a bot that could perform at the rank of
+          grand champion. However, I quickly realized a problem.
+          <br /><br />
+          Whenever the bot inevitably makes a poor decision, it will likely end
+          up in a situation that a GC player would never find himself in, and
+          thus it would struggle to recover. This sort of scenario occurred in
+          the above video, at around the
+          <a class="gray-hover" href="javascript:seek(400);"><u>6:40</u></a>
+          mark. It drives too far into the goal and lands awkwardly. It happens.
+          The problem is that it then spends a lot of time powersliding for no
+          apparent reason, rather than defending. <br /><br />
+          To limit this sort of thing, I saw two necessary changes. First, I
+          needed as much data as possible. The more matches at our disposal, the
+          more situations we are able to recover from. Secondly, I decided to
+          lower my standards and gather replays from a much lower rank set like
+          silver. I figured that the increase in diversity would be worth the
+          additional player mistakes.
+          <br /><br />
+          <img
+            class="image-mobile full-width"
+            src="/assets/rl-ai/fetch-cropped.PNG"
+            loading="lazy"
+          />
+          <br class="image-mobile" /><br class="image-mobile" />
+          The obvious source of this data was
+          <a class="gray-hover" target="_blank" href="https://ballchasing.com"
+            ><u>ballchasing.com</u></a
+          >, where users can upload their replays for future analysis. Using the
+          API, I discovered that hundreds of silver 1v1 matches were being added
+          every day, and I wrote a couple Python scripts to download them
+          automatically until reaching the hourly limit. I currently have just
+          over 15,000 replay files stored on a dedicated microSD card.
+          <br />
         </p>
-        <iframe id="player" src="https://www.youtube.com/embed/-928X5gDjzc?rel=0&modestbranding=1&enablejsapi=1"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        <p class="label">
-            A <span class="image-desktop">close</span> match between my bot and a Psyonix Rookie bot.
-        </p>
+      </div>
+      <div
+        class="section-container"
+        id="processing"
+        style="margin-bottom: -1rem; margin-top: 2rem"
+      >
+        <h3 class="center">Replay Processing</h3>
         <p>
-            Rocket League is a competitive physics-based game of car soccer with a very high skill ceiling.
-            Even experienced players struggle to perform well consistently, which is one reason why the
-            vast majority of bot creators opt for defined routines rather than machine learning. When I started, I was
-            not aware that many brilliant members of the
-            <a class="gray-hover" target="_blank" href="https://rlbot.org/"><u>RLBot</u></a>
-            community had already attempted this and found human replay data to be insufficient for model training.
-            <br><br>
-            Thus, I began writing scripts to collect and process thousands of publicly available replay files,
-            and after months of programming and tinkering with neural networks, I feel I have seen some encouraging
-            results. So this is where I will try to explain the approach I took, documenting my failures, successes, and
-            work that remains to be done.
-            <br>
-            <!-- <div class="table-of-contents">
-            <div class=" source weight-400">Table of Contents:&nbsp;&nbsp;</div>
-            <div>
-                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('collection');"><u>Data
-                        Collection</u></a><br class="image-mobile">
-                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('processing')"><u>Replay
-                        Processing</u></a><br class="image-mobile">
-                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('training')"><u>Model
-                        Training</u></a><br class="image-mobile">
-                &nbsp;&nbsp;<a class=" source gray-hover" href="javascript:scroll('thoughts')"><u>Thoughts
-                    </u></a><br class="image-mobile">
-            </div>
-        </div> -->
+          Next came the very important step of figuring out what data I needed
+          and how to extract it. I could not make any sense of the replay file
+          format, but thankfully there are people who've made parsers like
+          <a
+            class="gray-hover"
+            target="_blank"
+            href="https://github.com/tfausak/rattletrap"
+          >
+            <u>Rattletrap</u></a
+          >
+          that convert them to javascript object notation. Slowly but surely, I
+          learned how things were represented and developed additional Python
+          scripts to organize the data with class structures and arrays.
+          <br /><br />
+          At this point I realized how limited the replays actually are. The
+          data is saved at a resolution of 30 frames per second, which might be
+          acceptable if every frame actually contained all the physics
+          information. Unfortunately, one car may have a new state defined at
+          frame 189, while the other car does not. These gaps present a big
+          problem, and right now my only solution is simple linear
+          interpolation&mdash;which really isn't so simple with quaternions and
+          rotation matrices.
+          <br /><br />
+          <img
+            src="/assets/rl-ai/notes.jpg"
+            class="full-width"
+            loading="lazy"
+          />
+          <br /><br />
+          The next great obstacle came when discovering that replays do not
+          actually contain all the controller inputs from the player. I found
+          the data for boost, jump, steering, and throttle&mdash;everything was
+          going well. I just needed to find the roll, pitch, and yaw inputs for
+          aerials. Turns out those don't exist.
+          <br /><br />
+          Thankfully
+          <a
+            href="https://samuelpmish.github.io/notes/RocketLeague/aerial_control_inverse/"
+            target="_blank"
+            class="gray-hover"
+            ><u>Sam Mish</u></a
+          >
+          figured out a way to solve for those inputs based on the change in
+          angular velocities. I was able to implement his solution and test it
+          in Rocket League by giving a bot a script of inputs to follow and
+          seeing if they matched the replay. It wasn't perfect, but maybe it
+          would be good enough. I wanted to get on with training.
+          <br />
         </p>
-        <p class="weight-400">If you want to skip straight to the code, you can find it in
-            <a class="gray-hover" target="_blank" href="https://github.com/nate-bake/rocket_league_ai">
-                <u>this repository</u></a>.
+      </div>
+      <div
+        class="section-container"
+        id="training"
+        style="margin-bottom: -1rem; margin-top: 2rem"
+      >
+        <h3 class="center">Model Training</h3>
+        <p>
+          I set up my replay processing script to run in parallel and
+          concatenated the rows into a series of numpy arrays with roughly 30
+          input columns and 7 output columns. The input columns describe the
+          state of the game for a particular frame: ball position, player
+          rotations, velocities, boost amounts, and the like. The output columns
+          are what the player's inputs were for the next frame. That may sound
+          contradictory, but controller inputs are the outputs that we want.
+          <br /><br />
+          <img
+            class="side-image-left image-desktop"
+            src="/assets/rl-ai/bot.gif"
+            loading="lazy"
+          />
+          After following some quick multi-output regression tutorials and
+          setting up RLBot, I was able to see an autonomous car out on the
+          pitch. And it was hilarious. I watched it flail around and do donuts
+          for minutes on end. I remember my roommate saying,
+          <em>"Yup, looks like a silver player to me!"</em>
+          <br class="image-mobile" /><br class="image-mobile" />
+          <img
+            class="image-mobile full-width"
+            src="/assets/rl-ai/bot.gif"
+            loading="lazy"
+          />
+          <br /><br />
+          But as entertaining as it was, this was nowhere near the desired
+          outcome. None of my models could make any sense of the quaternions and
+          coordinate system, and they essentially converged to the mean of all
+          the rows. Thus, I tried to handle more of the computation up front and
+          provide a more informative input.
+          <br /><br />
+          I ended up stretching the input layer out to 92 parameters per frame.
+          I abandoned the quaternions for rotation matrices, and added new
+          copies of every variable in the reference frame of the car's
+          orientation. No longer was I just telling the bot that the ball was at
+          the middle of the field, I was also telling it that the ball was
+          behind him, and that the opponent was moving away from him. I spent a
+          long time debugging the rotation matrices before discovering that the
+          replays seem to switch back and forth between left-hand and right-hand
+          representations of the z-axis. Once I got that sorted out and
+          normalized all the values, the new model was at least driving around,
+          rather than flopping around.
+          <br /><br />
+          One of the unique challenges of this machine learning problem is the
+          mix of output types. Some are booleans, like boost and jump. These
+          resolve to either 0 or 1, while others like steering and throttle are
+          analog, falling anywhere on the range of [-1,1]. I was completely new
+          to machine learning theory, but I came to understand that these call
+          for two different methods of computing loss and activation, so I
+          originally had two different models. Recently I merged the two into
+          one network where the output layer has combination of activation and
+          loss functions.
+          <br /><br />
+          The first set of neurons have a sigmoid activation and use weighted
+          binary cross entropy for the loss, while the rest use hyperbolic
+          tangent activation and RMSE for the loss. While initially confusing to
+          set up, I think this is a much better configuration because it allows
+          the outputs to be computed all at once, leading to just one associated
+          loss.
+          <br /><br />
+          <img
+            src="/assets/rl-ai/notes3.jpg"
+            class="full-width"
+            loading="lazy"
+          />
+          <br /><br />
+          After tons of trial and error with training parameters, my best model
+          so far is what starred in the video at the top of the page. But after
+          many more tests I have tragically forgotten what settings led to that
+          model. I think I was using an SGD optimizer with learning_rate=0.01
+          and momentum=0.99, and I know the network size wasn't too
+          large&mdash;maybe a few hidden layers with size 800. As far as batch
+          size and training time, I'm not sure. But I haven't had the patience
+          to train for lots of epochs because it takes a very long time to go
+          through 50 gigabytes of memory-mapped data. I hope to do a better job
+          of logging my experiments and maybe I can include some TensorBoard
+          charts here in the future.
+          <br />
         </p>
-        <div class="section-container" id="collection" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="center">Data Collection</h3>
-            <p>
-                <img class="side-image-right image-desktop" src="/assets/rl-ai/fetch-cropped.PNG" loading="lazy">
-                Initially, my ambitous self wanted to gather as many of my own replays as I could. I hoped to create a
-                bot that could perform at the rank of grand champion. However, I quickly realized a problem.
-                <br><br>
-                Whenever the bot inevitably makes a poor decision, it will likely end up in a
-                situation that a GC player would never find himself in, and thus it would struggle to recover.
-                This sort of scenario occurred in the above video, at around the
-                <a class="gray-hover" href="javascript:seek(400);"><u>6:40</u></a> mark.
-                It drives too far into the goal and lands awkwardly. It happens. The problem is that it then spends a
-                lot of time powersliding for no apparent reason, rather than defending.
-                <br><br>
-                To limit this sort of thing, I saw two necessary changes. First, I needed as much data as possible. The
-                more matches at our disposal, the more situations we are able to recover from. Secondly, I decided to
-                lower my standards and gather replays from a much lower rank set like silver. I figured that the
-                increase in diversity would be worth the additional player mistakes.
-                <br><br>
-                <img class="image-mobile full-width" src="/assets/rl-ai/fetch-cropped.PNG" loading="lazy">
-                <br class="image-mobile"><br class="image-mobile">
-                The obvious source of this data was
-                <a class="gray-hover" target="_blank" href="https://ballchasing.com"><u>ballchasing.com</u></a>,
-                where users can upload their replays for future analysis. Using the API, I discovered that hundreds of
-                silver 1v1 matches were being added every day, and I wrote a couple Python scripts to download them
-                automatically until reaching the hourly limit. I currently have just over 15,000 replay files stored on
-                a dedicated microSD card.
-                <br>
-            </p>
-        </div>
-        <div class="section-container" id="processing" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="center">Replay Processing</h3>
-            <p>
-                Next came the very important step of figuring out what data I needed and how to extract it. I could not
-                make any sense of the replay file format, but thankfully there are people who've made parsers like
-                <a class="gray-hover" target="_blank" href="https://github.com/tfausak/rattletrap">
-                    <u>Rattletrap</u></a>
-                that convert them to javascript object notation. Slowly but surely, I learned how things were
-                represented and developed additional Python scripts to organize the data with class structures and
-                arrays.
-                <br><br>
-                At this point I realized how limited the replays actually are. The data is saved at a
-                resolution of 30 frames per second, which might be acceptable if every frame actually contained all the
-                physics information. Unfortunately, one car may have a new state defined at frame 189, while
-                the other car does not. These gaps present a big problem, and right now my only solution is simple
-                linear interpolation&mdash;which really isn't so simple with quaternions and rotation matrices.
-                <br><br>
-                <img src="/assets/rl-ai/notes.jpg" class="full-width" loading="lazy">
-                <br><br>
-                The next great obstacle came when discovering that replays do not actually contain all the controller
-                inputs from the player. I found the data for boost, jump, steering, and throttle&mdash;everything was
-                going well.
-                I just needed to find the roll, pitch, and yaw inputs for aerials. Turns out those don't exist.
-                <br><br>
-                Thankfully
-                <a href="https://samuelpmish.github.io/notes/RocketLeague/aerial_control_inverse/" target="_blank"
-                    class=" gray-hover"><u>Sam Mish</u></a>
-                figured out a way to solve for those inputs based on the change in angular velocities. I was able to
-                implement his solution and test it in Rocket League by giving a bot a script of inputs to follow and
-                seeing if they matched the replay. It wasn't perfect, but maybe it would be good enough. I wanted to get
-                on with training.
-                <br>
-            </p>
-        </div>
-        <div class="section-container" id="training" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="center">Model Training</h3>
-            <p>
-                I set up my replay processing script to run in parallel and concatenated the rows into a series of numpy
-                arrays with roughly 30 input columns and 7 output columns. The input columns describe the state of the
-                game for a particular frame: ball position, player rotations, velocities, boost amounts, and the
-                like. The output columns are what the player's inputs were for the next frame. That may sound
-                contradictory, but controller inputs are the outputs that we want.
-                <br><br>
-                <img class="side-image-left image-desktop" src="/assets/rl-ai/bot.gif" loading="lazy">
-                After following some quick multi-output regression tutorials and setting up RLBot, I was able to see an
-                autonomous car out on the pitch. And it was hilarious. I watched it flail around and do donuts for
-                minutes on end. I remember my roommate saying,
-                <em>"Yup, looks like a silver player to me!"</em>
-                <br class="image-mobile"><br class="image-mobile">
-                <img class="image-mobile full-width" src="/assets/rl-ai/bot.gif" loading="lazy">
-                <br><br>
-                But as entertaining as it was, this was nowhere near the desired outcome. None of my models could make
-                any sense of the quaternions and coordinate system, and they essentially converged to the mean of
-                all the rows. Thus, I tried to handle more of the computation up front and provide a more informative
-                input.
-                <br><br>
-                I ended up stretching the input layer out to 92 parameters per frame. I abandoned the quaternions
-                for rotation matrices, and added new copies of every variable in the reference frame of the
-                car's orientation. No longer was I just telling the bot that the ball was at the middle of the field, I
-                was also telling it that the ball was behind him, and that the opponent was moving away from him. I
-                spent a long time debugging the rotation matrices before discovering that the replays seem to switch
-                back and forth between left-hand and right-hand representations of the z-axis. Once I got that
-                sorted out and normalized all the values, the new model was at least driving around, rather than
-                flopping around.
-                <br><br>
-                One of the unique challenges of this machine learning problem is the mix of output types.
-                Some are booleans, like boost and jump. These resolve to either 0 or 1, while others like steering and
-                throttle are analog, falling anywhere on the range of [-1,1]. I was completely new to machine learning
-                theory, but I came to understand that these call for two different methods of computing loss and
-                activation, so I originally had two different models. Recently I merged the two into one network where
-                the output layer has combination of activation and loss functions.
-                <br><br>
-                The first set of neurons have a sigmoid activation and use weighted binary cross entropy for the loss,
-                while the rest use hyperbolic tangent activation and RMSE for the loss. While initially confusing to
-                set up, I think this is a much better configuration because it allows the outputs to be computed all at
-                once, leading to just one associated loss.
-                <br><br>
-                <img src="/assets/rl-ai/notes3.jpg" class="full-width" loading="lazy">
-                <br><br>
-                After tons of trial and error with training parameters, my best model so far is what starred in the
-                video at the top of the page. But after many more tests I have tragically forgotten what settings led to
-                that model. I think I was using an SGD optimizer with learning_rate=0.01 and momentum=0.99, and I know
-                the network size wasn't too large&mdash;maybe a few hidden layers with size 800. As far as batch size
-                and training time, I'm not sure. But I haven't had the patience to train for lots of epochs because it
-                takes a very long time to go through 50 gigabytes of memory-mapped data. I hope to do a better job of
-                logging my experiments and maybe I can include some TensorBoard charts here in the future.
-                <br>
-            </p>
-        </div>
-        <div class="section-container" id="thoughts" style="margin-bottom: -1rem; margin-top: 2rem;">
-            <h3 class="center">Thoughts</h3>
-            <p>
-                This project has reached a state far beyond my initial expectations. Although my creation lost
-                to a Psyonix Rookie bot, and is still inferior to other models that were trained on
-                more consistent data sources, it has been exciting to see some correct behaviors emerge! However, there
-                is still certainly room for refinement in both network parameters and replay processing.
-                <br><br>
-                From what I have read about machine learning, there is this notion that more data will always improve
-                performance&mdash;that enough rows can help a model cut through the noise and find overall trends. But
-                I have a hunch that such generalization may actually produce negative side effects for this project.
-                <br><br>
-                Consider the case where an attacking player loses possession and has low boost.
-                <em>Do you try to pressure the ball, or turn back and shadow defend?</em>
-                The answer depends on the person's playstyle. Some go for boost, some go for ball. And if your dataset
-                is so large to where it is split close to 50/50, the bot will converge at a decision that is neither
-                push nor retreat. It might end up doing something in between, which is undoubtedly the worst course of
-                action. With the 250 million rows that I have, I may already be dealing with these effects. My
-                validation losses show no signs of overfitting, so I see no reason to fill more storage space with data
-                that might not actually help.
-                <br><br>
-                Moving forward, I plan on conducting more structured experiments with respect to output weights,
-                learning rate, network size, batch size, and training time. This would be expedited if I had a
-                separate computer to train on, since I can't be giving up all my RAM for days at a time.
-                I may try to remove some complexity by reducing the penalty for an incorrect output when that output
-                had no real effect, such as trying to use handbrake while mid-air.
-                <br><br>
-                Of course if you have any questions or advice you'd like to offer,
-                <a class="gray-hover" href="mailto:nathan.t.baker@okstate.edu">
-                    <u>email me</u></a>!
-                I will try to update this page as things develop.
-                <br><br>
-            </p>
-        </div>
-        <p class="center gray">4 February 2021</p>
+      </div>
+      <div
+        class="section-container"
+        id="thoughts"
+        style="margin-bottom: -1rem; margin-top: 2rem"
+      >
+        <h3 class="center">Thoughts</h3>
+        <p>
+          This project has reached a state far beyond my initial expectations.
+          Although my creation lost to a Psyonix Rookie bot, and is still
+          inferior to other models that were trained on more consistent data
+          sources, it has been exciting to see some correct behaviors emerge!
+          However, there is still certainly room for refinement in both network
+          parameters and replay processing.
+          <br /><br />
+          From what I have read about machine learning, there is this notion
+          that more data will always improve performance&mdash;that enough rows
+          can help a model cut through the noise and find overall trends. But I
+          have a hunch that such generalization may actually produce negative
+          side effects for this project.
+          <br /><br />
+          Consider the case where an attacking player loses possession and has
+          low boost.
+          <em
+            >Do you try to pressure the ball, or turn back and shadow
+            defend?</em
+          >
+          The answer depends on the person's playstyle. Some go for boost, some
+          go for ball. And if your dataset is so large to where it is split
+          close to 50/50, the bot will converge at a decision that is neither
+          push nor retreat. It might end up doing something in between, which is
+          undoubtedly the worst course of action. With the 250 million rows that
+          I have, I may already be dealing with these effects. My validation
+          losses show no signs of overfitting, so I see no reason to fill more
+          storage space with data that might not actually help.
+          <br /><br />
+          Moving forward, I plan on conducting more structured experiments with
+          respect to output weights, learning rate, network size, batch size,
+          and training time. This would be expedited if I had a separate
+          computer to train on, since I can't be giving up all my RAM for days
+          at a time. I may try to remove some complexity by reducing the penalty
+          for an incorrect output when that output had no real effect, such as
+          trying to use handbrake while mid-air.
+          <br /><br />
+          Of course if you have any questions or advice you'd like to offer,
+          <a class="gray-hover" href="mailto:nathan.t.baker@okstate.edu">
+            <u>email me</u></a
+          >! I will try to update this page as things develop. <br /><br />
+        </p>
+      </div>
+      <p class="center gray">4 February 2021</p>
     </div>
 
     <script>
-        const iframes = document.getElementsByTagName("iframe");
-        for (let iframe of iframes) {
-            iframe.style.opacity = "0";
-            if (!iframe.complete) {
-                iframe.addEventListener("load", fadeImg);
-            } else {
-                f = fadeImg.bind(iframe);
-                f();
-            }
-        }
-
-        function fadeImg() {
-            this.style.transition = "opacity 1s";
-            this.style.opacity = "1";
-        }
-
-        function scroll(id) {
-            document.getElementById(id).scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        var player;
-
-        if (!window.YT) {
-            $.getScript("https://www.youtube.com/iframe_api");
-            window.onYouTubeIframeAPIReady = setup_player;
+      const iframes = document.getElementsByTagName("iframe");
+      for (let iframe of iframes) {
+        iframe.style.opacity = "0";
+        if (!iframe.complete) {
+          iframe.addEventListener("load", fadeImg);
         } else {
-            window.onYouTubeIframeAPIReady = () => { };
-            setup_player();
+          f = fadeImg.bind(iframe);
+          f();
         }
+      }
 
-        function setup_player() {
-            player = new YT.Player('player', {});
-        }
+      function fadeImg() {
+        this.style.transition = "opacity 1s";
+        this.style.opacity = "1";
+      }
 
-        function seek(seconds) {
-            player.seekTo(seconds, true);
-        }
+      function scroll(id) {
+        document.getElementById(id).scrollIntoView({
+          behavior: "smooth",
+        });
+      }
 
+      var player;
+
+      if (!window.YT) {
+        $.getScript("https://www.youtube.com/iframe_api");
+        window.onYouTubeIframeAPIReady = setup_player;
+      } else {
+        window.onYouTubeIframeAPIReady = () => {};
+        setup_player();
+      }
+
+      function setup_player() {
+        player = new YT.Player("player", {});
+      }
+
+      function seek(seconds) {
+        player.seekTo(seconds, true);
+      }
     </script>
+  </body>
 
-</body>
-
-<footer>
-    <h1 style="float:left;" class=" mono left closing-brace">}</h1>
+  <footer>
+    <h1 style="float: left" class="mono left closing-brace">}</h1>
     <ul class="footer-list footer-links">
-        <li class="link-item"><a href="mailto:nathan.t.baker@okstate.edu">
-                <img src="/assets/links/email.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://linkedin.com/in/nathan-baker-16173b1b8/">
-                <img src="/assets/links/linkedin.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://instagram.com/nate_bake_/">
-                <img src="/assets/links/instagram.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w">
-                <img src="/assets/links/youtube.png"></a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
-                <!-- href="https://open.spotify.com/playlist/4R078kIVCSGotunr22shUT?si=1fcad2dd6d1d49e3" -->
-                <img src="/assets/links/spotify.png">
-            </a>
-        </li>
-        <li class="link-item"><a target="_blank" href="https://github.com/nate-bake">
-                <img src="/assets/links/github.png"></a>
-        </li>
+      <li class="link-item">
+        <a href="mailto:nathan.t.baker@okstate.edu">
+          <img src="/assets/links/email.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a
+          target="_blank"
+          href="https://linkedin.com/in/nathan-baker-16173b1b8/"
+        >
+          <img src="/assets/links/linkedin.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://instagram.com/nate_bake_/">
+          <img src="/assets/links/instagram.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a
+          target="_blank"
+          href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w"
+        >
+          <img src="/assets/links/youtube.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
+          <!-- href="https://open.spotify.com/playlist/4R078kIVCSGotunr22shUT?si=1fcad2dd6d1d49e3" -->
+          <img src="/assets/links/spotify.png" />
+        </a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://github.com/nate-bake">
+          <img src="/assets/links/github.png"
+        /></a>
+      </li>
     </ul>
     <p class="footer-copyright gray mono weight-400">
-        <text class="gray">Copyright &copy;</text>
-        <text class="gray">2021</text>
-        <text class="gray image-desktop">//</text>
-        <br class="image-mobile">
-        <a href="/" class="orange">Nathan Baker</a>
+      <text class="gray">Copyright &copy;</text>
+      <text class="gray">2021</text>
+      <text class="gray image-desktop">//</text>
+      <br class="image-mobile" />
+      <a href="/" class="secondary">Nathan Baker</a>
     </p>
-</footer>
+  </footer>
 
+  <script>
+    let colors = [
+      " orange",
+      " blue",
+      " red",
+      " green",
+      " yellow",
+      " purple",
+      " pink",
+    ];
+    let color = colors[Math.floor(Math.random() * colors.length)];
+    let elements = document.getElementsByClassName("primary");
+    for (const element of elements) element.className += color;
+    var index = colors.indexOf(color);
+    if (index !== -1) colors.splice(index, 1);
+    color = colors[Math.floor(Math.random() * colors.length)];
+    elements = document.getElementsByClassName("secondary");
+    for (const element of elements) element.className += color;
+  </script>
 </html>

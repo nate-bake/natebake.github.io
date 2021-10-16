@@ -4,10 +4,17 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Pelican Photos</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:300,400">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:300,400"> -->
+    <link rel="stylesheet" href="https://use.typekit.net/jrc3tpq.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:600">
     <link rel="stylesheet" type="text/css" href="/slick/slick/slick.css" />
-    <link rel="stylesheet" href="/styles.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/slick/slick/slick-theme.css"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/photo/photo-styles.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -18,8 +25,8 @@
     <nav>
         <a href="/" class="no-underline">
             <h1 class="center">
-                <text class="purple mono">nathan</text><text class="mono">.</text><text
-                    class="blue mono">baker</text><text class="mono">() {</text>
+                <text class="primary mono">nathan</text><text class="mono">.</text><text
+                    class="secondary mono">baker</text><text class="mono">() {</text>
             </h1>
         </a>
         <ul>
@@ -31,7 +38,7 @@
     </nav>
     <div class="page">
         <div class="carousel-container">
-            <h2 class="slick-left gray mono bold">&#60;</h2>
+            <!-- <h2 class="slick-left gray mono bold">&#60;</h2> -->
             <div class="photo-set-container">
                 <div>
                     <img class="photo" src="/assets/pelican/pelican1.jpg">
@@ -41,6 +48,7 @@
                         <p>f/5.6</p>
                         <p>1/4000 sec</p>
                     </div>
+                    <br />
                 </div>
                 <div>
                     <img class="photo" src="/assets/pelican/pelican2.jpg">
@@ -50,6 +58,7 @@
                         <p>f/5.6</p>
                         <p>1/500 sec</p>
                     </div>
+                    <br />
                 </div>
                 <div>
                     <img class="photo" src="/assets/pelican/pelican3.jpg">
@@ -59,9 +68,10 @@
                         <p>f/5.6</p>
                         <p>1/4000 sec</p>
                     </div>
+                    <br />
                 </div>
             </div>
-            <h2 class="slick-right gray mono bold">&#62;</h2>
+            <!-- <h2 class="slick-right gray mono bold">&#62;</h2> -->
         </div>
         <p class="description">
             Some pelicans decided to visit our lake for the winter, so I took these and had them printed for my mom's
@@ -70,43 +80,35 @@
         <p class="gray center">16 December 2020</p>
         </p>
     </div>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="/slick/slick/slick.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.photo-set-container').slick({
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true,
-                autoplay: true,
-                autoplaySpeed: 4000,
-                pauseOnFocus: false,
-                pauseOnHover: false,
-                focusOnSelect: false,
-                prevArrow: $('.slick-left'),
-                nextArrow: $('.slick-right'),
-            });
+      $(document).ready(function () {
+        $(".photo-set-container").slick({
+          speed: 750,
+          centerMode: true,
+          dots: true,
+          variableWidth: true,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          pauseOnFocus: false,
+          pauseOnHover: false,
+          focusOnSelect: false,
+          arrows: false,
         });
-    </script>
-
-    <script>
-        const images = document.getElementsByTagName("img");
+      });
+      $(".photo-set-container").on("init", function (event, slick) {
+        const images = document.getElementsByClassName("photo");
         for (let image of images) {
-            image.style.opacity = "0";
-            if (!image.complete) {
-                image.addEventListener("load", fadeImg);
-            } else {
-                fadeImg.bind(image)();
-            }
+          image.style.opacity = "1";
+          image.style.transition = "opacity 1s";
         }
-
-        async function fadeImg() {
-            await new Promise(r => setTimeout(r, 1));
-            this.style.transition = "opacity 1s";
-            this.style.opacity = "1";
-        }
+      });
     </script>
 </body>
 
@@ -139,8 +141,28 @@
         <text class="gray">2021</text>
         <text class="gray image-desktop">//</text>
         <br class="image-mobile">
-        <a href="/" class="blue">Nathan Baker</a>
+        <a href="/" class="secondary">Nathan Baker</a>
     </p>
 </footer>
+
+<script>
+    let colors = [
+      " orange",
+      " blue",
+      " red",
+      " green",
+      " yellow",
+      " purple",
+      " pink",
+    ];
+    let color = colors[Math.floor(Math.random() * colors.length)];
+    let elements = document.getElementsByClassName("primary");
+    for (const element of elements) element.className += color;
+    var index = colors.indexOf(color);
+    if (index !== -1) colors.splice(index, 1);
+    color = colors[Math.floor(Math.random() * colors.length)];
+    elements = document.getElementsByClassName("secondary");
+    for (const element of elements) element.className += color;
+  </script>
 
 </html>
