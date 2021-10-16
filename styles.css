@@ -514,6 +514,10 @@ footer img:hover {
   display: none;
 }
 
+.slick-dots {
+  display: none !important;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .portfolio-card:hover .card-title,
   .link-card:hover .card-title {
@@ -553,6 +557,10 @@ footer img:hover {
 
   .photo {
     max-height: min(85vh, 47vw);
+  }
+
+  .slick-dots {
+    display: block;
   }
 }
 
@@ -786,9 +794,5 @@ footer img:hover {
 
   h3 {
     font-size: 1.5rem;
-  }
-
-  .slick-dots {
-    display: none;
   }
 }
