@@ -518,6 +518,10 @@ footer img:hover {
   display: none !important;
 }
 
+.description {
+  margin-top: 0;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .portfolio-card:hover .card-title,
   .link-card:hover .card-title {
@@ -560,7 +564,11 @@ footer img:hover {
   }
 
   .slick-dots {
-    display: block;
+    display: block !important;
+  }
+
+  .description {
+    margin-top: 1rem;
   }
 }
 
