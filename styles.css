@@ -519,7 +519,7 @@ footer img:hover {
 }
 
 .description {
-  margin-top: -1rem;
+  margin-top: -1.5rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -568,7 +568,7 @@ footer img:hover {
   }
 
   .description {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
   }
 }
 
