@@ -468,7 +468,6 @@ footer img:hover {
   margin-left: 1rem;
   margin-right: 1rem;
   opacity: 0;
-  display: none;
 }
 
 .single-photo {
@@ -515,10 +514,6 @@ footer img:hover {
   display: none;
 }
 
-.slick-dots {
-  display: none;
-}
-
 @media (hover: hover) and (pointer: fine) {
   .portfolio-card:hover .card-title,
   .link-card:hover .card-title {
@@ -558,14 +553,6 @@ footer img:hover {
 
   .photo {
     max-height: min(85vh, 47vw);
-  }
-
-  .slick-dots {
-    display: block;
-  }
-
-  .photo {
-    display: block;
   }
 }
 
@@ -799,5 +786,9 @@ footer img:hover {
 
   h3 {
     font-size: 1.5rem;
+  }
+
+  .slick-dots {
+    display: none;
   }
 }
