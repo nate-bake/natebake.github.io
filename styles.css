@@ -464,10 +464,11 @@ footer img:hover {
 .photo {
   user-select: none;
   max-height: min(85vh, 53vw);
-  max-width: 80vw;
+  max-width: 75vw;
   margin-left: 1rem;
   margin-right: 1rem;
   opacity: 0;
+  display: none;
 }
 
 .single-photo {
@@ -562,6 +563,10 @@ footer img:hover {
   .slick-dots {
     display: block;
   }
+
+  .photo {
+    display: block;
+  }
 }
 
 @media (min-aspect-ratio: 3/2) and (min-width: 1440px) {
@@ -575,6 +580,7 @@ footer img:hover {
 
   .photo {
     max-height: min(85vh, 46.67vw);
+    max-width: 60vw;
   }
 
   iframe {
@@ -599,6 +605,7 @@ footer img:hover {
 
   .photo {
     max-height: min(85vh, 33vw);
+    max-width: 45vw;
   }
 
   iframe {
@@ -654,6 +661,10 @@ footer img:hover {
     font-size: max(1rem, 2.25vw);
     line-height: 1.25;
   }
+
+  .photo {
+    max-width: 80vw;
+  }
 }
 
 @media (max-width: 720px) {
@@ -687,6 +698,10 @@ footer img:hover {
 @media (max-aspect-ratio: 3/4) {
   body {
     width: 80vw;
+  }
+
+  .photo {
+    max-width: 80vw;
   }
 
   nav {
