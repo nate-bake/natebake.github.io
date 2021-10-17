@@ -507,7 +507,7 @@ footer img:hover {
   opacity: 0;
 }
 
-.single-photo {
+.photo-single {
   margin-left: auto;
   margin-right: auto;
 }
@@ -540,9 +540,9 @@ footer img:hover {
 
 .settings-table-titled > p:first-child {
   flex: 0 0 100%;
-  margin-bottom: 0.5rem;
   color: rgb(36, 41, 46);
   font-weight: 300;
+  margin-bottom: 1.5rem;
 }
 
 .settings-table-titled > p:not(:first-child) {
@@ -606,6 +606,10 @@ footer img:hover {
 
   .description {
     margin-top: 1.25rem;
+  }
+
+  .settings-table-titled > p:first-child {
+    margin-bottom: 0.5rem;
   }
 }
 
