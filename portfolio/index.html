@@ -100,7 +100,7 @@
         await new Promise((r) => setTimeout(r, 1));
         let card = null;
         if (this.src.includes("code.jpg"))
-          card = document.getElementsById("code-card");
+          card = document.getElementById("code-card");
         else if (this.src.includes("chrain.jpg"))
           card = document.getElementById("photo-card");
         else if (this.src.includes("jungle2.jpg"))
