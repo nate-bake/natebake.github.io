@@ -64,6 +64,6 @@ body {
   }
 
   .second-row .photo-tile .tile-title {
-    font-size: max(min(2.75vw, 2rem), 1.25rem);
+    font-size: max(min(2vw, 2rem), 1.25rem);
   }
 }
