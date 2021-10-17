@@ -6,7 +6,7 @@ body {
   max-width: 80vw;
 }
 
-@media (min-aspect-ratio: 3/2) and (min-width: 1000px) {
+@media (min-aspect-ratio: 3/2) and (min-width: 2000px) {
   body {
     width: 85vw;
   }
@@ -21,6 +21,24 @@ body {
 
   .second-row .photo-tile .tile-title {
     font-size: max(min(3.5vw, 3.5rem), 1.25rem);
+  }
+}
+
+@media (min-aspect-ratio: 3/2) and (min-width: 1000px) {
+  body {
+    width: 85vw;
+  }
+
+  .photo {
+    max-width: 85vw;
+  }
+
+  .photo-menu-container .second-row {
+    flex-basis: 22%;
+  }
+
+  .second-row .photo-tile .tile-title {
+    font-size: max(min(3vw, 2.75rem), 1.25rem);
   }
 }
 
