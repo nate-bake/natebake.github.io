@@ -386,7 +386,7 @@ footer img:hover {
 }
 
 .photo-tile .tile-title {
-  font-size: min(4vw, 4rem);
+  font-size: max(min(3.5vw, 4rem), 1.25rem);
 }
 
 .code-tile .tile-title,
@@ -543,6 +543,8 @@ footer img:hover {
   color: rgb(36, 41, 46);
   font-weight: 300;
   margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 .settings-table-titled > p:not(:first-child) {
@@ -610,6 +612,7 @@ footer img:hover {
 
   .settings-table-titled > p:first-child {
     margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
   }
 }
 
