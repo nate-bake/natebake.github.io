@@ -386,7 +386,7 @@ footer img:hover {
 }
 
 .photo-tile .tile-title {
-  font-size: max(min(4vw, 4rem), 1.25rem);
+  font-size: max(min(5vw, 4rem), 1.25rem);
 }
 
 .code-tile .tile-title,
@@ -843,6 +843,10 @@ footer img:hover {
   .code-tile .tile-title,
   .video-tile .tile-title {
     font-size: 10vw;
+  }
+
+  .photo-tile .tile-title {
+    font-size: max(min(3.25vw, 4rem), 1.25rem);
   }
 
   p {
