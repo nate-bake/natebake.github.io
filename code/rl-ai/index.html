@@ -351,6 +351,16 @@
         }
       }
 
+      const images = document.getElementsByTagName("img");
+      for (let image of images) {
+        image.style.opacity = "0";
+        if (!image.complete) {
+          image.addEventListener("load", fadeImg);
+        } else {
+          fadeImg.bind(image)();
+        }
+      }
+
       function fadeImg() {
         this.style.transition = "opacity 1s";
         this.style.opacity = "1";
