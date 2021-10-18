@@ -20,12 +20,12 @@ body {
   }
 }
 
-/* @media (max-aspect-ratio: 3/4) {
+@media (max-aspect-ratio: 3/4) {
   .photo {
     max-width: 80vw;
     max-height: 85vh;
   }
-} */
+}
 
 @media (max-width: 1000px) {
   .photo {
