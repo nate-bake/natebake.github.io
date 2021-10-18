@@ -500,16 +500,11 @@ footer img:hover {
 
 .photo {
   user-select: none;
-  max-height: min(85vh, 53vw);
   max-width: 75vw;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  opacity: 0;
-}
-
-.photo-single {
+  max-height: 50vw;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
 }
 
 .gray-hover {
@@ -598,10 +593,6 @@ footer img:hover {
     gap: 5%;
   }
 
-  .photo {
-    max-height: min(85vh, 47vw);
-  }
-
   .slick-dots {
     display: block !important;
   }
@@ -626,18 +617,12 @@ footer img:hover {
   }
 
   .photo {
-    max-height: min(85vh, 46.67vw);
+    max-height: 40vw;
     max-width: 60vw;
   }
 
   iframe {
     height: 35vw;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .photo {
-      max-height: min(85vh, 41vw);
-    }
   }
 }
 
@@ -651,18 +636,12 @@ footer img:hover {
   }
 
   .photo {
-    max-height: min(85vh, 33vw);
+    max-height: 30vw;
     max-width: 45vw;
   }
 
   iframe {
     height: 25vw;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .photo {
-      max-height: min(85vh, 29vw);
-    }
   }
 }
 
@@ -711,6 +690,7 @@ footer img:hover {
 
   .photo {
     max-width: 80vw;
+    max-height: 52vw;
   }
 }
 
@@ -749,6 +729,7 @@ footer img:hover {
 
   .photo {
     max-width: 80vw;
+    max-height: 85vh;
   }
 
   nav {
@@ -830,10 +811,6 @@ footer img:hover {
   .link-item img {
     max-width: min(55%, 80px);
     max-height: min(55%, 80px);
-  }
-
-  .photo {
-    max-height: 85vh;
   }
 
   .code-menu-container a {

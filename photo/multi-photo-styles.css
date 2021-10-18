@@ -1,0 +1,21 @@
+body {
+  width: 80vw;
+}
+
+.photo {
+  max-width: 80vw;
+  max-height: 37.5vw;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+@media (min-aspect-ratio: 3/2) and (min-width: 1000px) {
+  body {
+    width: 70vw;
+  }
+
+  .photo {
+    max-width: 70vw;
+    max-height: 33.5vw;
+  }
+}
