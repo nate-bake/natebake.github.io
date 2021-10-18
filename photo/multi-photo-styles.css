@@ -20,16 +20,16 @@ body {
   }
 }
 
-@media (max-aspect-ratio: 3/4) {
+/* @media (max-aspect-ratio: 3/4) {
   .photo {
     max-width: 80vw;
     max-height: 85vh;
   }
-}
+} */
 
 @media (max-width: 1000px) {
   .photo {
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
+    margin-left: 0.67rem;
+    margin-right: 0.67rem;
   }
 }
