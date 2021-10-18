@@ -26,3 +26,12 @@ body {
     max-height: 85vh;
   }
 }
+
+@media (max-width: 1000px) {
+  .photo {
+    max-width: 80vw;
+    max-height: 37.5vw;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+}
