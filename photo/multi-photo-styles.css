@@ -19,3 +19,10 @@ body {
     max-height: 33.5vw;
   }
 }
+
+@media (max-aspect-ratio: 3/4) {
+  .photo {
+    max-width: 80vw;
+    max-height: 85vh;
+  }
+}
