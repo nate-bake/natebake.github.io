@@ -697,8 +697,9 @@ footer img:hover {
   }
 
   @media (hover: none), (pointer: coarse) {
-    p {
-      font-size: 0.75rem;
+    p,
+    .label {
+      font-size: 0.825rem;
     }
   }
 }
