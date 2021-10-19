@@ -696,9 +696,9 @@ footer img:hover {
     max-height: 52vw;
   }
 
-  @media (hover: none) {
+  @media (hover: none), (pointer: coarse) {
     p {
-      font-size: 1.025rem;
+      font-size: 0.25rem;
     }
   }
 }
