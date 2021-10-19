@@ -48,4 +48,8 @@ body {
   body {
     width: 85vw;
   }
+
+  .portfolio-container {
+    margin-bottom: -0.5rem;
+  }
 }
