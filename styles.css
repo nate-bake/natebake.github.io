@@ -821,8 +821,8 @@ footer img:hover {
   }
 
   .code-menu-container {
-    width: 75vw;
-    margin-left: 5vw;
+    width: 65vw;
+    margin-left: 10vw;
   }
 
   .code-tile .tile-title,
@@ -840,5 +840,9 @@ footer img:hover {
 
   h3 {
     font-size: 1.5rem;
+  }
+
+  .label {
+    margin-bottom: 1.5rem;
   }
 }
