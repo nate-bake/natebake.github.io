@@ -820,10 +820,10 @@ footer img:hover {
     flex-basis: 100%;
   }
 
-  .code-menu-container {
+  /* .code-menu-container {
     width: 65vw;
     margin-left: 10vw;
-  }
+  } */
 
   .code-tile .tile-title,
   .video-tile .tile-title {
@@ -843,6 +843,6 @@ footer img:hover {
   }
 
   .label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 }
