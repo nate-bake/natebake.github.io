@@ -1,45 +1,51 @@
 body {
-    width: 80vw;
+  width: 80vw;
 }
 
 @media (min-aspect-ratio: 3/2) and (min-width: 800px) {
-    body {
-        width: 85vw;
-    }
+  body {
+    width: 85vw;
+  }
 
-    .portfolio-container {
-        display: flex;
-        justify-content: space-between;
-    }
+  .portfolio-container {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .portfolio-card {
-        min-height: 72vh;
-        min-width: 27vw;
-        margin-bottom: 0vw;
-    }
+  .portfolio-card {
+    min-height: 72vh;
+    min-width: 27vw;
+    margin-bottom: 0vw;
+  }
 
-    .card-title {
-        font-size: min(4vw, 6.5rem);
-    }
+  .card-title {
+    font-size: min(4vw, 6.5rem);
+  }
 }
 
 @media (min-aspect-ratio: 3/2) and (max-width: 800px) {
-    body {
-        width: 80vw;
-    }
+  body {
+    width: 80vw;
+  }
 
-    .portfolio-container {
-        display: flex;
-        justify-content: space-between;
-    }
+  .portfolio-container {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .portfolio-card {
-        min-height: 72vh;
-        min-width: 25vw;
-        margin-bottom: 0vw;
-    }
+  .portfolio-card {
+    min-height: 72vh;
+    min-width: 25vw;
+    margin-bottom: 0vw;
+  }
 
-    .card-title {
-        font-size: min(4vw, 6.5rem);
-    }
+  .card-title {
+    font-size: min(4vw, 6.5rem);
+  }
+}
+
+@media (max-aspect-ratio: 3/4) {
+  body {
+    width: 85vw;
+  }
 }
