@@ -724,11 +724,11 @@ footer img:hover {
 
 @media (max-aspect-ratio: 3/4) {
   body {
-    width: 80vw;
+    width: 85vw;
   }
 
   .photo {
-    max-width: 80vw;
+    max-width: 85vw;
     max-height: 85vh;
   }
 
@@ -755,7 +755,7 @@ footer img:hover {
   }
 
   h1 {
-    font-size: 8.15vw;
+    font-size: 8.65vw;
     margin-bottom: max(-1vw, -10px);
   }
 
@@ -827,7 +827,7 @@ footer img:hover {
   }
 
   p {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   h3 {

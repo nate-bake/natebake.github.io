@@ -22,7 +22,7 @@ body {
 
 @media (max-aspect-ratio: 3/4) {
   .photo {
-    max-width: 80vw;
+    max-width: 85vw;
     max-height: 85vh;
   }
 }
