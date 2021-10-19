@@ -103,7 +103,7 @@ p {
   font-size: 1.5rem;
   line-height: 1.15;
   text-align: justify;
-  font-weight: 200;
+  font-weight: 300;
   font-family: "Cairo", sans-serif;
 }
 
@@ -250,6 +250,7 @@ footer img:hover {
   text-align: center;
   margin-top: 0.5vw;
   font-style: italic;
+  font-weight: 200;
   margin-bottom: min(2vw, 2rem);
 }
 
@@ -836,11 +837,6 @@ footer img:hover {
 
   p {
     font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .label {
-    font-weight: 300;
   }
 
   h3 {
