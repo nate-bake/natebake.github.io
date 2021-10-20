@@ -1,9 +1,7 @@
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold.woff")
-      format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -11,20 +9,16 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff")
-      format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Thin.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Thin.woff")
-      format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Thin.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Thin.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -253,17 +247,6 @@ footer img:hover {
   font-weight: 200;
   margin-bottom: min(2vw, 2rem);
 }
-
-/* .table-of-contents {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.table-of-contents div {
-    font-size: min(max(1.15rem, 2.1vw), 2.5rem);
-    line-height: 1;
-} */
 
 .closing-brace {
   font-size: 40px;
@@ -806,7 +789,6 @@ footer img:hover {
     text-align: center;
     margin-left: 0px;
     margin-right: 0px;
-    /* font-size: max(1.05rem, 2vw); */
     font-size: 0.85rem;
     line-height: 1.25;
   }
