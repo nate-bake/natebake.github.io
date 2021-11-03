@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>&nbsp;Nathan Baker&nbsp;&nbsp;//&nbsp;&nbsp;Bytes as Images</title>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo:300,400" /> -->
+    <link rel="stylesheet" href="https://use.typekit.net/jrc3tpq.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:600" />
+    <link rel="stylesheet" type="text/css" href="/slick/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/slick/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="/" class="no-underline">
+        <h1 class="center">
+          <text class="primary mono">nathan</text><text class="mono">.</text><text class="secondary mono">baker</text
+          ><text class="mono">() {</text>
+        </h1>
+      </a>
+      <ul>
+        <li><a class="gray mono" href="/portfolio">portfolio:</a></li>
+        <li><a class="gray mono" href="/code">code</a></li>
+        <li><a class="bold mono" href="/photo">photo</a></li>
+        <li><a class="gray mono" href="/video">video</a></li>
+      </ul>
+    </nav>
+    <div class="page">
+      <div class="carousel-container">
+        <div class="photo-set-container">
+          <div>
+            <img class="photo" src="/assets/bytes/sensor.jpg" />
+            <div class="settings-table settings-table-titled">
+              <p>sensor.ARW</p>
+              <p>ISO 100</p>
+              <p>16 mm</p>
+              <p>f/16</p>
+              <p>4.0 sec</p>
+            </div>
+          </div>
+          <div>
+            <img class="photo" src="/assets/bytes/photoshop_final_cropped.jpg" />
+            <div class="settings-table settings-table-titled">
+              <p>photoshop.exe</p>
+              <p>ISO 1250</p>
+              <p>50 mm</p>
+              <p>f/2.8</p>
+              <p>1/125 sec</p>
+            </div>
+          </div>
+          <div>
+            <img class="photo" src="/assets/bytes/piano_moonlight.png" />
+            <div class="settings-table settings-table-titled">
+              <p>moonlight_sonata.mp3</p>
+              <p>ISO 500</p>
+              <p>50 mm</p>
+              <p>f/4.0</p>
+              <p>1/125 sec</p>
+            </div>
+          </div>
+          <div>
+            <img class="photo" src="/assets/bytes/purple2.png" />
+            <div class="settings-table settings-table-titled">
+              <p>the_holy_bible.txt</p>
+              <p>ISO 125</p>
+              <p>50 mm</p>
+              <p>f/5.6</p>
+              <p>1/125 sec</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="description">
+        As Trevor Paglen mindfully points out in his essay
+        <a
+          class="gray-hover"
+          target="_blank"
+          href="https://thenewinquiry.com/invisible-images-your-pictures-are-looking-at-you/"
+          ><em><u>Invisible Images (Your Pictures are Looking at You)</u></em></a
+        >, the invention of digital photography has spawned a sea of machine-readable pictures that we will never see.
+        Today, digital cameras are being used to serve a myriad of purposes beyond artistic expression or personal
+        documentation &mdash; we not only have cameras in our phones, but also outside our homes and on our cars.
+        Millions of images are generated and parsed by machines on a daily basis, without any need for human
+        participation.
+        <br />
+        <br />
+        Part satire and part study, this work aims to uncover how modern artificial intelligence perceives human
+        civilization by forcing a system to rationalize bizarre or unfamiliar scenes. Photographs are fed as inputs to
+        <a class="gray-hover" target="_blank" href="https://github.com/google/automl/tree/master/efficientdet"
+          ><u>EfficientDet D7</u></a
+        >, an artificial neural network specially designed by
+        <a class="gray-hover" target="_blank" href="https://research.google/teams/brain/"><u>Google Brain</u></a>
+        to detect objects in pictures. As a result, each individual frame bears an overlay depicting the model's
+        inferences about the underlying image, with presumed items denoted by bounding boxes and confidence ratings.
+      </p>
+      <p class="gray center">
+        Completed as part of Photography Studio
+        <br />
+        23 September 2021
+      </p>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/slick/slick/slick.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".photo-set-container").slick({
+          speed: 750,
+          centerMode: false,
+          slidesToShow: 1,
+          dots: true,
+          variableWidth: false,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          pauseOnFocus: false,
+          pauseOnHover: false,
+          focusOnSelect: false,
+          arrows: false,
+        });
+      });
+      $(".photo-set-container").on("init", function (event, slick) {
+        const images = document.getElementsByClassName("photo");
+        for (let image of images) {
+          image.style.opacity = "1";
+          image.style.transition = "opacity 1s";
+        }
+      });
+    </script>
+  </body>
+
+  <footer>
+    <h1 style="float: left" class="mono closing-brace">}</h1>
+    <ul class="footer-list footer-links">
+      <li class="link-item">
+        <a href="mailto:nathan.t.baker@okstate.edu"> <img src="/assets/links/email.png" /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://linkedin.com/in/nathan-baker-16173b1b8/">
+          <img src="/assets/links/linkedin.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://instagram.com/nate_bake_/"> <img src="/assets/links/instagram.png" /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://youtube.com/channel/UCDMhU58fPfb7kqvJJNVgU5w">
+          <img src="/assets/links/youtube.png"
+        /></a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://open.spotify.com/user/naynaybakebake">
+          <!-- href="https://open.spotify.com/playlist/4R078kIVCSGotunr22shUT?si=1fcad2dd6d1d49e3" -->
+          <img src="/assets/links/spotify.png" />
+        </a>
+      </li>
+      <li class="link-item">
+        <a target="_blank" href="https://github.com/nate-bake"> <img src="/assets/links/github.png" /></a>
+      </li>
+    </ul>
+    <p class="footer-copyright gray mono weight-400">
+      <text class="gray">Copyright &copy;</text>
+      <text class="gray">2021</text>
+      <text class="gray image-desktop">//</text>
+      <br class="image-mobile" />
+      <a href="/" class="secondary">Nathan Baker</a>
+    </p>
+  </footer>
+
+  <script>
+    let colors = [" orange", " blue", " red", " green", " yellow", " purple", " pink"];
+    let color = colors[Math.floor(Math.random() * colors.length)];
+    let elements = document.getElementsByClassName("primary");
+    for (const element of elements) element.className += color;
+    var index = colors.indexOf(color);
+    if (index !== -1) colors.splice(index, 1);
+    color = colors[Math.floor(Math.random() * colors.length)];
+    elements = document.getElementsByClassName("secondary");
+    for (const element of elements) element.className += color;
+  </script>
+</html>
