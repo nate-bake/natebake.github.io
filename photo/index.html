@@ -103,8 +103,28 @@
         </div>
       </a>
     </div>
+    <br />
+    <iframe
+      src="https://www.youtube.com/embed/nV7X334cXkk?rel=0&modestbranding=1"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <br />
+    <br />
 
     <script>
+      const iframes = document.getElementsByTagName("iframe");
+      for (let iframe of iframes) {
+        iframe.style.opacity = "0";
+        if (!iframe.complete) {
+          iframe.addEventListener("load", fadeImg);
+        } else {
+          f = fadeImg.bind(iframe);
+          f();
+        }
+      }
+
       const images = document.getElementsByTagName("img");
       for (let image of images) {
         image.style.opacity = "0";
