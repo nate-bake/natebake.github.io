@@ -8,7 +8,7 @@
   }
 
   .photo-menu-container .photo-tile .tile-title {
-    font-size: max(min(2.5vw, 2.75rem), 1.25rem);
+    font-size: max(min(2.5vw, 2.75rem), 1.5rem);
   }
 }
 
@@ -22,7 +22,7 @@
   }
 
   .photo-menu-container .photo-tile .tile-title {
-    font-size: max(min(2.25vw, 2rem), 1rem);
+    font-size: max(min(2.25vw, 2rem), 1.5rem);
   }
 }
 
