@@ -24,10 +24,25 @@
   .photo-menu-container .photo-tile .tile-title {
     font-size: max(min(2.25vw, 2rem), 1.5rem);
   }
+  iframe {
+    height: 45vw;
+  }
 }
 
 @media (min-aspect-ratio: 2/1) and (min-width: 1440px) {
   body {
     width: 75vw;
+  }
+}
+
+@media (max-width: 820px) {
+  iframe {
+    height: 45vw;
+  }
+}
+
+@media (max-aspect-ratio: 3/4) {
+  iframe {
+    height: 47.8125vw;
   }
 }
