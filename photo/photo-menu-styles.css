@@ -1,3 +1,7 @@
+iframe {
+  height: 42.18753vw;
+}
+
 @media (min-aspect-ratio: 3/2), (min-width: 1400px) {
   body {
     width: 75vw;
